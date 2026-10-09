@@ -56,12 +56,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.azimut.arapcakelimeogreniyorum.data.domain.UserProgressStats
 import com.azimut.arapcakelimeogreniyorum.data.local.entity.QuizQuestionEntity
 import com.azimut.arapcakelimeogreniyorum.ui.components.FlashcardIllustration
 import com.azimut.arapcakelimeogreniyorum.ui.components.ParchmentCard
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ArapcakelimeogreniyorumTheme
 import com.azimut.arapcakelimeogreniyorum.ui.theme.EmeraldManuscript
 import com.azimut.arapcakelimeogreniyorum.ui.theme.GoldAccent
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ManuscriptDeepBrown
@@ -840,6 +842,49 @@ private fun GameOverSection(
                     Text("Ana Sayfa", fontWeight = FontWeight.Bold, fontSize = 13.sp, color = ParchmentTextLight)
                 }
             }
+        }
+    }
+}
+
+@Preview(showBackground = true, name = "Daily Quiz Screen Preview")
+@Composable
+fun DailyQuizScreenPreview() {
+    ArapcakelimeogreniyorumTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background)
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            QuizHeaderBar(
+                heartsRemaining = 3,
+                comboStreak = 3,
+                xpGained = 30,
+                selectedDifficulty = 1,
+                onSelectDifficulty = {}
+            )
+            InteractiveQuestionCard(
+                question = QuizQuestionEntity(
+                    id = 1,
+                    quizType = "DAILY",
+                    category = "Kelime",
+                    difficultyLevel = 1,
+                    questionText = "'كِتَاب' kelimesinin Türkçe anlamı nedir?",
+                    questionArabic = "كِتَاب",
+                    optionA = "Kitap",
+                    optionB = "Kalem",
+                    optionC = "Defter",
+                    optionD = "Masa",
+                    correctOptionIndex = 0,
+                    explanation = "'Kitab' Türkçe'ye de geçmiş Arapça bir kelimedir."
+                ),
+                questionType = QuestionType.ARABIC_TO_TURKISH,
+                selectedOptionIndex = 0,
+                isSubmitted = true,
+                isCorrect = true,
+                onSelectOption = {}
+            )
         }
     }
 }

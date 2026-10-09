@@ -45,10 +45,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.azimut.arapcakelimeogreniyorum.data.local.entity.QuizQuestionEntity
 import com.azimut.arapcakelimeogreniyorum.ui.components.ParchmentCard
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ArapcakelimeogreniyorumTheme
 import com.azimut.arapcakelimeogreniyorum.ui.theme.EmeraldManuscript
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ManuscriptDeepBrown
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentBeige
@@ -466,6 +468,39 @@ private fun TestResultSection(
                     Text("Kartlara Başla", fontWeight = FontWeight.Bold, fontSize = 13.sp, color = ParchmentTextWhite)
                 }
             }
+        }
+    }
+}
+
+@Preview(showBackground = true, name = "Placement Test Screen Preview")
+@Composable
+fun PlacementTestScreenPreview() {
+    ArapcakelimeogreniyorumTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background)
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            QuestionCard(
+                question = QuizQuestionEntity(
+                    id = 1,
+                    quizType = "PLACEMENT",
+                    category = "Genel",
+                    difficultyLevel = 1,
+                    questionText = "Hangisi 'Ev' kelimesinin Arapça karşılığıdır?",
+                    questionArabic = "بَيْت",
+                    optionA = "بَيْت (Beyt)",
+                    optionB = "كِتَاب (Kitab)",
+                    optionC = "مَدْرَسَة (Medrese)",
+                    optionD = "قَلَم (Kalem)",
+                    correctOptionIndex = 0,
+                    explanation = "'Beyt' Arapça'da ev demektir."
+                ),
+                selectedOptionIndex = 0,
+                onSelectOption = {}
+            )
         }
     }
 }

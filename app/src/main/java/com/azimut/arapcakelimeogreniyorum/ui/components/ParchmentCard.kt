@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -19,8 +20,12 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ArapcakelimeogreniyorumTheme
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ManuscriptDeepBrown
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentBeige
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGold
@@ -152,4 +157,19 @@ fun OrnateFrameBox(
             .padding(12.dp),
         content = content,
     )
+}
+
+@Preview(showBackground = true, name = "Parchment Card Preview")
+@Composable
+fun ParchmentCardPreview() {
+    ArapcakelimeogreniyorumTheme {
+        ParchmentCard(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = "Manuscript Parchment Card Content",
+                fontSize = 16.sp,
+                fontWeight = FontWeight.Bold,
+                color = ManuscriptDeepBrown
+            )
+        }
+    }
 }

@@ -50,11 +50,13 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.azimut.arapcakelimeogreniyorum.data.local.entity.VocabularyEntity
 import com.azimut.arapcakelimeogreniyorum.ui.components.FlashcardIllustration
 import com.azimut.arapcakelimeogreniyorum.ui.components.ParchmentCard
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ArapcakelimeogreniyorumTheme
 import com.azimut.arapcakelimeogreniyorum.ui.theme.EmeraldManuscript
 import com.azimut.arapcakelimeogreniyorum.ui.theme.GoldAccent
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ManuscriptDeepBrown
@@ -491,6 +493,38 @@ private fun FlashcardItemCard(
                     }
                 }
             }
+        }
+    }
+}
+
+@Preview(showBackground = true, name = "Flashcard Screen Preview")
+@Composable
+fun FlashcardScreenPreview() {
+    ArapcakelimeogreniyorumTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background)
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            FlashcardItemCard(
+                card = VocabularyEntity(
+                    id = 1,
+                    arabicText = "كِتَاب",
+                    turkishMeaning = "Kitap",
+                    transliteration = "Kitâb",
+                    category = "Okul & Eğitim",
+                    difficultyLevel = 1,
+                    imageResourceName = "book",
+                    isFavorite = true,
+                    masteryLevel = 3
+                ),
+                isFlipped = false,
+                onFlip = {},
+                onToggleFavorite = {},
+                onUpdateMastery = {}
+            )
         }
     }
 }

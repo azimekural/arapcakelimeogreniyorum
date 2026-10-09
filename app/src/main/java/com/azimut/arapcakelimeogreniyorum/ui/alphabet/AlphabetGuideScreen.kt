@@ -45,12 +45,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.azimut.arapcakelimeogreniyorum.data.local.entity.AlphabetEntity
 import com.azimut.arapcakelimeogreniyorum.data.local.entity.DiacriticEntity
 import com.azimut.arapcakelimeogreniyorum.ui.components.ParchmentCard
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ArapcakelimeogreniyorumTheme
 import com.azimut.arapcakelimeogreniyorum.ui.theme.EmeraldManuscript
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ManuscriptDeepBrown
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentBeige
@@ -605,5 +607,48 @@ private fun DiacriticDetailDialog(
                 }
             }
         }
+    }
+}
+
+@Preview(showBackground = true, name = "Alphabet Guide Screen Preview")
+@Composable
+fun AlphabetGuideScreenPreview() {
+    ArapcakelimeogreniyorumTheme {
+        val sampleLetters = listOf(
+            AlphabetEntity(
+                id = 1,
+                orderIndex = 1,
+                letterArabic = "أ",
+                nameTurkish = "Elif",
+                transliteration = "Alif",
+                isolatedForm = "أ",
+                initialForm = "أ",
+                medialForm = "ـأ",
+                finalForm = "ـأ",
+                description = "Elif harfi boğazdan çıkar.",
+                exampleWordArabic = "أَرْنَب",
+                exampleWordTurkish = "Tavşan",
+                audioResName = "elif"
+            ),
+            AlphabetEntity(
+                id = 2,
+                orderIndex = 2,
+                letterArabic = "ب",
+                nameTurkish = "Be",
+                transliteration = "Bâ",
+                isolatedForm = "ب",
+                initialForm = "بـ",
+                medialForm = "ـبـ",
+                finalForm = "ـب",
+                description = "Dudak harfidir.",
+                exampleWordArabic = "بَيْت",
+                exampleWordTurkish = "Ev",
+                audioResName = "be"
+            )
+        )
+        AlphabetGridSection(
+            letters = sampleLetters,
+            onLetterClick = {}
+        )
     }
 }

@@ -24,8 +24,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ArapcakelimeogreniyorumTheme
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ManuscriptDeepBrown
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGold
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentTextGold
@@ -102,4 +104,12 @@ fun AppTopBar(
             titleContentColor = MaterialTheme.colorScheme.onSurface
         )
     )
+}
+
+@Preview(showBackground = true, name = "App Top Bar Preview")
+@Composable
+fun AppTopBarPreview() {
+    ArapcakelimeogreniyorumTheme {
+        AppTopBar(title = "Ana Sayfa")
+    }
 }

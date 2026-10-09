@@ -46,10 +46,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.azimut.arapcakelimeogreniyorum.ui.components.ParchmentCard
 import com.azimut.arapcakelimeogreniyorum.ui.navigation.AppBottomTab
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ArapcakelimeogreniyorumTheme
 import com.azimut.arapcakelimeogreniyorum.ui.theme.EmeraldManuscript
 import com.azimut.arapcakelimeogreniyorum.ui.theme.GoldAccent
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ManuscriptDeepBrown
@@ -543,5 +545,61 @@ private fun ProgressStatRow(
             color = color,
             trackColor = ParchmentBeige
         )
+    }
+}
+
+@Preview(showBackground = true, name = "Dashboard Screen Preview")
+@Composable
+fun DashboardScreenPreview() {
+    ArapcakelimeogreniyorumTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background)
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            ParchmentCard(modifier = Modifier.fillMaxWidth()) {
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+                        fontFamily = FontFamily.Serif,
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = ManuscriptDeepBrown
+                    )
+                    Text(
+                        text = "Arapça Kelime Ve Elif-Ba Öğrenimi",
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = ManuscriptDeepBrown
+                    )
+                }
+            }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                QuickAccessCard(
+                    title = "Elif-Ba & Harekeler",
+                    subtitle = "28 Harf + Harekeler",
+                    icon = Icons.AutoMirrored.Rounded.MenuBook,
+                    badgeText = "28 Harf",
+                    onClick = {},
+                    modifier = Modifier.weight(1f)
+                )
+                QuickAccessCard(
+                    title = "Parchment Kartlar",
+                    subtitle = "Kelime & Anlam",
+                    icon = Icons.Rounded.Style,
+                    badgeText = "50 Kelime",
+                    onClick = {},
+                    modifier = Modifier.weight(1f)
+                )
+            }
+        }
     }
 }

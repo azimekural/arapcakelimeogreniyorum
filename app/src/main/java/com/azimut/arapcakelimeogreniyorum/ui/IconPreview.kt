@@ -65,7 +65,7 @@ fun AdaptiveIconPreviewItem(
     }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFFF5EEDC)
+@Preview(showBackground = true, name = "Adaptive App Icon Preview", backgroundColor = 0xFFF5EEDC)
 @Composable
 fun AdaptiveAppIconPreview() {
     ArapcakelimeogreniyorumTheme {

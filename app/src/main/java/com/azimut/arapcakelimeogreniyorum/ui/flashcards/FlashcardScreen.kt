@@ -1,5 +1,6 @@
 package com.azimut.arapcakelimeogreniyorum.ui.flashcards
 
+import android.content.res.Configuration
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
@@ -39,6 +40,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -497,34 +499,41 @@ private fun FlashcardItemCard(
     }
 }
 
-@Preview(showBackground = true, name = "Flashcard Screen Preview")
+@Preview(showBackground = true, name = "Light Mode")
+@Preview(
+    showBackground = true,
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun FlashcardScreenPreview() {
     ArapcakelimeogreniyorumTheme {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            FlashcardItemCard(
-                card = VocabularyEntity(
-                    id = 1,
-                    arabicText = "كِتَاب",
-                    turkishMeaning = "Kitap",
-                    transliteration = "Kitâb",
-                    category = "Okul & Eğitim",
-                    difficultyLevel = 1,
-                    imageResourceName = "book",
-                    isFavorite = true,
-                    masteryLevel = 3
-                ),
-                isFlipped = false,
-                onFlip = {},
-                onToggleFavorite = {},
-                onUpdateMastery = {}
-            )
+        Surface {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background)
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                FlashcardItemCard(
+                    card = VocabularyEntity(
+                        id = 1,
+                        arabicText = "كِتَاب",
+                        turkishMeaning = "Kitap",
+                        transliteration = "Kitâb",
+                        category = "Okul & Eğitim",
+                        difficultyLevel = 1,
+                        imageResourceName = "book",
+                        isFavorite = true,
+                        masteryLevel = 3
+                    ),
+                    isFlipped = false,
+                    onFlip = {},
+                    onToggleFavorite = {},
+                    onUpdateMastery = {}
+                )
+            }
         }
     }
 }

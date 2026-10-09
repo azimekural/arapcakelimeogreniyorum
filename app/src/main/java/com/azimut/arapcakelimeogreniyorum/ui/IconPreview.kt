@@ -1,5 +1,6 @@
 package com.azimut.arapcakelimeogreniyorum.ui
 
+import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -65,7 +66,13 @@ fun AdaptiveIconPreviewItem(
     }
 }
 
-@Preview(showBackground = true, name = "Adaptive App Icon Preview", backgroundColor = 0xFFF5EEDC)
+@Preview(showBackground = true, name = "Light Mode", backgroundColor = 0xFFF5EEDC)
+@Preview(
+    showBackground = true,
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    backgroundColor = 0xFF1E1712
+)
 @Composable
 fun AdaptiveAppIconPreview() {
     ArapcakelimeogreniyorumTheme {

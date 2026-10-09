@@ -1,5 +1,6 @@
 package com.azimut.arapcakelimeogreniyorum.ui.navigation
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -106,7 +107,12 @@ fun AppTopBar(
     )
 }
 
-@Preview(showBackground = true, name = "App Top Bar Preview")
+@Preview(showBackground = true, name = "Light Mode")
+@Preview(
+    showBackground = true,
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun AppTopBarPreview() {
     ArapcakelimeogreniyorumTheme {

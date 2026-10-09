@@ -6,7 +6,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
 
 private val ParchmentLightColorScheme = lightColorScheme(
     primary = ParchmentGold,
@@ -58,7 +57,7 @@ fun ArapcakelimeogreniyorumTheme(
 ) {
     val colorScheme = when {
         dynamicColor && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) -> {
-            ParchmentLightColorScheme
+            if (darkTheme) ParchmentDarkColorScheme else ParchmentLightColorScheme
         }
         darkTheme -> ParchmentDarkColorScheme
         else -> ParchmentLightColorScheme

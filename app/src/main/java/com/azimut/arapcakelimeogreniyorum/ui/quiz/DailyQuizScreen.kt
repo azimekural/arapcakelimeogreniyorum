@@ -1,5 +1,6 @@
 package com.azimut.arapcakelimeogreniyorum.ui.quiz
 
+import android.content.res.Configuration
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -45,6 +46,7 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -846,45 +848,52 @@ private fun GameOverSection(
     }
 }
 
-@Preview(showBackground = true, name = "Daily Quiz Screen Preview")
+@Preview(showBackground = true, name = "Light Mode")
+@Preview(
+    showBackground = true,
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun DailyQuizScreenPreview() {
     ArapcakelimeogreniyorumTheme {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            QuizHeaderBar(
-                heartsRemaining = 3,
-                comboStreak = 3,
-                xpGained = 30,
-                selectedDifficulty = 1,
-                onSelectDifficulty = {}
-            )
-            InteractiveQuestionCard(
-                question = QuizQuestionEntity(
-                    id = 1,
-                    quizType = "DAILY",
-                    category = "Kelime",
-                    difficultyLevel = 1,
-                    questionText = "'كِتَاب' kelimesinin Türkçe anlamı nedir?",
-                    questionArabic = "كِتَاب",
-                    optionA = "Kitap",
-                    optionB = "Kalem",
-                    optionC = "Defter",
-                    optionD = "Masa",
-                    correctOptionIndex = 0,
-                    explanation = "'Kitab' Türkçe'ye de geçmiş Arapça bir kelimedir."
-                ),
-                questionType = QuestionType.ARABIC_TO_TURKISH,
-                selectedOptionIndex = 0,
-                isSubmitted = true,
-                isCorrect = true,
-                onSelectOption = {}
-            )
+        Surface {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background)
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                QuizHeaderBar(
+                    heartsRemaining = 3,
+                    comboStreak = 3,
+                    xpGained = 30,
+                    selectedDifficulty = 1,
+                    onSelectDifficulty = {}
+                )
+                InteractiveQuestionCard(
+                    question = QuizQuestionEntity(
+                        id = 1,
+                        quizType = "DAILY",
+                        category = "Kelime",
+                        difficultyLevel = 1,
+                        questionText = "'كِتَاب' kelimesinin Türkçe anlamı nedir?",
+                        questionArabic = "كِتَاب",
+                        optionA = "Kitap",
+                        optionB = "Kalem",
+                        optionC = "Defter",
+                        optionD = "Masa",
+                        correctOptionIndex = 0,
+                        explanation = "'Kitab' Türkçe'ye de geçmiş Arapça bir kelimedir."
+                    ),
+                    questionType = QuestionType.ARABIC_TO_TURKISH,
+                    selectedOptionIndex = 0,
+                    isSubmitted = true,
+                    isCorrect = true,
+                    onSelectOption = {}
+                )
+            }
         }
     }
 }

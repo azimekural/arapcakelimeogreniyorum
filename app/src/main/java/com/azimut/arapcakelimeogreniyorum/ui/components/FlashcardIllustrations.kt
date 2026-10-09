@@ -1,5 +1,6 @@
 package com.azimut.arapcakelimeogreniyorum.ui.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -28,6 +29,7 @@ import androidx.compose.material.icons.rounded.Schedule
 import androidx.compose.material.icons.rounded.TableRestaurant
 import androidx.compose.material.icons.rounded.Window
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Surface
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -329,15 +331,22 @@ private fun DefaultManuscriptIllustration(arabicText: String) {
     }
 }
 
-@Preview(showBackground = true, name = "Flashcard Illustration Preview")
+@Preview(showBackground = true, name = "Light Mode")
+@Preview(
+    showBackground = true,
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun FlashcardIllustrationPreview() {
     ArapcakelimeogreniyorumTheme {
-        FlashcardIllustration(
-            imageName = "book",
-            category = "Okul",
-            arabicText = "كِتَاب",
-            modifier = Modifier.padding(16.dp)
-        )
+        Surface {
+            FlashcardIllustration(
+                imageName = "book",
+                category = "Okul",
+                arabicText = "كِتَاب",
+                modifier = Modifier.padding(16.dp)
+            )
+        }
     }
 }

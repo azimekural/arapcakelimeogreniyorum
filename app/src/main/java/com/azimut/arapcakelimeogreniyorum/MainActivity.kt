@@ -1,5 +1,6 @@
 package com.azimut.arapcakelimeogreniyorum
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -153,7 +154,12 @@ fun MainAppContentPreview() {
     }
 }
 
-@Preview(showBackground = true, name = "Main Activity Preview")
+@Preview(showBackground = true, name = "Light Mode")
+@Preview(
+    showBackground = true,
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun MainActivityPreview() {
     ArapcakelimeogreniyorumTheme {

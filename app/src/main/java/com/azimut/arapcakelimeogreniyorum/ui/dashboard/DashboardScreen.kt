@@ -1,5 +1,6 @@
 package com.azimut.arapcakelimeogreniyorum.ui.dashboard
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -35,6 +36,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -55,7 +57,6 @@ import com.azimut.arapcakelimeogreniyorum.ui.theme.ArapcakelimeogreniyorumTheme
 import com.azimut.arapcakelimeogreniyorum.ui.theme.EmeraldManuscript
 import com.azimut.arapcakelimeogreniyorum.ui.theme.GoldAccent
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ManuscriptDeepBrown
-import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentBeige
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentCardBg
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGold
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGoldDark
@@ -95,7 +96,7 @@ fun DashboardScreen(
                     fontFamily = FontFamily.Serif,
                     fontSize = 22.sp,
                     fontWeight = FontWeight.Bold,
-                    color = ManuscriptDeepBrown,
+                    color = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.padding(bottom = 6.dp)
                 )
 
@@ -103,14 +104,14 @@ fun DashboardScreen(
                     text = "Arapça Kelime Ve Elif-Ba Öğrenimi",
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold,
-                    color = ManuscriptDeepBrown
+                    color = MaterialTheme.colorScheme.onSurface
                 )
 
                 Text(
                     text = "Geleneksel Yazma Eser Metodu ile Adım Adım Öğrenin",
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Medium,
-                    color = ManuscriptDeepBrown.copy(alpha = 0.85f),
+                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.85f),
                     modifier = Modifier.padding(top = 2.dp, bottom = 12.dp)
                 )
 
@@ -119,7 +120,7 @@ fun DashboardScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(12.dp))
-                        .background(ParchmentBeige)
+                        .background(MaterialTheme.colorScheme.surfaceVariant)
                         .border(1.dp, ParchmentGold, RoundedCornerShape(12.dp))
                         .padding(12.dp)
                 ) {
@@ -145,7 +146,7 @@ fun DashboardScreen(
                                         text = "Seviye Unvanınız",
                                         fontSize = 11.sp,
                                         fontWeight = FontWeight.SemiBold,
-                                        color = ManuscriptDeepBrown.copy(alpha = 0.8f)
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f)
                                     )
                                     Text(
                                         text = stats.currentLevel.fullDisplayTitle,
@@ -201,14 +202,14 @@ fun DashboardScreen(
                                         text = "Toplam XP: ${stats.totalXp}",
                                         fontSize = 12.sp,
                                         fontWeight = FontWeight.Bold,
-                                        color = ManuscriptDeepBrown
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant
                                     )
                                 }
                                 Text(
                                     text = "Sonraki Seviye: ${stats.xpForNextLevel} XP",
                                     fontSize = 11.sp,
                                     fontWeight = FontWeight.SemiBold,
-                                    color = ManuscriptDeepBrown.copy(alpha = 0.8f)
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.8f)
                                 )
                             }
                             Spacer(modifier = Modifier.height(4.dp))
@@ -257,7 +258,7 @@ fun DashboardScreen(
         Text(
             text = "Öğrenim Bölümleri",
             style = MaterialTheme.typography.titleLarge,
-            color = ManuscriptDeepBrown,
+            color = MaterialTheme.colorScheme.onBackground,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(top = 4.dp)
         )
@@ -316,7 +317,7 @@ fun DashboardScreen(
         Text(
             text = "Öğrenim & Başarı Durumu",
             style = MaterialTheme.typography.titleLarge,
-            color = ManuscriptDeepBrown,
+            color = MaterialTheme.colorScheme.onBackground,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(top = 4.dp)
         )
@@ -378,7 +379,7 @@ private fun StatMetricTile(
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(10.dp))
-            .background(ParchmentBeige)
+            .background(MaterialTheme.colorScheme.surfaceVariant)
             .border(1.dp, ParchmentGold, RoundedCornerShape(10.dp))
             .padding(10.dp)
     ) {
@@ -395,13 +396,13 @@ private fun StatMetricTile(
                     text = label,
                     fontSize = 11.sp,
                     fontWeight = FontWeight.SemiBold,
-                    color = ManuscriptDeepBrown.copy(alpha = 0.85f)
+                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.85f)
                 )
                 Text(
                     text = value,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Bold,
-                    color = ManuscriptDeepBrown
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
@@ -423,7 +424,7 @@ private fun QuickAccessCard(
             .clickable { onClick() }
             .border(1.5.dp, ParchmentGold, RoundedCornerShape(12.dp)),
         colors = CardDefaults.cardColors(
-            containerColor = ParchmentCardBg
+            containerColor = MaterialTheme.colorScheme.surface
         ),
         elevation = CardDefaults.cardElevation(defaultElevation = 3.dp)
     ) {
@@ -474,14 +475,14 @@ private fun QuickAccessCard(
                 text = title,
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold,
-                color = ManuscriptDeepBrown
+                color = MaterialTheme.colorScheme.onSurface
             )
 
             Text(
                 text = subtitle,
                 fontSize = 11.sp,
                 fontWeight = FontWeight.Medium,
-                color = ManuscriptDeepBrown.copy(alpha = 0.8f),
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f),
                 modifier = Modifier.padding(top = 2.dp)
             )
 
@@ -526,7 +527,7 @@ private fun ProgressStatRow(
                 text = label,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold,
-                color = ManuscriptDeepBrown
+                color = MaterialTheme.colorScheme.onSurface
             )
             Text(
                 text = "$current / $total",
@@ -543,62 +544,69 @@ private fun ProgressStatRow(
                 .height(6.dp)
                 .clip(RoundedCornerShape(3.dp)),
             color = color,
-            trackColor = ParchmentBeige
+            trackColor = MaterialTheme.colorScheme.surfaceVariant
         )
     }
 }
 
-@Preview(showBackground = true, name = "Dashboard Screen Preview")
+@Preview(showBackground = true, name = "Light Mode")
+@Preview(
+    showBackground = true,
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun DashboardScreenPreview() {
     ArapcakelimeogreniyorumTheme {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            ParchmentCard(modifier = Modifier.fillMaxWidth()) {
-                Column(
+        Surface {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background)
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                ParchmentCard(modifier = Modifier.fillMaxWidth()) {
+                    Column(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            text = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+                            fontFamily = FontFamily.Serif,
+                            fontSize = 22.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                        Text(
+                            text = "Arapça Kelime Ve Elif-Ba Öğrenimi",
+                            fontSize = 18.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onSurface
+                        )
+                    }
+                }
+                Row(
                     modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
                 ) {
-                    Text(
-                        text = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-                        fontFamily = FontFamily.Serif,
-                        fontSize = 22.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = ManuscriptDeepBrown
+                    QuickAccessCard(
+                        title = "Elif-Ba & Harekeler",
+                        subtitle = "28 Harf + Harekeler",
+                        icon = Icons.AutoMirrored.Rounded.MenuBook,
+                        badgeText = "28 Harf",
+                        onClick = {},
+                        modifier = Modifier.weight(1f)
                     )
-                    Text(
-                        text = "Arapça Kelime Ve Elif-Ba Öğrenimi",
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = ManuscriptDeepBrown
+                    QuickAccessCard(
+                        title = "Parchment Kartlar",
+                        subtitle = "Kelime & Anlam",
+                        icon = Icons.Rounded.Style,
+                        badgeText = "50 Kelime",
+                        onClick = {},
+                        modifier = Modifier.weight(1f)
                     )
                 }
-            }
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                QuickAccessCard(
-                    title = "Elif-Ba & Harekeler",
-                    subtitle = "28 Harf + Harekeler",
-                    icon = Icons.AutoMirrored.Rounded.MenuBook,
-                    badgeText = "28 Harf",
-                    onClick = {},
-                    modifier = Modifier.weight(1f)
-                )
-                QuickAccessCard(
-                    title = "Parchment Kartlar",
-                    subtitle = "Kelime & Anlam",
-                    icon = Icons.Rounded.Style,
-                    badgeText = "50 Kelime",
-                    onClick = {},
-                    modifier = Modifier.weight(1f)
-                )
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.azimut.arapcakelimeogreniyorum.ui.components
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -10,6 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -26,7 +28,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ArapcakelimeogreniyorumTheme
-import com.azimut.arapcakelimeogreniyorum.ui.theme.ManuscriptDeepBrown
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentBeige
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGold
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGoldDark
@@ -36,7 +37,7 @@ import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGoldDark
  */
 fun Modifier.ornateDoubleBorder(
     outerBorderColor: Color = ParchmentGold,
-    innerBorderColor: Color = ManuscriptDeepBrown,
+    innerBorderColor: Color = ParchmentGoldDark,
     cornerAccentColor: Color = ParchmentGoldDark,
     outerWidth: Dp = 2.dp,
     innerWidth: Dp = 1.dp,
@@ -159,17 +160,24 @@ fun OrnateFrameBox(
     )
 }
 
-@Preview(showBackground = true, name = "Parchment Card Preview")
+@Preview(showBackground = true, name = "Light Mode")
+@Preview(
+    showBackground = true,
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun ParchmentCardPreview() {
     ArapcakelimeogreniyorumTheme {
-        ParchmentCard(modifier = Modifier.padding(16.dp)) {
-            Text(
-                text = "Manuscript Parchment Card Content",
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Bold,
-                color = ManuscriptDeepBrown
-            )
+        Surface {
+            ParchmentCard(modifier = Modifier.padding(16.dp)) {
+                Text(
+                    text = "Manuscript Parchment Card Content",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+            }
         }
     }
 }

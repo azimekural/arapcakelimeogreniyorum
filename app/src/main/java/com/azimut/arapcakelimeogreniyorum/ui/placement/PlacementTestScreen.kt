@@ -1,5 +1,6 @@
 package com.azimut.arapcakelimeogreniyorum.ui.placement
 
+import android.content.res.Configuration
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -35,6 +36,7 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -472,35 +474,42 @@ private fun TestResultSection(
     }
 }
 
-@Preview(showBackground = true, name = "Placement Test Screen Preview")
+@Preview(showBackground = true, name = "Light Mode")
+@Preview(
+    showBackground = true,
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun PlacementTestScreenPreview() {
     ArapcakelimeogreniyorumTheme {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            QuestionCard(
-                question = QuizQuestionEntity(
-                    id = 1,
-                    quizType = "PLACEMENT",
-                    category = "Genel",
-                    difficultyLevel = 1,
-                    questionText = "Hangisi 'Ev' kelimesinin Arapça karşılığıdır?",
-                    questionArabic = "بَيْت",
-                    optionA = "بَيْت (Beyt)",
-                    optionB = "كِتَاب (Kitab)",
-                    optionC = "مَدْرَسَة (Medrese)",
-                    optionD = "قَلَم (Kalem)",
-                    correctOptionIndex = 0,
-                    explanation = "'Beyt' Arapça'da ev demektir."
-                ),
-                selectedOptionIndex = 0,
-                onSelectOption = {}
-            )
+        Surface {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(MaterialTheme.colorScheme.background)
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                QuestionCard(
+                    question = QuizQuestionEntity(
+                        id = 1,
+                        quizType = "PLACEMENT",
+                        category = "Genel",
+                        difficultyLevel = 1,
+                        questionText = "Hangisi 'Ev' kelimesinin Arapça karşılığıdır?",
+                        questionArabic = "بَيْت",
+                        optionA = "بَيْت (Beyt)",
+                        optionB = "كِتَاب (Kitab)",
+                        optionC = "مَدْرَسَة (Medrese)",
+                        optionD = "قَلَم (Kalem)",
+                        correctOptionIndex = 0,
+                        explanation = "'Beyt' Arapça'da ev demektir."
+                    ),
+                    selectedOptionIndex = 0,
+                    onSelectOption = {}
+                )
+            }
         }
     }
 }

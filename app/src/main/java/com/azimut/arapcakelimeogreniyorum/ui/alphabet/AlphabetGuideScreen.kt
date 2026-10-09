@@ -1,5 +1,6 @@
 package com.azimut.arapcakelimeogreniyorum.ui.alphabet
 
+import android.content.res.Configuration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -28,6 +29,7 @@ import androidx.compose.material.icons.rounded.Search
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Surface
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -610,45 +612,52 @@ private fun DiacriticDetailDialog(
     }
 }
 
-@Preview(showBackground = true, name = "Alphabet Guide Screen Preview")
+@Preview(showBackground = true, name = "Light Mode")
+@Preview(
+    showBackground = true,
+    name = "Dark Mode",
+    uiMode = Configuration.UI_MODE_NIGHT_YES
+)
 @Composable
 fun AlphabetGuideScreenPreview() {
     ArapcakelimeogreniyorumTheme {
-        val sampleLetters = listOf(
-            AlphabetEntity(
-                id = 1,
-                orderIndex = 1,
-                letterArabic = "أ",
-                nameTurkish = "Elif",
-                transliteration = "Alif",
-                isolatedForm = "أ",
-                initialForm = "أ",
-                medialForm = "ـأ",
-                finalForm = "ـأ",
-                description = "Elif harfi boğazdan çıkar.",
-                exampleWordArabic = "أَرْنَب",
-                exampleWordTurkish = "Tavşan",
-                audioResName = "elif"
-            ),
-            AlphabetEntity(
-                id = 2,
-                orderIndex = 2,
-                letterArabic = "ب",
-                nameTurkish = "Be",
-                transliteration = "Bâ",
-                isolatedForm = "ب",
-                initialForm = "بـ",
-                medialForm = "ـبـ",
-                finalForm = "ـب",
-                description = "Dudak harfidir.",
-                exampleWordArabic = "بَيْت",
-                exampleWordTurkish = "Ev",
-                audioResName = "be"
+        Surface {
+            val sampleLetters = listOf(
+                AlphabetEntity(
+                    id = 1,
+                    orderIndex = 1,
+                    letterArabic = "أ",
+                    nameTurkish = "Elif",
+                    transliteration = "Alif",
+                    isolatedForm = "أ",
+                    initialForm = "أ",
+                    medialForm = "ـأ",
+                    finalForm = "ـأ",
+                    description = "Elif harfi boğazdan çıkar.",
+                    exampleWordArabic = "أَرْنَب",
+                    exampleWordTurkish = "Tavşan",
+                    audioResName = "elif"
+                ),
+                AlphabetEntity(
+                    id = 2,
+                    orderIndex = 2,
+                    letterArabic = "ب",
+                    nameTurkish = "Be",
+                    transliteration = "Bâ",
+                    isolatedForm = "ب",
+                    initialForm = "بـ",
+                    medialForm = "ـبـ",
+                    finalForm = "ـب",
+                    description = "Dudak harfidir.",
+                    exampleWordArabic = "بَيْت",
+                    exampleWordTurkish = "Ev",
+                    audioResName = "be"
+                )
             )
-        )
-        AlphabetGridSection(
-            letters = sampleLetters,
-            onLetterClick = {}
-        )
+            AlphabetGridSection(
+                letters = sampleLetters,
+                onLetterClick = {}
+            )
+        }
     }
 }

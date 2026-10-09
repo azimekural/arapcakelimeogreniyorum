@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -20,6 +21,7 @@ import com.azimut.arapcakelimeogreniyorum.ui.MainViewModel
 import com.azimut.arapcakelimeogreniyorum.ui.alphabet.AlphabetGuideScreen
 import com.azimut.arapcakelimeogreniyorum.ui.alphabet.AlphabetViewModel
 import com.azimut.arapcakelimeogreniyorum.ui.dashboard.DashboardScreen
+import com.azimut.arapcakelimeogreniyorum.ui.dashboard.DashboardScreenPreview
 import com.azimut.arapcakelimeogreniyorum.ui.dashboard.DashboardViewModel
 import com.azimut.arapcakelimeogreniyorum.ui.flashcards.FlashcardScreen
 import com.azimut.arapcakelimeogreniyorum.ui.flashcards.FlashcardViewModel
@@ -50,6 +52,31 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun MainAppScreen(
+    currentTab: AppBottomTab,
+    onTabSelected: (AppBottomTab) -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable (Modifier) -> Unit
+) {
+    Scaffold(
+        modifier = modifier.fillMaxSize(),
+        topBar = {
+            AppTopBar(
+                title = currentTab.title
+            )
+        },
+        bottomBar = {
+            AppBottomBar(
+                currentTab = currentTab,
+                onTabSelected = onTabSelected
+            )
+        }
+    ) { innerPadding ->
+        content(Modifier.padding(innerPadding))
+    }
+}
+
+@Composable
 fun MainAppContent(repository: ArabicLearningRepository) {
     val mainViewModel: MainViewModel = viewModel(
         factory = MainViewModel.Factory(repository)
@@ -72,22 +99,10 @@ fun MainAppContent(repository: ArabicLearningRepository) {
 
     val currentTab by mainViewModel.currentTab.collectAsState()
 
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        topBar = {
-            AppTopBar(
-                title = currentTab.title
-            )
-        },
-        bottomBar = {
-            AppBottomBar(
-                currentTab = currentTab,
-                onTabSelected = { tab -> mainViewModel.selectTab(tab) }
-            )
-        }
-    ) { innerPadding ->
-        val contentModifier = Modifier.padding(innerPadding)
-
+    MainAppScreen(
+        currentTab = currentTab,
+        onTabSelected = { tab -> mainViewModel.selectTab(tab) }
+    ) { contentModifier ->
         when (currentTab) {
             AppBottomTab.DASHBOARD -> {
                 DashboardScreen(
@@ -126,10 +141,22 @@ fun MainAppContent(repository: ArabicLearningRepository) {
     }
 }
 
-@Preview(showBackground = true, device = "spec:width=411dp,height=891dp,dpi=420")
 @Composable
-fun MainAppPreview() {
+fun MainAppContentPreview() {
+    MainAppScreen(
+        currentTab = AppBottomTab.DASHBOARD,
+        onTabSelected = {}
+    ) { contentModifier ->
+        Box(modifier = contentModifier) {
+            DashboardScreenPreview()
+        }
+    }
+}
+
+@Preview(showBackground = true, name = "Main Activity Preview")
+@Composable
+fun MainActivityPreview() {
     ArapcakelimeogreniyorumTheme {
-        // Preview placeholder container
+        MainAppContentPreview()
     }
 }

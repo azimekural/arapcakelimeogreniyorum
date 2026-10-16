@@ -19,6 +19,8 @@ import com.azimut.arapcakelimeogreniyorum.data.local.seed.InitialDataSeed
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 
 @Database(
     entities = [
@@ -39,18 +41,37 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun quizQuestionDao(): QuizQuestionDao
     abstract fun userProgressDao(): UserProgressDao
 
+    private val seedMutex = Mutex()
+
     suspend fun ensureSeeded() {
-        if (alphabetDao().getCount() == 0) {
-            alphabetDao().insertAll(InitialDataSeed.alphabetList)
-        }
-        if (diacriticDao().getCount() == 0) {
-            diacriticDao().insertAll(InitialDataSeed.diacriticList)
-        }
-        if (vocabularyDao().getCount() == 0) {
-            vocabularyDao().insertAll(InitialDataSeed.vocabularyList)
-        }
-        if (quizQuestionDao().getCount() == 0) {
-            quizQuestionDao().insertAll(InitialDataSeed.quizQuestionList)
+        seedMutex.withLock {
+            if (alphabetDao().getCount() == 0) {
+                alphabetDao().insertAll(InitialDataSeed.alphabetList)
+            } else {
+                alphabetDao().insertAll(InitialDataSeed.alphabetList)
+            }
+            alphabetDao().deleteDuplicates()
+
+            if (diacriticDao().getCount() == 0) {
+                diacriticDao().insertAll(InitialDataSeed.diacriticList)
+            } else {
+                diacriticDao().insertAll(InitialDataSeed.diacriticList)
+            }
+            diacriticDao().deleteDuplicates()
+
+            if (vocabularyDao().getCount() == 0) {
+                vocabularyDao().insertAll(InitialDataSeed.vocabularyList)
+            } else {
+                vocabularyDao().insertAll(InitialDataSeed.vocabularyList)
+            }
+            vocabularyDao().deleteDuplicates()
+
+            if (quizQuestionDao().getCount() == 0) {
+                quizQuestionDao().insertAll(InitialDataSeed.quizQuestionList)
+            } else {
+                quizQuestionDao().insertAll(InitialDataSeed.quizQuestionList)
+            }
+            quizQuestionDao().deleteDuplicates()
         }
     }
 

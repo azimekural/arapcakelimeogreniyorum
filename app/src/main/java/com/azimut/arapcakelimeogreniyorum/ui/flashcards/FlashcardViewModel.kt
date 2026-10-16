@@ -48,13 +48,13 @@ class FlashcardViewModel(
             vocabularyList.filter { it.category.equals(params.category, ignoreCase = true) }
         }
 
-        val filteredCards = if (params.query.isBlank()) filteredByCategory else {
+        val filteredCards = (if (params.query.isBlank()) filteredByCategory else {
             filteredByCategory.filter {
                 it.turkishMeaning.contains(params.query, ignoreCase = true) ||
                         it.arabicText.contains(params.query) ||
                         it.transliteration.contains(params.query, ignoreCase = true)
             }
-        }
+        }).distinctBy { it.arabicText }
 
         val adjustedIndex = if (filteredCards.isEmpty()) 0 else params.index.coerceIn(0, filteredCards.size - 1)
 

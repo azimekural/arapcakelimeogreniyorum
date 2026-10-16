@@ -12,6 +12,7 @@ object InitialDataSeed {
 
     val alphabetList = listOf(
         AlphabetEntity(
+            id = 1,
             orderIndex = 1,
             letterArabic = "أ",
             nameTurkish = "Elif",
@@ -26,6 +27,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_elif"
         ),
         AlphabetEntity(
+            id = 2,
             orderIndex = 2,
             letterArabic = "ب",
             nameTurkish = "Be",
@@ -40,6 +42,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_ba"
         ),
         AlphabetEntity(
+            id = 3,
             orderIndex = 3,
             letterArabic = "ت",
             nameTurkish = "Te",
@@ -54,6 +57,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_ta"
         ),
         AlphabetEntity(
+            id = 4,
             orderIndex = 4,
             letterArabic = "ث",
             nameTurkish = "Se (Peltik)",
@@ -68,6 +72,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_tha"
         ),
         AlphabetEntity(
+            id = 5,
             orderIndex = 5,
             letterArabic = "ج",
             nameTurkish = "Cim",
@@ -82,6 +87,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_jim"
         ),
         AlphabetEntity(
+            id = 6,
             orderIndex = 6,
             letterArabic = "ح",
             nameTurkish = "Ha (Nefesli)",
@@ -96,6 +102,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_ha"
         ),
         AlphabetEntity(
+            id = 7,
             orderIndex = 7,
             letterArabic = "خ",
             nameTurkish = "Hı (Hırıltılı)",
@@ -110,6 +117,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_kha"
         ),
         AlphabetEntity(
+            id = 8,
             orderIndex = 8,
             letterArabic = "د",
             nameTurkish = "Dal",
@@ -124,6 +132,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_dal"
         ),
         AlphabetEntity(
+            id = 9,
             orderIndex = 9,
             letterArabic = "ذ",
             nameTurkish = "Zel (Peltik)",
@@ -138,6 +147,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_dhal"
         ),
         AlphabetEntity(
+            id = 10,
             orderIndex = 10,
             letterArabic = "ر",
             nameTurkish = "Re",
@@ -152,6 +162,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_ra"
         ),
         AlphabetEntity(
+            id = 11,
             orderIndex = 11,
             letterArabic = "ز",
             nameTurkish = "Ze",
@@ -166,6 +177,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_zay"
         ),
         AlphabetEntity(
+            id = 12,
             orderIndex = 12,
             letterArabic = "س",
             nameTurkish = "Sin",
@@ -180,6 +192,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_sin"
         ),
         AlphabetEntity(
+            id = 13,
             orderIndex = 13,
             letterArabic = "ش",
             nameTurkish = "Şin",
@@ -194,6 +207,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_shin"
         ),
         AlphabetEntity(
+            id = 14,
             orderIndex = 14,
             letterArabic = "ص",
             nameTurkish = "Sad",
@@ -208,6 +222,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_sad"
         ),
         AlphabetEntity(
+            id = 15,
             orderIndex = 15,
             letterArabic = "ض",
             nameTurkish = "Dad",
@@ -222,6 +237,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_dad"
         ),
         AlphabetEntity(
+            id = 16,
             orderIndex = 16,
             letterArabic = "ط",
             nameTurkish = "Tı",
@@ -236,6 +252,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_ta2"
         ),
         AlphabetEntity(
+            id = 17,
             orderIndex = 17,
             letterArabic = "ظ",
             nameTurkish = "Zı (Peltik Kalın)",
@@ -250,6 +267,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_za"
         ),
         AlphabetEntity(
+            id = 18,
             orderIndex = 18,
             letterArabic = "ع",
             nameTurkish = "Ayn",
@@ -264,6 +282,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_ayn"
         ),
         AlphabetEntity(
+            id = 19,
             orderIndex = 19,
             letterArabic = "غ",
             nameTurkish = "Ğayn",
@@ -278,6 +297,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_ghayn"
         ),
         AlphabetEntity(
+            id = 20,
             orderIndex = 20,
             letterArabic = "ف",
             nameTurkish = "Fe",
@@ -292,6 +312,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_fa"
         ),
         AlphabetEntity(
+            id = 21,
             orderIndex = 21,
             letterArabic = "ق",
             nameTurkish = "Kaf (Kalın)",
@@ -306,6 +327,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_qaf"
         ),
         AlphabetEntity(
+            id = 22,
             orderIndex = 22,
             letterArabic = "ك",
             nameTurkish = "Kef (İnce)",
@@ -320,6 +342,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_kaf"
         ),
         AlphabetEntity(
+            id = 23,
             orderIndex = 23,
             letterArabic = "ل",
             nameTurkish = "Lam",
@@ -334,6 +357,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_lam"
         ),
         AlphabetEntity(
+            id = 24,
             orderIndex = 24,
             letterArabic = "م",
             nameTurkish = "Mim",
@@ -348,6 +372,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_mim"
         ),
         AlphabetEntity(
+            id = 25,
             orderIndex = 25,
             letterArabic = "ن",
             nameTurkish = "Nun",
@@ -362,6 +387,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_nun"
         ),
         AlphabetEntity(
+            id = 26,
             orderIndex = 26,
             letterArabic = "هـ",
             nameTurkish = "He",
@@ -376,6 +402,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_ha_sub"
         ),
         AlphabetEntity(
+            id = 27,
             orderIndex = 27,
             letterArabic = "و",
             nameTurkish = "Vav",
@@ -390,6 +417,7 @@ object InitialDataSeed {
             audioResName = "audio_letter_waw"
         ),
         AlphabetEntity(
+            id = 28,
             orderIndex = 28,
             letterArabic = "ي",
             nameTurkish = "Ye",
@@ -407,6 +435,7 @@ object InitialDataSeed {
 
     val diacriticList = listOf(
         DiacriticEntity(
+            id = 1,
             orderIndex = 1,
             nameArabic = "فَتْحَة",
             nameTurkish = "Üstün (Fatha)",
@@ -417,6 +446,7 @@ object InitialDataSeed {
             soundType = "Vowel"
         ),
         DiacriticEntity(
+            id = 2,
             orderIndex = 2,
             nameArabic = "كَسْرَة",
             nameTurkish = "Esre (Kasra)",
@@ -427,6 +457,7 @@ object InitialDataSeed {
             soundType = "Vowel"
         ),
         DiacriticEntity(
+            id = 3,
             orderIndex = 3,
             nameArabic = "ضَمَّة",
             nameTurkish = "Ötre (Damma)",
@@ -437,6 +468,7 @@ object InitialDataSeed {
             soundType = "Vowel"
         ),
         DiacriticEntity(
+            id = 4,
             orderIndex = 4,
             nameArabic = "سُكُون",
             nameTurkish = "Cezm (Sukun)",
@@ -447,6 +479,7 @@ object InitialDataSeed {
             soundType = "Stop"
         ),
         DiacriticEntity(
+            id = 5,
             orderIndex = 5,
             nameArabic = "شَدَّة",
             nameTurkish = "Şedde (Shaddah)",
@@ -457,6 +490,7 @@ object InitialDataSeed {
             soundType = "Geminate"
         ),
         DiacriticEntity(
+            id = 6,
             orderIndex = 6,
             nameArabic = "تَنْوِين الْفَتْح",
             nameTurkish = "Üstün Tenvin (Fathatan)",
@@ -467,6 +501,7 @@ object InitialDataSeed {
             soundType = "Nunation"
         ),
         DiacriticEntity(
+            id = 7,
             orderIndex = 7,
             nameArabic = "تَنْوِين الْكَسْر",
             nameTurkish = "Esre Tenvin (Kasratan)",
@@ -477,6 +512,7 @@ object InitialDataSeed {
             soundType = "Nunation"
         ),
         DiacriticEntity(
+            id = 8,
             orderIndex = 8,
             nameArabic = "تَنْوِين الضَّمّ",
             nameTurkish = "Ötre Tenvin (Dammatan)",
@@ -491,6 +527,7 @@ object InitialDataSeed {
     val vocabularyList = listOf(
         // Daily Phrases
         VocabularyEntity(
+            id = 1,
             arabicText = "مَا اسْمُكَ؟",
             turkishMeaning = "Senin adın ne?",
             transliteration = "Mā ismuke?",
@@ -501,6 +538,7 @@ object InitialDataSeed {
             audioResourceName = "audio_ma_ismuke"
         ),
         VocabularyEntity(
+            id = 2,
             arabicText = "مَا اسْمُكِ؟",
             turkishMeaning = "Senin adın ne?",
             transliteration = "Mā ismuki?",
@@ -511,6 +549,7 @@ object InitialDataSeed {
             audioResourceName = "audio_ma_ismuki"
         ),
         VocabularyEntity(
+            id = 3,
             arabicText = "كَيْفَ حَالُكَ؟",
             turkishMeaning = "Nasılsın?",
             transliteration = "Kaifa ḥāluk?",
@@ -521,6 +560,7 @@ object InitialDataSeed {
             audioResourceName = "audio_kaifa_haluka"
         ),
         VocabularyEntity(
+            id = 4,
             arabicText = "كَيْفَ حَالُكِ؟",
             turkishMeaning = "Nasılsın?",
             transliteration = "Kaifa ḥāluki?",
@@ -531,6 +571,7 @@ object InitialDataSeed {
             audioResourceName = "audio_kaifa_haluki"
         ),
         VocabularyEntity(
+            id = 5,
             arabicText = "أَنَا بِخَيْرٍ",
             turkishMeaning = "İyiyim",
             transliteration = "Ana bikhair",
@@ -540,6 +581,7 @@ object InitialDataSeed {
             audioResourceName = "audio_ana_bikhair"
         ),
         VocabularyEntity(
+            id = 6,
             arabicText = "شُكْرًا",
             turkishMeaning = "Teşekkür ederim",
             transliteration = "Shukran",
@@ -549,6 +591,7 @@ object InitialDataSeed {
             audioResourceName = "audio_shukran"
         ),
         VocabularyEntity(
+            id = 7,
             arabicText = "عَفْوًا",
             turkishMeaning = "Rica ederim / Özür dilerim",
             transliteration = "Afwan",
@@ -558,6 +601,7 @@ object InitialDataSeed {
             audioResourceName = "audio_afwan"
         ),
         VocabularyEntity(
+            id = 8,
             arabicText = "أَهْلًا وَسَهْلًا",
             turkishMeaning = "Hoş geldiniz",
             transliteration = "Ahlan wa sahlan",
@@ -567,6 +611,7 @@ object InitialDataSeed {
             audioResourceName = "audio_ahlan"
         ),
         VocabularyEntity(
+            id = 9,
             arabicText = "مَعَ السَّلَامَةِ",
             turkishMeaning = "Güle güle / Selametle",
             transliteration = "Ma'as-salāmah",
@@ -576,6 +621,7 @@ object InitialDataSeed {
             audioResourceName = "audio_ma_assalamah"
         ),
         VocabularyEntity(
+            id = 10,
             arabicText = "صَبَاحُ الْخَيْرِ",
             turkishMeaning = "Günaydın",
             transliteration = "Sabāḥ al-khair",
@@ -585,6 +631,7 @@ object InitialDataSeed {
             audioResourceName = "audio_sabah_al_khair"
         ),
         VocabularyEntity(
+            id = 11,
             arabicText = "صَبَاحُ النُّورِ",
             turkishMeaning = "Günaydın (Yanıt)",
             transliteration = "Sabāḥ an-nūr",
@@ -594,6 +641,7 @@ object InitialDataSeed {
             audioResourceName = "audio_sabah_an_nur"
         ),
         VocabularyEntity(
+            id = 12,
             arabicText = "مَسَاءُ الْخَيْرِ",
             turkishMeaning = "İyi akşamlar",
             transliteration = "Masā' al-khair",
@@ -605,6 +653,7 @@ object InitialDataSeed {
 
         // Prayer Terms
         VocabularyEntity(
+            id = 13,
             arabicText = "صَلَاةُ الْعِشَاءِ",
             turkishMeaning = "Yatsı Namazı",
             transliteration = "Salâtü'l-İşâ",
@@ -614,6 +663,7 @@ object InitialDataSeed {
             audioResourceName = "audio_salat_al_isha"
         ),
         VocabularyEntity(
+            id = 14,
             arabicText = "صَلَاةُ الْفَجْرِ",
             turkishMeaning = "Sabah Namazı",
             transliteration = "Salâtü'l-Fajr",
@@ -623,6 +673,7 @@ object InitialDataSeed {
             audioResourceName = "audio_salat_al_fajr"
         ),
         VocabularyEntity(
+            id = 15,
             arabicText = "صَلَاةُ الظُّهْرِ",
             turkishMeaning = "Öğle Namazı",
             transliteration = "Salâtü'z-Zuhr",
@@ -632,6 +683,7 @@ object InitialDataSeed {
             audioResourceName = "audio_salat_az_zuhr"
         ),
         VocabularyEntity(
+            id = 16,
             arabicText = "صَلَاةُ الْعَصْرِ",
             turkishMeaning = "İkindi Namazı",
             transliteration = "Salâtü'l-Aṣr",
@@ -641,6 +693,7 @@ object InitialDataSeed {
             audioResourceName = "audio_salat_al_asr"
         ),
         VocabularyEntity(
+            id = 17,
             arabicText = "صَلَاةُ الْمَغْرِبِ",
             turkishMeaning = "Akşam Namazı",
             transliteration = "Salâtü'l-Maghrib",
@@ -650,6 +703,7 @@ object InitialDataSeed {
             audioResourceName = "audio_salat_al_maghrib"
         ),
         VocabularyEntity(
+            id = 18,
             arabicText = "وُضُوء",
             turkishMeaning = "Abdest",
             transliteration = "Wuḍū'",
@@ -659,6 +713,7 @@ object InitialDataSeed {
             audioResourceName = "audio_wudu"
         ),
         VocabularyEntity(
+            id = 19,
             arabicText = "مَسْجِد",
             turkishMeaning = "Cami / Mescit",
             transliteration = "Masjid",
@@ -670,6 +725,7 @@ object InitialDataSeed {
             audioResourceName = "audio_masjid"
         ),
         VocabularyEntity(
+            id = 20,
             arabicText = "قِبْلَة",
             turkishMeaning = "Kıble",
             transliteration = "Qiblah",
@@ -679,6 +735,7 @@ object InitialDataSeed {
             audioResourceName = "audio_qiblah"
         ),
         VocabularyEntity(
+            id = 21,
             arabicText = "دُعَاء",
             turkishMeaning = "Dua",
             transliteration = "Du'ā'",
@@ -688,6 +745,7 @@ object InitialDataSeed {
             audioResourceName = "audio_dua"
         ),
         VocabularyEntity(
+            id = 22,
             arabicText = "أَذَان",
             turkishMeaning = "Ezan",
             transliteration = "Adhān",
@@ -699,6 +757,7 @@ object InitialDataSeed {
 
         // Everyday Objects
         VocabularyEntity(
+            id = 23,
             arabicText = "كِتَاب",
             turkishMeaning = "Kitap",
             transliteration = "Kitāb",
@@ -710,6 +769,7 @@ object InitialDataSeed {
             audioResourceName = "audio_kitab"
         ),
         VocabularyEntity(
+            id = 24,
             arabicText = "قَلَم",
             turkishMeaning = "Kalem",
             transliteration = "Qalam",
@@ -721,6 +781,7 @@ object InitialDataSeed {
             audioResourceName = "audio_qalam"
         ),
         VocabularyEntity(
+            id = 25,
             arabicText = "بَاب",
             turkishMeaning = "Kapı",
             transliteration = "Bāb",
@@ -732,6 +793,7 @@ object InitialDataSeed {
             audioResourceName = "audio_bab"
         ),
         VocabularyEntity(
+            id = 26,
             arabicText = "بَيْت",
             turkishMeaning = "Ev",
             transliteration = "Bait",
@@ -743,6 +805,7 @@ object InitialDataSeed {
             audioResourceName = "audio_bait"
         ),
         VocabularyEntity(
+            id = 27,
             arabicText = "طَاوِلَة",
             turkishMeaning = "Masa",
             transliteration = "Ṭāwilah",
@@ -752,6 +815,7 @@ object InitialDataSeed {
             audioResourceName = "audio_tawilah"
         ),
         VocabularyEntity(
+            id = 28,
             arabicText = "كُرْسِيّ",
             turkishMeaning = "Sandalye",
             transliteration = "Kursī",
@@ -761,6 +825,7 @@ object InitialDataSeed {
             audioResourceName = "audio_kursi"
         ),
         VocabularyEntity(
+            id = 29,
             arabicText = "نَافِذَة",
             turkishMeaning = "Pencere",
             transliteration = "Nāfidhah",
@@ -770,6 +835,7 @@ object InitialDataSeed {
             audioResourceName = "audio_nafidhah"
         ),
         VocabularyEntity(
+            id = 30,
             arabicText = "هَاتِف",
             turkishMeaning = "Telefon",
             transliteration = "Hātef",
@@ -779,6 +845,7 @@ object InitialDataSeed {
             audioResourceName = "audio_hatef"
         ),
         VocabularyEntity(
+            id = 31,
             arabicText = "سَاعَة",
             turkishMeaning = "Saat",
             transliteration = "Sā'ah",
@@ -790,6 +857,7 @@ object InitialDataSeed {
 
         // Animals
         VocabularyEntity(
+            id = 32,
             arabicText = "أَسَد",
             turkishMeaning = "Aslan",
             transliteration = "Asad",
@@ -799,6 +867,7 @@ object InitialDataSeed {
             audioResourceName = "audio_asad"
         ),
         VocabularyEntity(
+            id = 33,
             arabicText = "قِطّ",
             turkishMeaning = "Kedi",
             transliteration = "Qiṭṭ",
@@ -808,6 +877,7 @@ object InitialDataSeed {
             audioResourceName = "audio_qitt"
         ),
         VocabularyEntity(
+            id = 34,
             arabicText = "كَلْب",
             turkishMeaning = "Köpek",
             transliteration = "Kalb",
@@ -817,6 +887,7 @@ object InitialDataSeed {
             audioResourceName = "audio_kalb"
         ),
         VocabularyEntity(
+            id = 35,
             arabicText = "جَمَل",
             turkishMeaning = "Deve",
             transliteration = "Jamal",
@@ -826,6 +897,7 @@ object InitialDataSeed {
             audioResourceName = "audio_jamal"
         ),
         VocabularyEntity(
+            id = 36,
             arabicText = "طَائِر",
             turkishMeaning = "Kuş",
             transliteration = "Ṭā'ir",
@@ -835,6 +907,7 @@ object InitialDataSeed {
             audioResourceName = "audio_tair"
         ),
         VocabularyEntity(
+            id = 37,
             arabicText = "سَمَك",
             turkishMeaning = "Balık",
             transliteration = "Samak",
@@ -844,6 +917,7 @@ object InitialDataSeed {
             audioResourceName = "audio_samak"
         ),
         VocabularyEntity(
+            id = 38,
             arabicText = "فِيل",
             turkishMeaning = "Fil",
             transliteration = "Fīl",
@@ -855,6 +929,7 @@ object InitialDataSeed {
 
         // Numbers
         VocabularyEntity(
+            id = 39,
             arabicText = "وَاحِد",
             turkishMeaning = "Bir (1)",
             transliteration = "Wāḥid",
@@ -864,6 +939,7 @@ object InitialDataSeed {
             audioResourceName = "audio_wahid"
         ),
         VocabularyEntity(
+            id = 40,
             arabicText = "اثْنَان",
             turkishMeaning = "İki (2)",
             transliteration = "Ithnān",
@@ -873,6 +949,7 @@ object InitialDataSeed {
             audioResourceName = "audio_ithnan"
         ),
         VocabularyEntity(
+            id = 41,
             arabicText = "ثَلَاثَة",
             turkishMeaning = "Üç (3)",
             transliteration = "Thalāthah",
@@ -882,6 +959,7 @@ object InitialDataSeed {
             audioResourceName = "audio_thalathah"
         ),
         VocabularyEntity(
+            id = 42,
             arabicText = "أَرْبَعَة",
             turkishMeaning = "Dört (4)",
             transliteration = "Arba'ah",
@@ -891,6 +969,7 @@ object InitialDataSeed {
             audioResourceName = "audio_arbaah"
         ),
         VocabularyEntity(
+            id = 43,
             arabicText = "خَمْسَة",
             turkishMeaning = "Beş (5)",
             transliteration = "Khamsah",
@@ -900,6 +979,7 @@ object InitialDataSeed {
             audioResourceName = "audio_khamsah"
         ),
         VocabularyEntity(
+            id = 44,
             arabicText = "سِتَّة",
             turkishMeaning = "Altı (6)",
             transliteration = "Sittah",
@@ -909,6 +989,7 @@ object InitialDataSeed {
             audioResourceName = "audio_sittah"
         ),
         VocabularyEntity(
+            id = 45,
             arabicText = "سَبْعَة",
             turkishMeaning = "Yedi (7)",
             transliteration = "Sab'ah",
@@ -918,6 +999,7 @@ object InitialDataSeed {
             audioResourceName = "audio_sabah"
         ),
         VocabularyEntity(
+            id = 46,
             arabicText = "ثَمَانِيَة",
             turkishMeaning = "Sekiz (8)",
             transliteration = "Thamāniyah",
@@ -927,6 +1009,7 @@ object InitialDataSeed {
             audioResourceName = "audio_thamaniyah"
         ),
         VocabularyEntity(
+            id = 47,
             arabicText = "تِسْعَة",
             turkishMeaning = "Dokuz (9)",
             transliteration = "Tis'ah",
@@ -936,6 +1019,7 @@ object InitialDataSeed {
             audioResourceName = "audio_tisah"
         ),
         VocabularyEntity(
+            id = 48,
             arabicText = "عَشَرَة",
             turkishMeaning = "On (10)",
             transliteration = "Asharah",
@@ -949,6 +1033,7 @@ object InitialDataSeed {
     val quizQuestionList = listOf(
         // Placement Test Questions
         QuizQuestionEntity(
+            id = 1,
             quizType = "PLACEMENT",
             category = "Placement Test",
             difficultyLevel = 1,
@@ -962,6 +1047,7 @@ object InitialDataSeed {
             explanation = "'Mā ismuki?' sonundaki 'ki' zamiri sebebiyle kadınlara hitap ederken 'Senin adın ne?' anlamına gelir."
         ),
         QuizQuestionEntity(
+            id = 2,
             quizType = "PLACEMENT",
             category = "Placement Test",
             difficultyLevel = 1,
@@ -975,6 +1061,7 @@ object InitialDataSeed {
             explanation = "'صَلَاةُ الْعِشَاءِ' (Salâtü'l-İşâ) Yatsı Namazı demektir."
         ),
         QuizQuestionEntity(
+            id = 3,
             quizType = "PLACEMENT",
             category = "Placement Test",
             difficultyLevel = 1,
@@ -988,6 +1075,7 @@ object InitialDataSeed {
             explanation = "ث (Tha) harfi dil ucunun ön dişler arasına hafifçe sıkıştırılmasıyla çıkarılan peltik ince bir sestir."
         ),
         QuizQuestionEntity(
+            id = 4,
             quizType = "PLACEMENT",
             category = "Placement Test",
             difficultyLevel = 1,
@@ -1001,6 +1089,7 @@ object InitialDataSeed {
             explanation = "Şedde (ّ) üzerine konduğu harfi çift okutur."
         ),
         QuizQuestionEntity(
+            id = 5,
             quizType = "PLACEMENT",
             category = "Placement Test",
             difficultyLevel = 2,
@@ -1014,6 +1103,7 @@ object InitialDataSeed {
             explanation = "'كِتَاب' Türkçe 'Kitap' demektir."
         ),
         QuizQuestionEntity(
+            id = 6,
             quizType = "PLACEMENT",
             category = "Placement Test",
             difficultyLevel = 2,
@@ -1027,6 +1117,7 @@ object InitialDataSeed {
             explanation = "'Shukran' Arapça teşekkür ederim demektir."
         ),
         QuizQuestionEntity(
+            id = 7,
             quizType = "PLACEMENT",
             category = "Placement Test",
             difficultyLevel = 2,
@@ -1040,6 +1131,7 @@ object InitialDataSeed {
             explanation = "Thalāthah Arapçada 3 (üç) anlamına gelir."
         ),
         QuizQuestionEntity(
+            id = 8,
             quizType = "PLACEMENT",
             category = "Placement Test",
             difficultyLevel = 3,
@@ -1056,6 +1148,7 @@ object InitialDataSeed {
         // Daily Progressive Quizzes (Level 1 - Easy)
         // Type 1: Arabic to Turkish Translation
         QuizQuestionEntity(
+            id = 9,
             quizType = "DAILY",
             category = "ARABIC_TO_TURKISH",
             difficultyLevel = 1,
@@ -1069,6 +1162,7 @@ object InitialDataSeed {
             explanation = "'كِتَاب' Türkçe 'Kitap' anlamına gelir."
         ),
         QuizQuestionEntity(
+            id = 10,
             quizType = "DAILY",
             category = "ARABIC_TO_TURKISH",
             difficultyLevel = 1,
@@ -1084,6 +1178,7 @@ object InitialDataSeed {
 
         // Type 2: Turkish to Arabic Translation
         QuizQuestionEntity(
+            id = 11,
             quizType = "DAILY",
             category = "TURKISH_TO_ARABIC",
             difficultyLevel = 1,
@@ -1097,6 +1192,7 @@ object InitialDataSeed {
             explanation = "'Kalem' Arapçada 'قَلَم' (Qalam) olarak yazılır."
         ),
         QuizQuestionEntity(
+            id = 12,
             quizType = "DAILY",
             category = "TURKISH_TO_ARABIC",
             difficultyLevel = 1,
@@ -1112,6 +1208,7 @@ object InitialDataSeed {
 
         // Type 3: Visual Card / Illustration to Arabic Matching
         QuizQuestionEntity(
+            id = 13,
             quizType = "DAILY",
             category = "VISUAL_MATCHING",
             difficultyLevel = 1,
@@ -1125,6 +1222,7 @@ object InitialDataSeed {
             explanation = "Görseldeki ibadethane 'مَسْجِد' (Masjid) kelimesidir."
         ),
         QuizQuestionEntity(
+            id = 14,
             quizType = "DAILY",
             category = "VISUAL_MATCHING",
             difficultyLevel = 1,
@@ -1140,6 +1238,7 @@ object InitialDataSeed {
 
         // Type 4: Fill in missing diacritic/letter or Transliteration matching
         QuizQuestionEntity(
+            id = 15,
             quizType = "DAILY",
             category = "DIACRITIC_TRANSLITERATION",
             difficultyLevel = 1,
@@ -1153,6 +1252,7 @@ object InitialDataSeed {
             explanation = "Kalem kelimesi 'قَلَم' şeklinde yazılır, ortadaki harf 'ل' (Lām)'dır."
         ),
         QuizQuestionEntity(
+            id = 16,
             quizType = "DAILY",
             category = "DIACRITIC_TRANSLITERATION",
             difficultyLevel = 1,
@@ -1168,6 +1268,7 @@ object InitialDataSeed {
 
         // Level 2 (Medium / Level 2)
         QuizQuestionEntity(
+            id = 17,
             quizType = "DAILY",
             category = "ARABIC_TO_TURKISH",
             difficultyLevel = 2,
@@ -1181,6 +1282,7 @@ object InitialDataSeed {
             explanation = "'مَدْرَسَة' okul demektir."
         ),
         QuizQuestionEntity(
+            id = 18,
             quizType = "DAILY",
             category = "TURKISH_TO_ARABIC",
             difficultyLevel = 2,
@@ -1194,6 +1296,7 @@ object InitialDataSeed {
             explanation = "'Öğretmen' Arapçada 'مُعَلِّم' (Mu'allim) demektir."
         ),
         QuizQuestionEntity(
+            id = 19,
             quizType = "DAILY",
             category = "VISUAL_MATCHING",
             difficultyLevel = 2,
@@ -1207,6 +1310,7 @@ object InitialDataSeed {
             explanation = "Görseldeki el yazması kitap 'كِتَاب' kelimesidir."
         ),
         QuizQuestionEntity(
+            id = 20,
             quizType = "DAILY",
             category = "DIACRITIC_TRANSLITERATION",
             difficultyLevel = 2,
@@ -1222,6 +1326,7 @@ object InitialDataSeed {
 
         // Level 3 (Hard / Level 3)
         QuizQuestionEntity(
+            id = 21,
             quizType = "DAILY",
             category = "ARABIC_TO_TURKISH",
             difficultyLevel = 3,
@@ -1235,6 +1340,7 @@ object InitialDataSeed {
             explanation = "'مَسْؤُولِيَّة' (Mas'ūliyyah) Arapça sorumluluk anlamına gelir."
         ),
         QuizQuestionEntity(
+            id = 22,
             quizType = "DAILY",
             category = "TURKISH_TO_ARABIC",
             difficultyLevel = 3,
@@ -1248,6 +1354,7 @@ object InitialDataSeed {
             explanation = "'Yazma Eser' Arapçada 'مَخْطُوطَة' (Makhtūṭah) kelimesidir."
         ),
         QuizQuestionEntity(
+            id = 23,
             quizType = "DAILY",
             category = "VISUAL_MATCHING",
             difficultyLevel = 3,
@@ -1261,6 +1368,7 @@ object InitialDataSeed {
             explanation = "Görseldeki bilgin/âlim 'عَالِم' kelimesidir."
         ),
         QuizQuestionEntity(
+            id = 24,
             quizType = "DAILY",
             category = "DIACRITIC_TRANSLITERATION",
             difficultyLevel = 3,

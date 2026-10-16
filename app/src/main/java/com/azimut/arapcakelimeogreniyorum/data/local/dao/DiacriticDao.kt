@@ -9,7 +9,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface DiacriticDao {
-    @Query("SELECT * FROM diacritics ORDER BY orderIndex ASC")
+    @Query("SELECT * FROM diacritics GROUP BY nameTurkish ORDER BY id ASC")
+    fun getDiacritics(): Flow<List<DiacriticEntity>>
+
+    @Query("SELECT * FROM diacritics GROUP BY symbol ORDER BY orderIndex ASC")
     fun getAllDiacritics(): Flow<List<DiacriticEntity>>
 
     @Query("SELECT * FROM diacritics WHERE id = :id")
@@ -20,4 +23,8 @@ interface DiacriticDao {
 
     @Query("SELECT COUNT(*) FROM diacritics")
     suspend fun getCount(): Int
+
+    @Query("DELETE FROM diacritics WHERE id NOT IN (SELECT MIN(id) FROM diacritics GROUP BY symbol)")
+    suspend fun deleteDuplicates()
 }
+

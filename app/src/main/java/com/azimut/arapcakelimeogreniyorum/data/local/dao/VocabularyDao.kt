@@ -9,22 +9,22 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface VocabularyDao {
-    @Query("SELECT * FROM vocabulary ORDER BY id ASC")
+    @Query("SELECT * FROM vocabulary GROUP BY arabicText, category ORDER BY id ASC")
     fun getAllVocabulary(): Flow<List<VocabularyEntity>>
 
-    @Query("SELECT * FROM vocabulary WHERE category = :category ORDER BY id ASC")
+    @Query("SELECT * FROM vocabulary WHERE category = :category GROUP BY arabicText ORDER BY id ASC")
     fun getVocabularyByCategory(category: String): Flow<List<VocabularyEntity>>
 
     @Query("SELECT * FROM vocabulary WHERE id = :id")
     fun getVocabularyById(id: Int): Flow<VocabularyEntity?>
 
-    @Query("SELECT * FROM vocabulary WHERE isFavorite = 1 ORDER BY id ASC")
+    @Query("SELECT * FROM vocabulary WHERE isFavorite = 1 GROUP BY arabicText ORDER BY id ASC")
     fun getFavoriteVocabulary(): Flow<List<VocabularyEntity>>
 
     @Query("SELECT DISTINCT category FROM vocabulary")
     fun getAllCategories(): Flow<List<String>>
 
-    @Query("SELECT * FROM vocabulary WHERE arabicText LIKE '%' || :query || '%' OR turkishMeaning LIKE '%' || :query || '%' OR transliteration LIKE '%' || :query || '%'")
+    @Query("SELECT * FROM vocabulary WHERE arabicText LIKE '%' || :query || '%' OR turkishMeaning LIKE '%' || :query || '%' OR transliteration LIKE '%' || :query || '%' GROUP BY arabicText")
     fun searchVocabulary(query: String): Flow<List<VocabularyEntity>>
 
     @Query("UPDATE vocabulary SET isFavorite = :isFavorite WHERE id = :id")
@@ -38,4 +38,7 @@ interface VocabularyDao {
 
     @Query("SELECT COUNT(*) FROM vocabulary")
     suspend fun getCount(): Int
+
+    @Query("DELETE FROM vocabulary WHERE id NOT IN (SELECT MIN(id) FROM vocabulary GROUP BY arabicText, category)")
+    suspend fun deleteDuplicates()
 }

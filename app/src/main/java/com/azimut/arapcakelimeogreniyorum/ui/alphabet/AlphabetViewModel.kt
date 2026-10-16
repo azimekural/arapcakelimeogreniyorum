@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
@@ -43,24 +44,25 @@ class AlphabetViewModel(
             UiParams(tab, letter, diacritic, query)
         },
         repository.getAllAlphabet(),
-        repository.getAllDiacritics()
+        repository.getAllDiacritics().map { diacritics -> diacritics.distinctBy { it.name } }
     ) { params, letters, diacritics ->
 
         val query = params.query
-        val filteredLetters = if (query.isBlank()) letters else {
+        val filteredLetters = (if (query.isBlank()) letters else {
             letters.filter {
                 it.nameTurkish.contains(query, ignoreCase = true) ||
                         it.letterArabic.contains(query) ||
                         it.transliteration.contains(query, ignoreCase = true)
             }
-        }
+        }).distinctBy { it.letterArabic }
 
-        val filteredDiacritics = if (query.isBlank()) diacritics else {
+        val filteredDiacritics = (if (query.isBlank()) diacritics else {
             diacritics.filter {
                 it.nameTurkish.contains(query, ignoreCase = true) ||
-                        it.nameArabic.contains(query)
+                        it.nameArabic.contains(query) ||
+                        it.name.contains(query, ignoreCase = true)
             }
-        }
+        }).distinctBy { it.name }.distinctBy { it.symbol }
 
         AlphabetUiState(
             selectedTab = params.tab,

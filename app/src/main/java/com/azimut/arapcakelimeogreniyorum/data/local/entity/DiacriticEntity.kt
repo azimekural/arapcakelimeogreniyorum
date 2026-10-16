@@ -1,6 +1,7 @@
 package com.azimut.arapcakelimeogreniyorum.data.local.entity
 
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
 /**
@@ -18,4 +19,9 @@ data class DiacriticEntity(
     val exampleWordArabic: String,
     val exampleWordTurkish: String,
     val soundType: String
-)
+) {
+    @get:Ignore
+    val name: String
+        get() = nameTurkish
+}
+

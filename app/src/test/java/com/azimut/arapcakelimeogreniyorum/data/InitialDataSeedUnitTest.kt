@@ -16,6 +16,14 @@ class InitialDataSeedUnitTest {
         // Verify first (Elif) and last (Ya)
         assertEquals("Elif", alphabet.first().nameTurkish)
         assertEquals("Ye", alphabet.last().nameTurkish)
+
+        // Verify explicit IDs and letter uniqueness
+        val ids = alphabet.map { it.id }
+        assertEquals(28, ids.toSet().size)
+        assertTrue(ids.all { it > 0 })
+
+        val uniqueLetters = alphabet.map { it.letterArabic }.toSet()
+        assertEquals(28, uniqueLetters.size)
     }
 
     @Test
@@ -30,12 +38,22 @@ class InitialDataSeedUnitTest {
         assertTrue(names.any { it.contains("Cezm") })
         assertTrue(names.any { it.contains("Şedde") })
         assertTrue(names.any { it.contains("Tenvin") })
+
+        // Verify explicit IDs
+        val ids = diacritics.map { it.id }
+        assertEquals(diacritics.size, ids.toSet().size)
+        assertTrue(ids.all { it > 0 })
     }
 
     @Test
     fun testVocabularySeedData_containsSpecificRequiredItems() {
         val vocab = InitialDataSeed.vocabularyList
         assertTrue(vocab.isNotEmpty())
+
+        // Verify explicit IDs
+        val ids = vocab.map { it.id }
+        assertEquals(vocab.size, ids.toSet().size)
+        assertTrue(ids.all { it > 0 })
 
         // Check daily phrases with gender notes
         val maIsmuke = vocab.find { it.arabicText == "مَا اسْمُكَ؟" }
@@ -64,6 +82,11 @@ class InitialDataSeedUnitTest {
     fun testQuizQuestionsSeedData_containsPlacementAndDailyQuizzes() {
         val questions = InitialDataSeed.quizQuestionList
         assertTrue(questions.isNotEmpty())
+
+        // Verify explicit IDs
+        val ids = questions.map { it.id }
+        assertEquals(questions.size, ids.toSet().size)
+        assertTrue(ids.all { it > 0 })
 
         val placementQuestions = questions.filter { it.quizType == "PLACEMENT" }
         assertTrue(placementQuestions.size >= 5)

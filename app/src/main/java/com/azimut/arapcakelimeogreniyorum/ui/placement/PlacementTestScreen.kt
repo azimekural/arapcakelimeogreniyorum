@@ -5,6 +5,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -54,10 +55,13 @@ import com.azimut.arapcakelimeogreniyorum.data.local.entity.QuizQuestionEntity
 import com.azimut.arapcakelimeogreniyorum.ui.components.ParchmentCard
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ArapcakelimeogreniyorumTheme
 import com.azimut.arapcakelimeogreniyorum.ui.theme.EmeraldManuscript
+import com.azimut.arapcakelimeogreniyorum.ui.theme.GoldAccent
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ManuscriptDeepBrown
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentBeige
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentCardBg
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentContainerDark
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGold
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGoldLight
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentTextGold
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentTextLight
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentTextWhite
@@ -70,6 +74,9 @@ fun PlacementTestScreen(
 ) {
     val state by viewModel.uiState.collectAsState()
     val scrollState = rememberScrollState()
+    val isDark = isSystemInDarkTheme()
+    val primaryTextColor = if (isDark) ParchmentTextLight else ManuscriptDeepBrown
+    val containerBgColor = if (isDark) ParchmentContainerDark else ParchmentBeige
 
     Column(
         modifier = modifier
@@ -102,14 +109,14 @@ fun PlacementTestScreen(
                 Text(
                     text = "Seviye Tespit Sınavı",
                     style = MaterialTheme.typography.titleLarge,
-                    color = ManuscriptDeepBrown,
+                    color = primaryTextColor,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
                     text = "Soru ${currentQIndex + 1} / ${state.totalQuestions}",
                     fontSize = 13.sp,
                     fontWeight = FontWeight.Bold,
-                    color = EmeraldManuscript
+                    color = if (isDark) GoldAccent else EmeraldManuscript
                 )
             }
 
@@ -122,8 +129,8 @@ fun PlacementTestScreen(
                     .fillMaxWidth()
                     .height(8.dp)
                     .clip(RoundedCornerShape(4.dp)),
-                color = EmeraldManuscript,
-                trackColor = ParchmentBeige
+                color = if (isDark) GoldAccent else EmeraldManuscript,
+                trackColor = containerBgColor
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -150,8 +157,8 @@ fun PlacementTestScreen(
                     Button(
                         onClick = { viewModel.previousQuestion() },
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = ParchmentBeige,
-                            contentColor = ManuscriptDeepBrown
+                            containerColor = containerBgColor,
+                            contentColor = primaryTextColor
                         ),
                         shape = RoundedCornerShape(10.dp),
                         border = BorderStroke(1.dp, ParchmentGold)
@@ -159,10 +166,10 @@ fun PlacementTestScreen(
                         Icon(
                             imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
                             contentDescription = "Önceki",
-                            tint = ManuscriptDeepBrown
+                            tint = primaryTextColor
                         )
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("Önceki", fontWeight = FontWeight.Bold, fontSize = 14.sp, color = ManuscriptDeepBrown)
+                        Text("Önceki", fontWeight = FontWeight.Bold, fontSize = 14.sp, color = primaryTextColor)
                     }
                 } else {
                     Spacer(modifier = Modifier.width(8.dp))
@@ -189,7 +196,7 @@ fun PlacementTestScreen(
                     Button(
                         onClick = { viewModel.nextQuestion() },
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = ManuscriptDeepBrown,
+                            containerColor = if (isDark) ParchmentContainerDark else ManuscriptDeepBrown,
                             contentColor = ParchmentTextLight
                         ),
                         shape = RoundedCornerShape(10.dp)
@@ -214,7 +221,7 @@ fun PlacementTestScreen(
                         text = "Sınav soruları yükleniyor...",
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ManuscriptDeepBrown
+                        color = primaryTextColor
                     )
                 }
             }
@@ -228,6 +235,10 @@ private fun QuestionCard(
     selectedOptionIndex: Int?,
     onSelectOption: (Int) -> Unit
 ) {
+    val isDark = isSystemInDarkTheme()
+    val primaryTextColor = if (isDark) ParchmentTextLight else ManuscriptDeepBrown
+    val containerBgColor = if (isDark) ParchmentContainerDark else ParchmentBeige
+
     ParchmentCard(
         modifier = Modifier.fillMaxWidth(),
         elevation = 6.dp
@@ -236,7 +247,7 @@ private fun QuestionCard(
             modifier = Modifier.fillMaxWidth(),
             verticalArrangement = Arrangement.spacedBy(14.dp)
         ) {
-            // Difficulty Badge on Dark Brown
+            // Difficulty Badge on Dark Brown / Container
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -244,7 +255,10 @@ private fun QuestionCard(
             ) {
                 Box(
                     modifier = Modifier
-                        .background(ManuscriptDeepBrown, RoundedCornerShape(8.dp))
+                        .background(
+                            if (isDark) ParchmentContainerDark else ManuscriptDeepBrown,
+                            RoundedCornerShape(8.dp)
+                        )
                         .border(1.dp, ParchmentGold, RoundedCornerShape(8.dp))
                         .padding(horizontal = 10.dp, vertical = 4.dp)
                 ) {
@@ -269,7 +283,7 @@ private fun QuestionCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(8.dp))
-                        .background(ParchmentBeige)
+                        .background(containerBgColor)
                         .border(1.dp, ParchmentGold, RoundedCornerShape(8.dp))
                         .padding(12.dp),
                     contentAlignment = Alignment.Center
@@ -279,7 +293,7 @@ private fun QuestionCard(
                         fontFamily = FontFamily.Serif,
                         fontSize = 28.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ManuscriptDeepBrown,
+                        color = primaryTextColor,
                         textAlign = TextAlign.Center
                     )
                 }
@@ -290,7 +304,7 @@ private fun QuestionCard(
                 text = question.questionText,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
-                color = ManuscriptDeepBrown
+                color = primaryTextColor
             )
 
             // 4 Option Buttons
@@ -303,6 +317,22 @@ private fun QuestionCard(
 
             options.forEachIndexed { index, optionText ->
                 val isSelected = selectedOptionIndex == index
+                val borderColor = if (isSelected) {
+                    if (isDark) ParchmentGold else ManuscriptDeepBrown
+                } else {
+                    ParchmentGold.copy(alpha = 0.6f)
+                }
+                val cardBgColor = if (isSelected) {
+                    if (isDark) ParchmentContainerDark else ParchmentBeige
+                } else {
+                    if (isDark) MaterialTheme.colorScheme.surface else ParchmentCardBg
+                }
+                val optionTextColor = if (isSelected) {
+                    if (isDark) ParchmentTextGold else ManuscriptDeepBrown
+                } else {
+                    primaryTextColor
+                }
+
                 Card(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -310,11 +340,11 @@ private fun QuestionCard(
                         .clickable { onSelectOption(index) }
                         .border(
                             width = if (isSelected) 2.dp else 1.dp,
-                            color = if (isSelected) ManuscriptDeepBrown else ParchmentGold.copy(alpha = 0.6f),
+                            color = borderColor,
                             shape = RoundedCornerShape(10.dp)
                         ),
                     colors = CardDefaults.cardColors(
-                        containerColor = if (isSelected) ParchmentBeige else ParchmentCardBg
+                        containerColor = cardBgColor
                     )
                 ) {
                     Row(
@@ -327,8 +357,8 @@ private fun QuestionCard(
                             selected = isSelected,
                             onClick = { onSelectOption(index) },
                             colors = RadioButtonDefaults.colors(
-                                selectedColor = ManuscriptDeepBrown,
-                                unselectedColor = ParchmentGold
+                                selectedColor = if (isDark) ParchmentGold else ManuscriptDeepBrown,
+                                unselectedColor = if (isDark) ParchmentGoldLight.copy(alpha = 0.6f) else ParchmentGold
                             )
                         )
                         Spacer(modifier = Modifier.width(8.dp))
@@ -336,7 +366,7 @@ private fun QuestionCard(
                             text = optionText,
                             fontSize = 15.sp,
                             fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Medium,
-                            color = ManuscriptDeepBrown
+                            color = optionTextColor
                         )
                     }
                 }
@@ -353,6 +383,11 @@ private fun TestResultSection(
     onRetake: () -> Unit,
     onGoToFlashcards: () -> Unit
 ) {
+    val isDark = isSystemInDarkTheme()
+    val primaryTextColor = if (isDark) ParchmentTextLight else ManuscriptDeepBrown
+    val secondaryTextColor = if (isDark) ParchmentTextGold else ManuscriptDeepBrown.copy(alpha = 0.85f)
+    val containerBgColor = if (isDark) ParchmentContainerDark else ParchmentBeige
+
     ParchmentCard(
         modifier = Modifier.fillMaxWidth(),
         elevation = 6.dp
@@ -366,7 +401,7 @@ private fun TestResultSection(
                 modifier = Modifier
                     .size(80.dp)
                     .clip(CircleShape)
-                    .background(ManuscriptDeepBrown)
+                    .background(if (isDark) ParchmentContainerDark else ManuscriptDeepBrown)
                     .border(2.dp, ParchmentGold, CircleShape),
                 contentAlignment = Alignment.Center
             ) {
@@ -381,7 +416,7 @@ private fun TestResultSection(
             Text(
                 text = "Seviye Tespit Sınavı Tamamlandı!",
                 style = MaterialTheme.typography.titleLarge,
-                color = ManuscriptDeepBrown,
+                color = primaryTextColor,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center
             )
@@ -391,7 +426,7 @@ private fun TestResultSection(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(12.dp))
-                    .background(ParchmentBeige)
+                    .background(containerBgColor)
                     .border(1.5.dp, ParchmentGold, RoundedCornerShape(12.dp))
                     .padding(16.dp),
                 contentAlignment = Alignment.Center
@@ -401,20 +436,20 @@ private fun TestResultSection(
                         text = "Tümleyen Başarı Seviyeniz",
                         fontSize = 12.sp,
                         fontWeight = FontWeight.SemiBold,
-                        color = ManuscriptDeepBrown.copy(alpha = 0.85f)
+                        color = secondaryTextColor
                     )
                     Text(
                         text = evaluatedLevel,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
-                        color = EmeraldManuscript,
+                        color = if (isDark) GoldAccent else EmeraldManuscript,
                         modifier = Modifier.padding(top = 4.dp)
                     )
                     Text(
-                        text = "Sınav Başarı Puanı: %$score",
+                        text = "Sınav Başarı Puanı: %$score ($totalQuestions Soru)",
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ManuscriptDeepBrown,
+                        color = primaryTextColor,
                         modifier = Modifier.padding(top = 6.dp)
                     )
                 }
@@ -424,7 +459,7 @@ private fun TestResultSection(
                 text = "Seviyeniz veri tabanına kaydedildi. Öğrenim yolculuğunuza kelime kartları ve Elif-Ba kılavuzu ile devam edebilirsiniz.",
                 fontSize = 13.sp,
                 fontWeight = FontWeight.Medium,
-                color = ManuscriptDeepBrown,
+                color = secondaryTextColor,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = 8.dp)
             )
@@ -436,7 +471,7 @@ private fun TestResultSection(
                 Button(
                     onClick = onRetake,
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = ManuscriptDeepBrown,
+                        containerColor = if (isDark) ParchmentContainerDark else ManuscriptDeepBrown,
                         contentColor = ParchmentTextLight
                     ),
                     shape = RoundedCornerShape(10.dp),

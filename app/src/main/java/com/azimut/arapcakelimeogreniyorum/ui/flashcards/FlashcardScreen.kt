@@ -7,6 +7,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -64,6 +65,8 @@ import com.azimut.arapcakelimeogreniyorum.ui.theme.GoldAccent
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ManuscriptDeepBrown
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentBeige
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentCardBg
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentCardBgDark
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentContainerDark
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGold
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentTextGold
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentTextLight
@@ -76,6 +79,11 @@ fun FlashcardScreen(
 ) {
     val state by viewModel.uiState.collectAsState()
     val scrollState = rememberScrollState()
+    val isDark = isSystemInDarkTheme()
+
+    val primaryTextColor = if (isDark) ParchmentTextLight else ManuscriptDeepBrown
+    val searchBgColor = if (isDark) ParchmentContainerDark else ParchmentCardBg
+    val searchBorderColor = if (isDark) ParchmentGold else ParchmentBeige
 
     Column(
         modifier = modifier
@@ -85,21 +93,33 @@ fun FlashcardScreen(
             .verticalScroll(scrollState),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Search Input
+        // Search Input Box
         OutlinedTextField(
             value = state.searchQuery,
             onValueChange = { viewModel.updateSearchQuery(it) },
-            placeholder = { Text("Kelime veya Anlam Ara...", color = ManuscriptDeepBrown.copy(alpha = 0.6f), fontWeight = FontWeight.Medium) },
-            leadingIcon = { Icon(Icons.Rounded.Search, contentDescription = null, tint = ManuscriptDeepBrown) },
+            placeholder = {
+                Text(
+                    text = "Kelime veya Anlam Ara...",
+                    color = if (isDark) ParchmentTextLight.copy(alpha = 0.6f) else ManuscriptDeepBrown.copy(alpha = 0.6f),
+                    fontWeight = FontWeight.Medium
+                )
+            },
+            leadingIcon = {
+                Icon(
+                    imageVector = Icons.Rounded.Search,
+                    contentDescription = null,
+                    tint = if (isDark) ParchmentTextLight else ManuscriptDeepBrown
+                )
+            },
             singleLine = true,
             modifier = Modifier.fillMaxWidth(),
             colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = ParchmentCardBg,
-                unfocusedContainerColor = ParchmentCardBg,
+                focusedContainerColor = searchBgColor,
+                unfocusedContainerColor = searchBgColor,
                 focusedBorderColor = ParchmentGold,
-                unfocusedBorderColor = ParchmentBeige,
-                focusedTextColor = ManuscriptDeepBrown,
-                unfocusedTextColor = ManuscriptDeepBrown
+                unfocusedBorderColor = searchBorderColor,
+                focusedTextColor = primaryTextColor,
+                unfocusedTextColor = primaryTextColor
             ),
             shape = RoundedCornerShape(10.dp)
         )
@@ -114,10 +134,21 @@ fun FlashcardScreen(
         ) {
             items(state.categories) { category ->
                 val isSelected = category == state.selectedCategory
+                val chipBgColor = if (isSelected) {
+                    if (isDark) ParchmentGold else ManuscriptDeepBrown
+                } else {
+                    if (isDark) ParchmentContainerDark else ParchmentBeige
+                }
+                val chipTextColor = if (isSelected) {
+                    if (isDark) ManuscriptDeepBrown else ParchmentTextLight
+                } else {
+                    if (isDark) ParchmentTextLight else ManuscriptDeepBrown
+                }
+
                 Box(
                     modifier = Modifier
                         .clip(RoundedCornerShape(16.dp))
-                        .background(if (isSelected) ManuscriptDeepBrown else ParchmentBeige)
+                        .background(chipBgColor)
                         .border(1.dp, ParchmentGold, RoundedCornerShape(16.dp))
                         .clickable { viewModel.selectCategory(category) }
                         .padding(horizontal = 14.dp, vertical = 8.dp)
@@ -126,7 +157,7 @@ fun FlashcardScreen(
                         text = category,
                         fontSize = 13.sp,
                         fontWeight = FontWeight.Bold,
-                        color = if (isSelected) ParchmentTextLight else ManuscriptDeepBrown
+                        color = chipTextColor
                     )
                 }
             }
@@ -145,13 +176,13 @@ fun FlashcardScreen(
                     text = "Kategori: ${state.selectedCategory}",
                     fontSize = 13.sp,
                     fontWeight = FontWeight.Bold,
-                    color = ManuscriptDeepBrown
+                    color = primaryTextColor
                 )
                 Text(
                     text = "Kart ${state.currentIndex + 1} / ${state.cards.size}",
                     fontSize = 13.sp,
                     fontWeight = FontWeight.Bold,
-                    color = EmeraldManuscript
+                    color = if (isDark) ParchmentTextGold else EmeraldManuscript
                 )
             }
 
@@ -179,8 +210,8 @@ fun FlashcardScreen(
                 Button(
                     onClick = { viewModel.previousCard() },
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = ParchmentBeige,
-                        contentColor = ManuscriptDeepBrown
+                        containerColor = if (isDark) ParchmentContainerDark else ParchmentBeige,
+                        contentColor = primaryTextColor
                     ),
                     shape = RoundedCornerShape(10.dp),
                     border = BorderStroke(1.dp, ParchmentGold)
@@ -188,53 +219,59 @@ fun FlashcardScreen(
                     Icon(
                         imageVector = Icons.AutoMirrored.Rounded.ArrowBack,
                         contentDescription = "Önceki Kart",
-                        tint = ManuscriptDeepBrown
+                        tint = primaryTextColor
                     )
                     Spacer(modifier = Modifier.width(4.dp))
-                    Text("Önceki", fontWeight = FontWeight.Bold, color = ManuscriptDeepBrown)
+                    Text("Önceki", fontWeight = FontWeight.Bold, color = primaryTextColor)
                 }
 
                 Button(
                     onClick = { viewModel.flipCard() },
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = ManuscriptDeepBrown,
-                        contentColor = ParchmentTextLight
+                        containerColor = if (isDark) ParchmentContainerDark else ParchmentBeige,
+                        contentColor = primaryTextColor
                     ),
-                    shape = RoundedCornerShape(10.dp)
+                    shape = RoundedCornerShape(10.dp),
+                    border = BorderStroke(1.dp, ParchmentGold)
                 ) {
                     Icon(
                         imageVector = Icons.Rounded.Flip,
                         contentDescription = "Kartı Çevir",
-                        tint = ParchmentTextGold
+                        tint = if (isDark) ParchmentTextGold else ManuscriptDeepBrown
                     )
                     Spacer(modifier = Modifier.width(6.dp))
                     Text(
                         text = if (state.isFlipped) "Ön Yüz" else "Çevir",
                         fontWeight = FontWeight.Bold,
-                        color = ParchmentTextLight
+                        color = primaryTextColor
                     )
                 }
 
                 Button(
                     onClick = { viewModel.nextCard() },
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = ParchmentBeige,
-                        contentColor = ManuscriptDeepBrown
+                        containerColor = if (isDark) ParchmentContainerDark else ParchmentBeige,
+                        contentColor = primaryTextColor
                     ),
                     shape = RoundedCornerShape(10.dp),
                     border = BorderStroke(1.dp, ParchmentGold)
                 ) {
-                    Text("Sonraki", fontWeight = FontWeight.Bold, color = ManuscriptDeepBrown)
+                    Text("Sonraki", fontWeight = FontWeight.Bold, color = primaryTextColor)
                     Spacer(modifier = Modifier.width(4.dp))
                     Icon(
                         imageVector = Icons.AutoMirrored.Rounded.ArrowForward,
                         contentDescription = "Sonraki Kart",
-                        tint = ManuscriptDeepBrown
+                        tint = primaryTextColor
                     )
                 }
             }
         } else {
-            ParchmentCard(modifier = Modifier.fillMaxWidth().padding(top = 32.dp)) {
+            ParchmentCard(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 32.dp),
+                backgroundColor = if (isDark) ParchmentCardBgDark else ParchmentCardBg
+            ) {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier.padding(24.dp)
@@ -243,7 +280,7 @@ fun FlashcardScreen(
                         text = "Aramaya veya Kategoriye Uygun Kelime Bulunamadı.",
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ManuscriptDeepBrown,
+                        color = primaryTextColor,
                         textAlign = TextAlign.Center
                     )
                 }
@@ -260,6 +297,11 @@ private fun FlashcardItemCard(
     onToggleFavorite: () -> Unit,
     onUpdateMastery: (Int) -> Unit
 ) {
+    val isDark = isSystemInDarkTheme()
+    val primaryTextColor = if (isDark) ParchmentTextLight else ManuscriptDeepBrown
+    val secondaryTextColor = if (isDark) ParchmentTextGold else ManuscriptDeepBrown.copy(alpha = 0.85f)
+    val cardBgColor = if (isDark) ParchmentCardBgDark else ParchmentCardBg
+
     val rotation by animateFloatAsState(
         targetValue = if (isFlipped) 180f else 0f,
         animationSpec = tween(durationMillis = 400),
@@ -275,6 +317,7 @@ private fun FlashcardItemCard(
                 cameraDistance = 12 * density
             }
             .clickable { onFlip() },
+        backgroundColor = cardBgColor,
         elevation = 6.dp
     ) {
         if (rotation <= 90f) {
@@ -292,7 +335,10 @@ private fun FlashcardItemCard(
                 ) {
                     Box(
                         modifier = Modifier
-                            .background(ManuscriptDeepBrown, RoundedCornerShape(8.dp))
+                            .background(
+                                if (isDark) ParchmentContainerDark else ManuscriptDeepBrown,
+                                RoundedCornerShape(8.dp)
+                            )
                             .border(1.dp, ParchmentGold, RoundedCornerShape(8.dp))
                             .padding(horizontal = 10.dp, vertical = 4.dp)
                     ) {
@@ -308,7 +354,7 @@ private fun FlashcardItemCard(
                         Icon(
                             imageVector = if (card.isFavorite) Icons.Rounded.Favorite else Icons.Rounded.FavoriteBorder,
                             contentDescription = "Favori",
-                            tint = if (card.isFavorite) RubyManuscript else ManuscriptDeepBrown
+                            tint = if (card.isFavorite) RubyManuscript else primaryTextColor
                         )
                     }
                 }
@@ -331,7 +377,7 @@ private fun FlashcardItemCard(
                         fontFamily = FontFamily.Serif,
                         fontSize = 32.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ManuscriptDeepBrown,
+                        color = primaryTextColor,
                         textAlign = TextAlign.Center
                     )
 
@@ -339,14 +385,17 @@ private fun FlashcardItemCard(
                         text = "(Anlamını görmek için karta dokunun)",
                         fontSize = 11.sp,
                         fontWeight = FontWeight.Medium,
-                        color = ManuscriptDeepBrown.copy(alpha = 0.75f),
+                        color = secondaryTextColor,
                         modifier = Modifier.padding(top = 6.dp)
                     )
                 }
 
                 Box(
                     modifier = Modifier
-                        .background(ManuscriptDeepBrown, RoundedCornerShape(12.dp))
+                        .background(
+                            if (isDark) ParchmentContainerDark else ParchmentBeige,
+                            RoundedCornerShape(12.dp)
+                        )
                         .border(1.dp, ParchmentGold, RoundedCornerShape(12.dp))
                         .padding(horizontal = 14.dp, vertical = 6.dp)
                 ) {
@@ -354,7 +403,7 @@ private fun FlashcardItemCard(
                         text = "Dokun ve Çevir 🔄",
                         fontSize = 12.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ParchmentTextLight
+                        color = primaryTextColor
                     )
                 }
             }
@@ -375,7 +424,10 @@ private fun FlashcardItemCard(
                 ) {
                     Box(
                         modifier = Modifier
-                            .background(ManuscriptDeepBrown, RoundedCornerShape(8.dp))
+                            .background(
+                                if (isDark) ParchmentContainerDark else ManuscriptDeepBrown,
+                                RoundedCornerShape(8.dp)
+                            )
                             .border(1.dp, ParchmentGold, RoundedCornerShape(8.dp))
                             .padding(horizontal = 10.dp, vertical = 4.dp)
                     ) {
@@ -391,7 +443,7 @@ private fun FlashcardItemCard(
                         Icon(
                             imageVector = if (card.isFavorite) Icons.Rounded.Favorite else Icons.Rounded.FavoriteBorder,
                             contentDescription = "Favori",
-                            tint = if (card.isFavorite) RubyManuscript else ManuscriptDeepBrown
+                            tint = if (card.isFavorite) RubyManuscript else primaryTextColor
                         )
                     }
                 }
@@ -402,7 +454,7 @@ private fun FlashcardItemCard(
                     fontFamily = FontFamily.Serif,
                     fontSize = 30.sp,
                     fontWeight = FontWeight.Bold,
-                    color = ManuscriptDeepBrown,
+                    color = primaryTextColor,
                     textAlign = TextAlign.Center
                 )
 
@@ -411,7 +463,7 @@ private fun FlashcardItemCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(12.dp))
-                        .background(ParchmentBeige)
+                        .background(if (isDark) ParchmentContainerDark else ParchmentBeige)
                         .border(1.5.dp, ParchmentGold, RoundedCornerShape(12.dp))
                         .padding(14.dp)
                 ) {
@@ -421,13 +473,13 @@ private fun FlashcardItemCard(
                                 text = "Okunuşu: ",
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = ManuscriptDeepBrown
+                                color = if (isDark) ParchmentTextGold else ManuscriptDeepBrown
                             )
                             Text(
                                 text = card.transliteration,
                                 fontSize = 15.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = EmeraldManuscript
+                                color = if (isDark) ParchmentTextLight else EmeraldManuscript
                             )
                         }
 
@@ -436,13 +488,13 @@ private fun FlashcardItemCard(
                                 text = "Anlamı: ",
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = ManuscriptDeepBrown
+                                color = if (isDark) ParchmentTextLight else ManuscriptDeepBrown
                             )
                             Text(
                                 text = card.turkishMeaning,
                                 fontSize = 15.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = ManuscriptDeepBrown
+                                color = primaryTextColor
                             )
                         }
 
@@ -451,7 +503,7 @@ private fun FlashcardItemCard(
                                 text = "Not: $gender",
                                 fontSize = 11.sp,
                                 fontWeight = FontWeight.SemiBold,
-                                color = ManuscriptDeepBrown.copy(alpha = 0.85f)
+                                color = secondaryTextColor
                             )
                         }
 
@@ -460,7 +512,7 @@ private fun FlashcardItemCard(
                                 text = "Çoğulu: $plural (${card.pluralTurkish ?: ""})",
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = ManuscriptDeepBrown
+                                color = primaryTextColor
                             )
                         }
                     }
@@ -475,7 +527,7 @@ private fun FlashcardItemCard(
                         text = "Öğrenme Dereceniz",
                         fontSize = 11.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ManuscriptDeepBrown
+                        color = if (isDark) ParchmentTextGold else ManuscriptDeepBrown
                     )
                     Row(
                         horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -486,7 +538,7 @@ private fun FlashcardItemCard(
                             Icon(
                                 imageVector = if (star <= card.masteryLevel) Icons.Rounded.Star else Icons.Rounded.StarBorder,
                                 contentDescription = "Star $star",
-                                tint = GoldAccent,
+                                tint = if (star <= card.masteryLevel) GoldAccent else (if (isDark) ParchmentTextLight.copy(alpha = 0.5f) else ManuscriptDeepBrown.copy(alpha = 0.4f)),
                                 modifier = Modifier
                                     .size(24.dp)
                                     .clickable { onUpdateMastery(star) }

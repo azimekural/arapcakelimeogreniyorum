@@ -8,6 +8,7 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -71,8 +72,10 @@ import com.azimut.arapcakelimeogreniyorum.ui.theme.GoldAccent
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ManuscriptDeepBrown
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentBeige
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentCardBg
-import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentContainer
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentContainerDark
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGold
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGoldDark
+import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentGoldLight
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentTextGold
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentTextLight
 import com.azimut.arapcakelimeogreniyorum.ui.theme.ParchmentTextWhite
@@ -86,6 +89,8 @@ fun DailyQuizScreen(
 ) {
     val state by viewModel.uiState.collectAsState()
     val scrollState = rememberScrollState()
+    val isDark = isSystemInDarkTheme()
+    val primaryTextColor = if (isDark) ParchmentTextLight else ManuscriptDeepBrown
 
     Column(
         modifier = modifier
@@ -138,14 +143,14 @@ fun DailyQuizScreen(
                         Text(
                             text = "Günün Testi",
                             style = MaterialTheme.typography.titleMedium,
-                            color = ManuscriptDeepBrown,
+                            color = primaryTextColor,
                             fontWeight = FontWeight.Bold
                         )
                         Text(
                             text = "Soru ${currentQIndex + 1} / ${state.questions.size}",
                             fontSize = 13.sp,
                             fontWeight = FontWeight.Bold,
-                            color = EmeraldManuscript
+                            color = if (isDark) GoldAccent else EmeraldManuscript
                         )
                     }
 
@@ -157,7 +162,7 @@ fun DailyQuizScreen(
                             .height(8.dp)
                             .clip(RoundedCornerShape(4.dp)),
                         color = ParchmentGold,
-                        trackColor = ParchmentBeige
+                        trackColor = if (isDark) ParchmentContainerDark else ParchmentBeige
                     )
 
                     currentQ?.let { question ->
@@ -183,7 +188,7 @@ fun DailyQuizScreen(
                             onClick = { viewModel.nextQuestion() },
                             modifier = Modifier.fillMaxWidth(),
                             colors = ButtonDefaults.buttonColors(
-                                containerColor = if (state.isLastQuestion) EmeraldManuscript else ManuscriptDeepBrown,
+                                containerColor = if (state.isLastQuestion) EmeraldManuscript else if (isDark) ParchmentContainerDark else ManuscriptDeepBrown,
                                 contentColor = ParchmentTextLight
                             ),
                             shape = RoundedCornerShape(12.dp)
@@ -212,7 +217,7 @@ fun DailyQuizScreen(
                                 text = "Pratik soruları yükleniyor...",
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = ManuscriptDeepBrown
+                                color = primaryTextColor
                             )
                         }
                     }
@@ -230,9 +235,14 @@ private fun QuizHeaderBar(
     selectedDifficulty: Int,
     onSelectDifficulty: (Int) -> Unit
 ) {
+    val isDark = isSystemInDarkTheme()
+    val primaryTextColor = if (isDark) ParchmentTextLight else ManuscriptDeepBrown
+
     Card(
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = ParchmentCardBg),
+        colors = CardDefaults.cardColors(
+            containerColor = if (isDark) MaterialTheme.colorScheme.surface else ParchmentCardBg
+        ),
         border = BorderStroke(1.dp, ParchmentGold),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
@@ -254,7 +264,7 @@ private fun QuizHeaderBar(
                         Icon(
                             imageVector = if (isAlive) Icons.Filled.Favorite else Icons.Outlined.FavoriteBorder,
                             contentDescription = "Can",
-                            tint = if (isAlive) RubyManuscript else ManuscriptDeepBrown.copy(alpha = 0.35f),
+                            tint = if (isAlive) RubyManuscript else if (isDark) ParchmentTextLight.copy(alpha = 0.3f) else ManuscriptDeepBrown.copy(alpha = 0.35f),
                             modifier = Modifier
                                 .size(24.dp)
                                 .padding(end = 4.dp)
@@ -266,7 +276,7 @@ private fun QuizHeaderBar(
                 if (comboStreak >= 2) {
                     Box(
                         modifier = Modifier
-                            .background(ManuscriptDeepBrown, RoundedCornerShape(10.dp))
+                            .background(if (isDark) ParchmentContainerDark else ManuscriptDeepBrown, RoundedCornerShape(10.dp))
                             .border(1.dp, GoldAccent, RoundedCornerShape(10.dp))
                             .padding(horizontal = 8.dp, vertical = 3.dp)
                     ) {
@@ -323,7 +333,7 @@ private fun QuizHeaderBar(
                     text = "Zorluk:",
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Bold,
-                    color = ManuscriptDeepBrown
+                    color = primaryTextColor
                 )
 
                 val difficulties = listOf(
@@ -342,14 +352,14 @@ private fun QuizHeaderBar(
                                 text = label,
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = if (isSelected) ParchmentTextLight else ManuscriptDeepBrown
+                                color = if (isSelected) ParchmentTextLight else primaryTextColor
                             )
                         },
                         colors = FilterChipDefaults.filterChipColors(
-                            selectedContainerColor = ManuscriptDeepBrown,
+                            selectedContainerColor = if (isDark) ParchmentGoldDark else ManuscriptDeepBrown,
                             selectedLabelColor = ParchmentTextLight,
-                            containerColor = ParchmentBeige,
-                            labelColor = ManuscriptDeepBrown
+                            containerColor = if (isDark) ParchmentContainerDark else ParchmentBeige,
+                            labelColor = primaryTextColor
                         ),
                         modifier = Modifier.height(32.dp)
                     )
@@ -368,6 +378,11 @@ private fun InteractiveQuestionCard(
     isCorrect: Boolean?,
     onSelectOption: (Int) -> Unit
 ) {
+    val isDark = isSystemInDarkTheme()
+    val primaryTextColor = if (isDark) ParchmentTextLight else ManuscriptDeepBrown
+    val secondaryTextColor = if (isDark) ParchmentTextGold else ManuscriptDeepBrown.copy(alpha = 0.85f)
+    val containerBoxBg = if (isDark) ParchmentContainerDark else ParchmentBeige
+
     ParchmentCard(
         modifier = Modifier.fillMaxWidth(),
         elevation = 6.dp
@@ -383,7 +398,7 @@ private fun InteractiveQuestionCard(
                         text = "Görseldeki kavramın Arapça karşılığını seçin:",
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ManuscriptDeepBrown
+                        color = primaryTextColor
                     )
                     FlashcardIllustration(
                         imageName = question.questionArabic,
@@ -397,14 +412,14 @@ private fun InteractiveQuestionCard(
                         text = "Arapça kelimenin Türkçe karşılığını seçin:",
                         fontSize = 13.sp,
                         fontWeight = FontWeight.SemiBold,
-                        color = ManuscriptDeepBrown.copy(alpha = 0.85f)
+                        color = secondaryTextColor
                     )
                     question.questionArabic?.let { arabicText ->
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clip(RoundedCornerShape(10.dp))
-                                .background(ParchmentBeige)
+                                .background(containerBoxBg)
                                 .border(1.5.dp, ParchmentGold, RoundedCornerShape(10.dp))
                                 .padding(16.dp),
                             contentAlignment = Alignment.Center
@@ -414,7 +429,7 @@ private fun InteractiveQuestionCard(
                                 fontFamily = FontFamily.Serif,
                                 fontSize = 32.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = ManuscriptDeepBrown,
+                                color = primaryTextColor,
                                 textAlign = TextAlign.Center
                             )
                         }
@@ -423,7 +438,7 @@ private fun InteractiveQuestionCard(
                         text = question.questionText,
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ManuscriptDeepBrown
+                        color = primaryTextColor
                     )
                 }
                 QuestionType.TURKISH_TO_ARABIC -> {
@@ -431,13 +446,13 @@ private fun InteractiveQuestionCard(
                         text = "Türkçe kelimenin Arapça karşılığını seçin:",
                         fontSize = 13.sp,
                         fontWeight = FontWeight.SemiBold,
-                        color = ManuscriptDeepBrown.copy(alpha = 0.85f)
+                        color = secondaryTextColor
                     )
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clip(RoundedCornerShape(10.dp))
-                            .background(ParchmentBeige)
+                            .background(containerBoxBg)
                             .border(1.5.dp, ParchmentGold, RoundedCornerShape(10.dp))
                             .padding(14.dp),
                         contentAlignment = Alignment.Center
@@ -446,7 +461,7 @@ private fun InteractiveQuestionCard(
                             text = question.questionText,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold,
-                            color = ManuscriptDeepBrown,
+                            color = primaryTextColor,
                             textAlign = TextAlign.Center
                         )
                     }
@@ -456,14 +471,14 @@ private fun InteractiveQuestionCard(
                         text = "Eksik harf / hareke / transliterasyon eşleşmesi:",
                         fontSize = 13.sp,
                         fontWeight = FontWeight.SemiBold,
-                        color = ManuscriptDeepBrown.copy(alpha = 0.85f)
+                        color = secondaryTextColor
                     )
                     question.questionArabic?.let { arabicText ->
                         Box(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clip(RoundedCornerShape(10.dp))
-                                .background(ParchmentBeige)
+                                .background(containerBoxBg)
                                 .border(1.5.dp, ParchmentGold, RoundedCornerShape(10.dp))
                                 .padding(14.dp),
                             contentAlignment = Alignment.Center
@@ -473,7 +488,7 @@ private fun InteractiveQuestionCard(
                                 fontFamily = FontFamily.Serif,
                                 fontSize = 30.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = ManuscriptDeepBrown,
+                                color = primaryTextColor,
                                 textAlign = TextAlign.Center
                             )
                         }
@@ -482,7 +497,7 @@ private fun InteractiveQuestionCard(
                         text = question.questionText,
                         fontSize = 15.sp,
                         fontWeight = FontWeight.Bold,
-                        color = ManuscriptDeepBrown
+                        color = primaryTextColor
                     )
                 }
             }
@@ -502,15 +517,15 @@ private fun InteractiveQuestionCard(
                 val borderColor = when {
                     isSubmitted && isCorrectOption -> EmeraldManuscript
                     isSubmitted && isSelected && !isCorrectOption -> RubyManuscript
-                    isSelected -> ManuscriptDeepBrown
+                    isSelected -> if (isDark) ParchmentGold else ManuscriptDeepBrown
                     else -> ParchmentGold.copy(alpha = 0.6f)
                 }
 
                 val containerColor = when {
-                    isSubmitted && isCorrectOption -> EmeraldManuscript.copy(alpha = 0.15f)
-                    isSubmitted && isSelected && !isCorrectOption -> RubyManuscript.copy(alpha = 0.15f)
-                    isSelected -> ParchmentBeige
-                    else -> ParchmentCardBg
+                    isSubmitted && isCorrectOption -> EmeraldManuscript.copy(alpha = if (isDark) 0.3f else 0.15f)
+                    isSubmitted && isSelected && !isCorrectOption -> RubyManuscript.copy(alpha = if (isDark) 0.3f else 0.15f)
+                    isSelected -> if (isDark) ParchmentContainerDark else ParchmentBeige
+                    else -> if (isDark) MaterialTheme.colorScheme.surface else ParchmentCardBg
                 }
 
                 Card(
@@ -540,8 +555,8 @@ private fun InteractiveQuestionCard(
                                 selected = isSelected,
                                 onClick = { if (!isSubmitted) onSelectOption(index) },
                                 colors = RadioButtonDefaults.colors(
-                                    selectedColor = ManuscriptDeepBrown,
-                                    unselectedColor = ParchmentGold
+                                    selectedColor = if (isDark) ParchmentGold else ManuscriptDeepBrown,
+                                    unselectedColor = if (isDark) ParchmentGoldLight.copy(alpha = 0.6f) else ParchmentGold
                                 )
                             )
                             Spacer(modifier = Modifier.width(8.dp))
@@ -550,7 +565,12 @@ private fun InteractiveQuestionCard(
                                 fontFamily = if (questionType == QuestionType.TURKISH_TO_ARABIC) FontFamily.Serif else FontFamily.Default,
                                 fontSize = if (questionType == QuestionType.TURKISH_TO_ARABIC) 18.sp else 15.sp,
                                 fontWeight = if (isSelected || (isSubmitted && isCorrectOption)) FontWeight.Bold else FontWeight.Medium,
-                                color = ManuscriptDeepBrown
+                                color = when {
+                                    isSubmitted && isCorrectOption -> if (isDark) GoldAccent else EmeraldManuscript
+                                    isSubmitted && isSelected && !isCorrectOption -> if (isDark) Color(0xFFFF8A80) else RubyManuscript
+                                    isSelected -> if (isDark) ParchmentTextGold else ManuscriptDeepBrown
+                                    else -> primaryTextColor
+                                }
                             )
                         }
 
@@ -559,14 +579,14 @@ private fun InteractiveQuestionCard(
                                 Icon(
                                     imageVector = Icons.Rounded.CheckCircle,
                                     contentDescription = "Doğru",
-                                    tint = EmeraldManuscript,
+                                    tint = if (isDark) GoldAccent else EmeraldManuscript,
                                     modifier = Modifier.size(24.dp)
                                 )
                             } else if (isSelected && !isCorrectOption) {
                                 Icon(
                                     imageVector = Icons.Rounded.Cancel,
                                     contentDescription = "Yanlış",
-                                    tint = RubyManuscript,
+                                    tint = if (isDark) Color(0xFFFF8A80) else RubyManuscript,
                                     modifier = Modifier.size(24.dp)
                                 )
                             }
@@ -578,12 +598,16 @@ private fun InteractiveQuestionCard(
             // Animated Instant Feedback Banner Card
             if (isSubmitted) {
                 val correct = isCorrect == true
+                val feedbackBg = if (correct) EmeraldManuscript.copy(alpha = if (isDark) 0.3f else 0.15f) else RubyManuscript.copy(alpha = if (isDark) 0.3f else 0.15f)
+                val feedbackBorder = if (correct) (if (isDark) GoldAccent else EmeraldManuscript) else (if (isDark) Color(0xFFFF8A80) else RubyManuscript)
+                val feedbackTitleColor = if (correct) (if (isDark) GoldAccent else EmeraldManuscript) else (if (isDark) Color(0xFFFF8A80) else RubyManuscript)
+
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(10.dp))
-                        .background(if (correct) EmeraldManuscript.copy(alpha = 0.15f) else RubyManuscript.copy(alpha = 0.15f))
-                        .border(1.dp, if (correct) EmeraldManuscript else RubyManuscript, RoundedCornerShape(10.dp))
+                        .background(feedbackBg)
+                        .border(1.dp, feedbackBorder, RoundedCornerShape(10.dp))
                         .padding(12.dp)
                 ) {
                     Column {
@@ -591,7 +615,7 @@ private fun InteractiveQuestionCard(
                             Icon(
                                 imageVector = if (correct) Icons.Rounded.CheckCircle else Icons.Rounded.Cancel,
                                 contentDescription = null,
-                                tint = if (correct) EmeraldManuscript else RubyManuscript,
+                                tint = feedbackTitleColor,
                                 modifier = Modifier.size(20.dp)
                             )
                             Spacer(modifier = Modifier.width(6.dp))
@@ -599,7 +623,7 @@ private fun InteractiveQuestionCard(
                                 text = if (correct) "Harika! Doğru Cevap (+10 XP)" else "Yanlış Cevap! (-1 Can)",
                                 fontSize = 14.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = if (correct) EmeraldManuscript else RubyManuscript
+                                color = feedbackTitleColor
                             )
                         }
                         question.explanation?.let { explanationText ->
@@ -607,7 +631,7 @@ private fun InteractiveQuestionCard(
                                 text = explanationText,
                                 fontSize = 12.sp,
                                 fontWeight = FontWeight.Medium,
-                                color = ManuscriptDeepBrown,
+                                color = primaryTextColor,
                                 modifier = Modifier.padding(top = 4.dp)
                             )
                         }
@@ -628,6 +652,10 @@ private fun QuizCelebrationSection(
     onReturnToDashboard: () -> Unit
 ) {
     val scorePercent = if (totalQuestions > 0) (score * 100) / totalQuestions else 0
+    val isDark = isSystemInDarkTheme()
+    val primaryTextColor = if (isDark) ParchmentTextLight else ManuscriptDeepBrown
+    val accentTextColor = if (isDark) GoldAccent else EmeraldManuscript
+    val containerBoxBg = if (isDark) ParchmentContainerDark else ParchmentBeige
 
     ParchmentCard(
         modifier = Modifier.fillMaxWidth(),
@@ -642,7 +670,7 @@ private fun QuizCelebrationSection(
                 modifier = Modifier
                     .size(80.dp)
                     .clip(CircleShape)
-                    .background(ManuscriptDeepBrown)
+                    .background(if (isDark) ParchmentContainerDark else ManuscriptDeepBrown)
                     .border(2.dp, ParchmentGold, CircleShape),
                 contentAlignment = Alignment.Center
             ) {
@@ -657,7 +685,7 @@ private fun QuizCelebrationSection(
             Text(
                 text = "Tebrikler! Günlük Test Tamamlandı! 🎉",
                 style = MaterialTheme.typography.titleLarge,
-                color = ManuscriptDeepBrown,
+                color = primaryTextColor,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center
             )
@@ -667,7 +695,7 @@ private fun QuizCelebrationSection(
                 modifier = Modifier
                     .fillMaxWidth()
                     .clip(RoundedCornerShape(12.dp))
-                    .background(ParchmentBeige)
+                    .background(containerBoxBg)
                     .border(1.5.dp, ParchmentGold, RoundedCornerShape(12.dp))
                     .padding(16.dp)
             ) {
@@ -679,32 +707,32 @@ private fun QuizCelebrationSection(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Text("Başarı Puanı:", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = ManuscriptDeepBrown)
-                        Text("%$scorePercent ($score/$totalQuestions)", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = EmeraldManuscript)
+                        Text("Başarı Puanı:", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = primaryTextColor)
+                        Text("%$scorePercent ($score/$totalQuestions)", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = accentTextColor)
                     }
 
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Text("Kazanılan XP:", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = ManuscriptDeepBrown)
-                        Text("+$totalXpGained XP", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = EmeraldManuscript)
+                        Text("Kazanılan XP:", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = primaryTextColor)
+                        Text("+$totalXpGained XP", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = accentTextColor)
                     }
 
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Text("Günlük Seri:", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = ManuscriptDeepBrown)
-                        Text("🔥 ${userStats.currentStreak} Gün Seri", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = ManuscriptDeepBrown)
+                        Text("Günlük Seri:", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = primaryTextColor)
+                        Text("🔥 ${userStats.currentStreak} Gün Seri", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = primaryTextColor)
                     }
 
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Text("Mevcut Seviye Unvanı:", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = ManuscriptDeepBrown)
-                        Text(userStats.currentLevel.fullDisplayTitle, fontSize = 13.sp, fontWeight = FontWeight.Bold, color = EmeraldManuscript)
+                        Text("Mevcut Seviye Unvanı:", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = primaryTextColor)
+                        Text(userStats.currentLevel.fullDisplayTitle, fontSize = 13.sp, fontWeight = FontWeight.Bold, color = accentTextColor)
                     }
                 }
             }
@@ -716,7 +744,7 @@ private fun QuizCelebrationSection(
                 Button(
                     onClick = onPlayAgain,
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = ManuscriptDeepBrown,
+                        containerColor = if (isDark) ParchmentContainerDark else ManuscriptDeepBrown,
                         contentColor = ParchmentTextLight
                     ),
                     shape = RoundedCornerShape(10.dp),
@@ -761,6 +789,9 @@ private fun GameOverSection(
     onTryAgain: () -> Unit,
     onReturnToDashboard: () -> Unit
 ) {
+    val isDark = isSystemInDarkTheme()
+    val primaryTextColor = if (isDark) ParchmentTextLight else ManuscriptDeepBrown
+
     ParchmentCard(
         modifier = Modifier.fillMaxWidth(),
         elevation = 6.dp
@@ -774,14 +805,14 @@ private fun GameOverSection(
                 modifier = Modifier
                     .size(80.dp)
                     .clip(CircleShape)
-                    .background(ManuscriptDeepBrown)
+                    .background(if (isDark) ParchmentContainerDark else ManuscriptDeepBrown)
                     .border(2.dp, RubyManuscript, CircleShape),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = Icons.Rounded.SentimentVeryDissatisfied,
                     contentDescription = null,
-                    tint = RubyManuscript,
+                    tint = if (isDark) Color(0xFFFF8A80) else RubyManuscript,
                     modifier = Modifier.size(48.dp)
                 )
             }
@@ -789,7 +820,7 @@ private fun GameOverSection(
             Text(
                 text = "Canlarınız Bitti! 💔",
                 style = MaterialTheme.typography.titleLarge,
-                color = RubyManuscript,
+                color = if (isDark) Color(0xFFFF8A80) else RubyManuscript,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center
             )
@@ -798,7 +829,7 @@ private fun GameOverSection(
                 text = "Doğru Sayısı: $score / $totalQuestions\nÜzülmeyin! Doğru cevapları gözden geçirip tekrar deneyerek kelimeleri pekiştirebilirsiniz.",
                 fontSize = 13.sp,
                 fontWeight = FontWeight.Medium,
-                color = ManuscriptDeepBrown,
+                color = primaryTextColor,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = 8.dp)
             )
@@ -828,7 +859,7 @@ private fun GameOverSection(
                 Button(
                     onClick = onReturnToDashboard,
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = ManuscriptDeepBrown,
+                        containerColor = if (isDark) ParchmentContainerDark else ManuscriptDeepBrown,
                         contentColor = ParchmentTextLight
                     ),
                     shape = RoundedCornerShape(10.dp),

@@ -21,7 +21,7 @@ val ParchmentContainerDark = Color(0xFF423326)
 
 // High-Contrast Text Colors for Dark Brown & Gold Surfaces
 val ParchmentTextLight = Color(0xFFFFFDF7) // Bright cream
-val ParchmentTextGold = Color(0xFFFFE082) // Bright gold
+val ParchmentTextGold = Color(0xFFC5A059) // Bright gold
 val ParchmentTextWhite = Color(0xFFFFFFFF) // Pure white
 
 // Dark Theme Manuscript Colors

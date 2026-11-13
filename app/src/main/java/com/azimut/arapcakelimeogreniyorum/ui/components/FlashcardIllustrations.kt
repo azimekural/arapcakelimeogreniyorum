@@ -13,24 +13,44 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.AltRoute
+import androidx.compose.material.icons.automirrored.rounded.MenuBook
+import androidx.compose.material.icons.rounded.AcUnit
 import androidx.compose.material.icons.rounded.AccountCircle
+import androidx.compose.material.icons.rounded.Air
+import androidx.compose.material.icons.rounded.AltRoute
 import androidx.compose.material.icons.rounded.AutoAwesome
+import androidx.compose.material.icons.rounded.Backpack
+import androidx.compose.material.icons.rounded.Badge
+import androidx.compose.material.icons.rounded.Bathroom
+import androidx.compose.material.icons.rounded.Bed
 import androidx.compose.material.icons.rounded.Book
 import androidx.compose.material.icons.rounded.Call
 import androidx.compose.material.icons.rounded.Chair
+import androidx.compose.material.icons.rounded.Cloud
 import androidx.compose.material.icons.rounded.DoorFront
+import androidx.compose.material.icons.rounded.Dry
 import androidx.compose.material.icons.rounded.Edit
 import androidx.compose.material.icons.rounded.FormatListNumbered
 import androidx.compose.material.icons.rounded.Home
-import androidx.compose.material.icons.rounded.Mosque
 import androidx.compose.material.icons.rounded.MenuBook
+import androidx.compose.material.icons.rounded.Mosque
+import androidx.compose.material.icons.rounded.People
+import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material.icons.rounded.Pets
 import androidx.compose.material.icons.rounded.Schedule
+import androidx.compose.material.icons.rounded.School
+import androidx.compose.material.icons.rounded.Soap
 import androidx.compose.material.icons.rounded.TableRestaurant
+import androidx.compose.material.icons.rounded.Thermostat
+import androidx.compose.material.icons.rounded.TouchApp
+import androidx.compose.material.icons.rounded.WaterDrop
+import androidx.compose.material.icons.rounded.WbSunny
+import androidx.compose.material.icons.rounded.Wc
 import androidx.compose.material.icons.rounded.Window
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -80,72 +100,102 @@ fun FlashcardIllustration(
 
         when {
             // Mosque / Prayer / Worship
-            name.contains("prayer") || cat.contains("ibadet") || name.contains("mosque") -> {
+            name.contains("prayer") || cat.contains("ibadet") || cat.contains("dini") || name.contains("mosque") -> {
                 MosqueIllustration()
             }
-            // Book
-            name.contains("book") || arabicText.contains("كِتَاب") -> {
-                ManuscriptIconIllustration(Icons.Rounded.Book, "كِتَاب", EmeraldManuscript)
+
+            // Family Members
+            cat.contains("aile") || name.contains("family") -> {
+                ManuscriptIconIllustration(Icons.Rounded.People, "عَائِلَة", EmeraldManuscript)
             }
-            // Pen
-            name.contains("pen") || arabicText.contains("قَلَم") -> {
-                ManuscriptIconIllustration(Icons.Rounded.Edit, "قَلَم", ManuscriptDeepBrown)
+
+            // Weather
+            cat.contains("hava") || name.contains("weather") -> {
+                when {
+                    arabicText.contains("شَمْس") -> ManuscriptIconIllustration(Icons.Rounded.WbSunny, "شَمْس", GoldAccent)
+                    arabicText.contains("مَطَر") -> ManuscriptIconIllustration(Icons.Rounded.WaterDrop, "مَطَر", EmeraldManuscript)
+                    arabicText.contains("ثَلْج") -> ManuscriptIconIllustration(Icons.Rounded.AcUnit, "ثَلْج", GoldAccent)
+                    arabicText.contains("سَحَاب") || arabicText.contains("غَائِم") -> ManuscriptIconIllustration(Icons.Rounded.Cloud, "سَحَاب", ManuscriptDeepBrown)
+                    arabicText.contains("رِيح") -> ManuscriptIconIllustration(Icons.Rounded.Air, "رِيح", EmeraldManuscript)
+                    else -> ManuscriptIconIllustration(Icons.Rounded.Thermostat, "طَقْس", GoldAccent)
+                }
             }
-            // House / Door / Furniture / Objects
-            name.contains("house") -> {
-                ManuscriptIconIllustration(Icons.Rounded.Home, "بَيْت", ManuscriptDeepBrown)
+
+            // School & Education
+            cat.contains("okul") || cat.contains("eğitim") || name.contains("school") -> {
+                when {
+                    arabicText.contains("كِتَاب") || arabicText.contains("دَفْتَر") || arabicText.contains("مَكْتَبَة") ->
+                        ManuscriptIconIllustration(Icons.AutoMirrored.Rounded.MenuBook, arabicText, EmeraldManuscript)
+                    arabicText.contains("قَلَم") -> ManuscriptIconIllustration(Icons.Rounded.Edit, "قَلَم", ManuscriptDeepBrown)
+                    arabicText.contains("حَقِيبَة") -> ManuscriptIconIllustration(Icons.Rounded.Backpack, "حَقِيبَة", ManuscriptDeepBrown)
+                    else -> ManuscriptIconIllustration(Icons.Rounded.School, "مَدْرَسَة", EmeraldManuscript)
+                }
             }
-            name.contains("door") -> {
-                ManuscriptIconIllustration(Icons.Rounded.DoorFront, "بَاب", ParchmentGold)
+
+            // Restroom & Daily Needs
+            cat.contains("temizlik") || cat.contains("ihtiyaç") || cat.contains("tuvalet") || name.contains("restroom") -> {
+                when {
+                    arabicText.contains("حَمَّام") -> ManuscriptIconIllustration(Icons.Rounded.Wc, "حَمَّام", ManuscriptDeepBrown)
+                    arabicText.contains("مَاء") -> ManuscriptIconIllustration(Icons.Rounded.WaterDrop, "مَاء", EmeraldManuscript)
+                    arabicText.contains("صَابُون") -> ManuscriptIconIllustration(Icons.Rounded.Soap, "صَابُون", GoldAccent)
+                    arabicText.contains("مِنْشَفَة") -> ManuscriptIconIllustration(Icons.Rounded.Dry, "مِنْشَفَة", ManuscriptDeepBrown)
+                    else -> ManuscriptIconIllustration(Icons.Rounded.Bathroom, arabicText, EmeraldManuscript)
+                }
             }
-            name.contains("table") -> {
-                ManuscriptIconIllustration(Icons.Rounded.TableRestaurant, "طَاوِلَة", ManuscriptDeepBrown)
+
+            // Prepositions
+            cat.contains("edat") || name.contains("prep") -> {
+                ManuscriptIconIllustration(Icons.AutoMirrored.Rounded.AltRoute, "حَرْفُ جَرّ", GoldAccent)
             }
-            name.contains("chair") -> {
-                ManuscriptIconIllustration(Icons.Rounded.Chair, "كُرْسِيّ", ManuscriptDeepBrown)
+
+            // Pronouns
+            cat.contains("zamir") || name.contains("pronoun") -> {
+                if (cat.contains("işaret")) {
+                    ManuscriptIconIllustration(Icons.Rounded.TouchApp, arabicText, GoldAccent)
+                } else {
+                    ManuscriptIconIllustration(Icons.Rounded.Person, arabicText, EmeraldManuscript)
+                }
             }
-            name.contains("window") -> {
-                ManuscriptIconIllustration(Icons.Rounded.Window, "نَافِذَة", EmeraldManuscript)
+
+            // Ages & Personal Details
+            cat.contains("yaş") || cat.contains("kişisel") || name.contains("age") -> {
+                ManuscriptIconIllustration(Icons.Rounded.Badge, arabicText, GoldAccent)
             }
-            name.contains("phone") -> {
-                ManuscriptIconIllustration(Icons.Rounded.Call, "هَاتِف", ManuscriptDeepBrown)
-            }
-            name.contains("clock") -> {
-                ManuscriptIconIllustration(Icons.Rounded.Schedule, "سَاعَة", GoldAccent)
-            }
-            // Animals (Cat, Dog, Camel, Lion, Bird, Fish, Elephant)
-            name.contains("lion") -> {
-                AnimalIllustration("أسَد", "🦁")
-            }
-            name.contains("cat") -> {
-                AnimalIllustration("قِطّ", "🐱")
-            }
-            name.contains("dog") -> {
-                AnimalIllustration("كَلْب", "🐶")
-            }
-            name.contains("camel") -> {
-                AnimalIllustration("جَمَل", "🐪")
-            }
-            name.contains("bird") -> {
-                AnimalIllustration("طَائِر", "🐦")
-            }
-            name.contains("fish") -> {
-                AnimalIllustration("سَمَك", "🐟")
-            }
-            name.contains("elephant") -> {
-                AnimalIllustration("فِيل", "🐘")
-            }
-            name.contains("pet") || cat.contains("hayvan") -> {
-                ManuscriptIconIllustration(Icons.Rounded.Pets, "حَيَوَان", ManuscriptDeepBrown)
-            }
+
             // Numbers
             name.contains("number") || cat.contains("sayı") -> {
                 ManuscriptIconIllustration(Icons.Rounded.FormatListNumbered, arabicText, ParchmentGold)
             }
+
+            // House & Objects
+            cat.contains("ev") || cat.contains("eşya") || name.contains("house") || name.contains("door") || name.contains("table") || name.contains("chair") || name.contains("window") || name.contains("phone") -> {
+                when {
+                    name.contains("door") || arabicText.contains("بَاب") -> ManuscriptIconIllustration(Icons.Rounded.DoorFront, "بَاب", ParchmentGold)
+                    name.contains("window") || arabicText.contains("نَافِذَة") -> ManuscriptIconIllustration(Icons.Rounded.Window, "نَافِذَة", EmeraldManuscript)
+                    name.contains("table") || arabicText.contains("طَاوِلَة") -> ManuscriptIconIllustration(Icons.Rounded.TableRestaurant, "طَاوِلَة", ManuscriptDeepBrown)
+                    name.contains("chair") || arabicText.contains("كُرْسِيّ") -> ManuscriptIconIllustration(Icons.Rounded.Chair, "كُرْسِيّ", ManuscriptDeepBrown)
+                    name.contains("phone") || arabicText.contains("هَاتِف") -> ManuscriptIconIllustration(Icons.Rounded.Call, "هَاتِف", ManuscriptDeepBrown)
+                    arabicText.contains("سَرِير") -> ManuscriptIconIllustration(Icons.Rounded.Bed, "سَرِير", ManuscriptDeepBrown)
+                    else -> ManuscriptIconIllustration(Icons.Rounded.Home, "بَيْت", ManuscriptDeepBrown)
+                }
+            }
+
+            // Animals
+            name.contains("lion") || arabicText.contains("أَسَد") -> AnimalIllustration("أسَد", "🦁")
+            name.contains("cat") || arabicText.contains("قِطّ") -> AnimalIllustration("قِطّ", "🐱")
+            name.contains("dog") || arabicText.contains("كَلْب") -> AnimalIllustration("كَلْب", "🐶")
+            name.contains("camel") || arabicText.contains("جَمَل") -> AnimalIllustration("جَمَل", "🐪")
+            name.contains("bird") || arabicText.contains("طَائِر") -> AnimalIllustration("طَائِر", "🐦")
+            name.contains("fish") || arabicText.contains("سَمَك") -> AnimalIllustration("سَمَك", "🐟")
+            name.contains("elephant") || arabicText.contains("فِيل") -> AnimalIllustration("فِيل", "🐘")
+            name.contains("horse") || arabicText.contains("حِصَان") -> AnimalIllustration("حِصَان", "🐎")
+            name.contains("pet") || cat.contains("hayvan") -> ManuscriptIconIllustration(Icons.Rounded.Pets, "حَيَوَان", ManuscriptDeepBrown)
+
             // Phrases / Greetings
-            name.contains("phrase") || cat.contains("selam") || cat.contains("cümle") -> {
+            name.contains("phrase") || cat.contains("selam") || cat.contains("cümle") || cat.contains("günlük") -> {
                 GreetingIllustration(arabicText)
             }
+
             // Default Manuscript Shamsa motif
             else -> {
                 DefaultManuscriptIllustration(arabicText)
@@ -343,7 +393,7 @@ fun FlashcardIllustrationPreview() {
         Surface {
             FlashcardIllustration(
                 imageName = "book",
-                category = "Okul",
+                category = "Okul & Eğitim",
                 arabicText = "كِتَاب",
                 modifier = Modifier.padding(16.dp)
             )

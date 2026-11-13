@@ -16,7 +16,7 @@ data class FlashcardUiState(
     val cards: List<VocabularyEntity> = emptyList(),
     val currentIndex: Int = 0,
     val isFlipped: Boolean = false,
-    val selectedCategory: String = "Tümü",
+    val selectedCategory: String = "Tüm Kategori",
     val categories: List<String> = emptyList(),
     val searchQuery: String = "",
     val isLoading: Boolean = false
@@ -31,7 +31,7 @@ class FlashcardViewModel(
 
     private val _currentIndex = MutableStateFlow(0)
     private val _isFlipped = MutableStateFlow(false)
-    private val _selectedCategory = MutableStateFlow("Tümü")
+    private val _selectedCategory = MutableStateFlow("Tüm Kategori")
     private val _searchQuery = MutableStateFlow("")
 
     val uiState: StateFlow<FlashcardUiState> = combine(
@@ -42,9 +42,9 @@ class FlashcardViewModel(
         repository.getAllVocabularyCategories()
     ) { params, vocabularyList, dbCategories ->
 
-        val allCategories = listOf("Tümü") + dbCategories
+        val allCategories = listOf("Tüm Kategori") + dbCategories
 
-        val filteredByCategory = if (params.category == "Tümü") vocabularyList else {
+        val filteredByCategory = if (params.category == "Tüm Kategori" || params.category == "Tümü") vocabularyList else {
             vocabularyList.filter { it.category.equals(params.category, ignoreCase = true) }
         }
 

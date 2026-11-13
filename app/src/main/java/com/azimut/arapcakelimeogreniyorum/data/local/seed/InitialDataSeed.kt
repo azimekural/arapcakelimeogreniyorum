@@ -525,13 +525,13 @@ object InitialDataSeed {
     )
 
     val vocabularyList = listOf(
-        // Daily Phrases
+        // 1. Günlük Konuşma (Daily Conversation)
         VocabularyEntity(
             id = 1,
             arabicText = "مَا اسْمُكَ؟",
             turkishMeaning = "Senin adın ne?",
             transliteration = "Mā ismuke?",
-            category = "Daily Phrases",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
             genderNote = "Erkeklere hitap ederken",
             imageResourceName = "ic_phrase",
@@ -542,7 +542,7 @@ object InitialDataSeed {
             arabicText = "مَا اسْمُكِ؟",
             turkishMeaning = "Senin adın ne?",
             transliteration = "Mā ismuki?",
-            category = "Daily Phrases",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
             genderNote = "Kadınlara hitap ederken",
             imageResourceName = "ic_phrase",
@@ -553,7 +553,7 @@ object InitialDataSeed {
             arabicText = "كَيْفَ حَالُكَ؟",
             turkishMeaning = "Nasılsın?",
             transliteration = "Kaifa ḥāluk?",
-            category = "Daily Phrases",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
             genderNote = "Erkeklere hitap ederken",
             imageResourceName = "ic_phrase",
@@ -564,7 +564,7 @@ object InitialDataSeed {
             arabicText = "كَيْفَ حَالُكِ؟",
             turkishMeaning = "Nasılsın?",
             transliteration = "Kaifa ḥāluki?",
-            category = "Daily Phrases",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
             genderNote = "Kadınlara hitap ederken",
             imageResourceName = "ic_phrase",
@@ -575,7 +575,7 @@ object InitialDataSeed {
             arabicText = "أَنَا بِخَيْرٍ",
             turkishMeaning = "İyiyim",
             transliteration = "Ana bikhair",
-            category = "Daily Phrases",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
             imageResourceName = "ic_phrase",
             audioResourceName = "audio_ana_bikhair"
@@ -585,7 +585,7 @@ object InitialDataSeed {
             arabicText = "شُكْرًا",
             turkishMeaning = "Teşekkür ederim",
             transliteration = "Shukran",
-            category = "Daily Phrases",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
             imageResourceName = "ic_phrase",
             audioResourceName = "audio_shukran"
@@ -595,7 +595,7 @@ object InitialDataSeed {
             arabicText = "عَفْوًا",
             turkishMeaning = "Rica ederim / Özür dilerim",
             transliteration = "Afwan",
-            category = "Daily Phrases",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
             imageResourceName = "ic_phrase",
             audioResourceName = "audio_afwan"
@@ -605,7 +605,7 @@ object InitialDataSeed {
             arabicText = "أَهْلًا وَسَهْلًا",
             turkishMeaning = "Hoş geldiniz",
             transliteration = "Ahlan wa sahlan",
-            category = "Daily Phrases",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
             imageResourceName = "ic_phrase",
             audioResourceName = "audio_ahlan"
@@ -615,7 +615,7 @@ object InitialDataSeed {
             arabicText = "مَعَ السَّلَامَةِ",
             turkishMeaning = "Güle güle / Selametle",
             transliteration = "Ma'as-salāmah",
-            category = "Daily Phrases",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
             imageResourceName = "ic_phrase",
             audioResourceName = "audio_ma_assalamah"
@@ -625,7 +625,7 @@ object InitialDataSeed {
             arabicText = "صَبَاحُ الْخَيْرِ",
             turkishMeaning = "Günaydın",
             transliteration = "Sabāḥ al-khair",
-            category = "Daily Phrases",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
             imageResourceName = "ic_phrase",
             audioResourceName = "audio_sabah_al_khair"
@@ -635,7 +635,7 @@ object InitialDataSeed {
             arabicText = "صَبَاحُ النُّورِ",
             turkishMeaning = "Günaydın (Yanıt)",
             transliteration = "Sabāḥ an-nūr",
-            category = "Daily Phrases",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
             imageResourceName = "ic_phrase",
             audioResourceName = "audio_sabah_an_nur"
@@ -645,159 +645,602 @@ object InitialDataSeed {
             arabicText = "مَسَاءُ الْخَيْرِ",
             turkishMeaning = "İyi akşamlar",
             transliteration = "Masā' al-khair",
-            category = "Daily Phrases",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
             imageResourceName = "ic_phrase",
             audioResourceName = "audio_masaa_al_khair"
         ),
-
-        // Prayer Terms
         VocabularyEntity(
             id = 13,
-            arabicText = "صَلَاةُ الْعِشَاءِ",
-            turkishMeaning = "Yatsı Namazı",
-            transliteration = "Salâtü'l-İşâ",
-            category = "Prayer Terms",
-            difficultyLevel = 2,
-            imageResourceName = "ic_prayer",
-            audioResourceName = "audio_salat_al_isha"
+            arabicText = "مَسَاءُ النُّورِ",
+            turkishMeaning = "İyi akşamlar (Yanıt)",
+            transliteration = "Masā' an-nūr",
+            category = "Günlük Konuşma",
+            difficultyLevel = 1,
+            imageResourceName = "ic_phrase",
+            audioResourceName = "audio_masaa_an_nur"
         ),
         VocabularyEntity(
             id = 14,
-            arabicText = "صَلَاةُ الْفَجْرِ",
-            turkishMeaning = "Sabah Namazı",
-            transliteration = "Salâtü'l-Fajr",
-            category = "Prayer Terms",
-            difficultyLevel = 2,
-            imageResourceName = "ic_prayer",
-            audioResourceName = "audio_salat_al_fajr"
+            arabicText = "لَيْلَةٌ سَعِيدَةٌ",
+            turkishMeaning = "İyi geceler",
+            transliteration = "Lailatun sa'īdah",
+            category = "Günlük Konuşma",
+            difficultyLevel = 1,
+            imageResourceName = "ic_phrase",
+            audioResourceName = "audio_lailah_saidah"
         ),
         VocabularyEntity(
             id = 15,
-            arabicText = "صَلَاةُ الظُّهْرِ",
-            turkishMeaning = "Öğle Namazı",
-            transliteration = "Salâtü'z-Zuhr",
-            category = "Prayer Terms",
-            difficultyLevel = 2,
-            imageResourceName = "ic_prayer",
-            audioResourceName = "audio_salat_az_zuhr"
+            arabicText = "مَرْحَبًا",
+            turkishMeaning = "Merhaba",
+            transliteration = "Marḥaban",
+            category = "Günlük Konuşma",
+            difficultyLevel = 1,
+            imageResourceName = "ic_phrase",
+            audioResourceName = "audio_marhaban"
         ),
         VocabularyEntity(
             id = 16,
-            arabicText = "صَلَاةُ الْعَصْرِ",
-            turkishMeaning = "İkindi Namazı",
-            transliteration = "Salâtü'l-Aṣr",
-            category = "Prayer Terms",
-            difficultyLevel = 2,
-            imageResourceName = "ic_prayer",
-            audioResourceName = "audio_salat_al_asr"
+            arabicText = "نَعَمْ",
+            turkishMeaning = "Evet",
+            transliteration = "Na'am",
+            category = "Günlük Konuşma",
+            difficultyLevel = 1,
+            imageResourceName = "ic_phrase",
+            audioResourceName = "audio_naam"
         ),
         VocabularyEntity(
             id = 17,
-            arabicText = "صَلَاةُ الْمَغْرِبِ",
-            turkishMeaning = "Akşam Namazı",
-            transliteration = "Salâtü'l-Maghrib",
-            category = "Prayer Terms",
-            difficultyLevel = 2,
-            imageResourceName = "ic_prayer",
-            audioResourceName = "audio_salat_al_maghrib"
+            arabicText = "لَا",
+            turkishMeaning = "Hayır",
+            transliteration = "Lā",
+            category = "Günlük Konuşma",
+            difficultyLevel = 1,
+            imageResourceName = "ic_phrase",
+            audioResourceName = "audio_la"
         ),
         VocabularyEntity(
             id = 18,
-            arabicText = "وُضُوء",
-            turkishMeaning = "Abdest",
-            transliteration = "Wuḍū'",
-            category = "Prayer Terms",
+            arabicText = "مِنْ فَضْلِكَ",
+            turkishMeaning = "Lütfen",
+            transliteration = "Min faḍlik",
+            category = "Günlük Konuşma",
             difficultyLevel = 1,
-            imageResourceName = "ic_prayer",
-            audioResourceName = "audio_wudu"
+            genderNote = "Erkeklere hitap ederken",
+            imageResourceName = "ic_phrase",
+            audioResourceName = "audio_min_fadlik"
         ),
+
+        // 2. Edatlar (Prepositions)
         VocabularyEntity(
             id = 19,
-            arabicText = "مَسْجِد",
-            turkishMeaning = "Cami / Mescit",
-            transliteration = "Masjid",
-            category = "Prayer Terms",
+            arabicText = "فِي",
+            turkishMeaning = "De / Da / İçinde",
+            transliteration = "Fī",
+            category = "Edatlar",
             difficultyLevel = 1,
-            pluralArabic = "مَسَاجِد",
-            pluralTurkish = "Mescitler",
-            imageResourceName = "ic_prayer",
-            audioResourceName = "audio_masjid"
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_fi"
         ),
         VocabularyEntity(
             id = 20,
-            arabicText = "قِبْلَة",
-            turkishMeaning = "Kıble",
-            transliteration = "Qiblah",
-            category = "Prayer Terms",
+            arabicText = "مِنْ",
+            turkishMeaning = "Den / Dan",
+            transliteration = "Min",
+            category = "Edatlar",
             difficultyLevel = 1,
-            imageResourceName = "ic_prayer",
-            audioResourceName = "audio_qiblah"
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_min"
         ),
         VocabularyEntity(
             id = 21,
-            arabicText = "دُعَاء",
-            turkishMeaning = "Dua",
-            transliteration = "Du'ā'",
-            category = "Prayer Terms",
+            arabicText = "إِلَى",
+            turkishMeaning = "E / A (Yönelme)",
+            transliteration = "Ilā",
+            category = "Edatlar",
             difficultyLevel = 1,
-            imageResourceName = "ic_prayer",
-            audioResourceName = "audio_dua"
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_ila"
         ),
         VocabularyEntity(
             id = 22,
-            arabicText = "أَذَان",
-            turkishMeaning = "Ezan",
-            transliteration = "Adhān",
-            category = "Prayer Terms",
+            arabicText = "عَلَى",
+            turkishMeaning = "Üzerinde / Üstünde",
+            transliteration = "'Alā",
+            category = "Edatlar",
             difficultyLevel = 1,
-            imageResourceName = "ic_prayer",
-            audioResourceName = "audio_adhan"
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_ala"
         ),
-
-        // Everyday Objects
         VocabularyEntity(
             id = 23,
-            arabicText = "كِتَاب",
-            turkishMeaning = "Kitap",
-            transliteration = "Kitāb",
-            category = "Everyday Objects",
+            arabicText = "عَنْ",
+            turkishMeaning = "Hakkında / -den",
+            transliteration = "'An",
+            category = "Edatlar",
             difficultyLevel = 1,
-            pluralArabic = "كُتُب",
-            pluralTurkish = "Kitaplar",
-            imageResourceName = "ic_book",
-            audioResourceName = "audio_kitab"
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_an"
         ),
         VocabularyEntity(
             id = 24,
-            arabicText = "قَلَم",
-            turkishMeaning = "Kalem",
-            transliteration = "Qalam",
-            category = "Everyday Objects",
+            arabicText = "بِـ",
+            turkishMeaning = "İle / Vasıtasıyla",
+            transliteration = "Bi",
+            category = "Edatlar",
             difficultyLevel = 1,
-            pluralArabic = "أَقْلَام",
-            pluralTurkish = "Kalemler",
-            imageResourceName = "ic_pen",
-            audioResourceName = "audio_qalam"
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_bi"
         ),
         VocabularyEntity(
             id = 25,
-            arabicText = "بَاب",
-            turkishMeaning = "Kapı",
-            transliteration = "Bāb",
-            category = "Everyday Objects",
+            arabicText = "لِـ",
+            turkishMeaning = "İçin / Ait",
+            transliteration = "Li",
+            category = "Edatlar",
             difficultyLevel = 1,
-            pluralArabic = "أَبْوَاب",
-            pluralTurkish = "Kapılar",
-            imageResourceName = "ic_door",
-            audioResourceName = "audio_bab"
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_li"
         ),
         VocabularyEntity(
             id = 26,
+            arabicText = "مَعَ",
+            turkishMeaning = "İle / Birlikte",
+            transliteration = "Ma'a",
+            category = "Edatlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_maa"
+        ),
+        VocabularyEntity(
+            id = 27,
+            arabicText = "حَتَّى",
+            turkishMeaning = "-e kadar / Hatta",
+            transliteration = "Ḥattā",
+            category = "Edatlar",
+            difficultyLevel = 2,
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_hatta"
+        ),
+        VocabularyEntity(
+            id = 28,
+            arabicText = "أَمَامَ",
+            turkishMeaning = "Önünde",
+            transliteration = "Amāma",
+            category = "Edatlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_amama"
+        ),
+        VocabularyEntity(
+            id = 29,
+            arabicText = "خَلْفَ",
+            turkishMeaning = "Arkasında",
+            transliteration = "Khalfa",
+            category = "Edatlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_khalfa"
+        ),
+        VocabularyEntity(
+            id = 30,
+            arabicText = "تَحْتَ",
+            turkishMeaning = "Altında",
+            transliteration = "Taḥta",
+            category = "Edatlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_tahta"
+        ),
+        VocabularyEntity(
+            id = 31,
+            arabicText = "فَوْقَ",
+            turkishMeaning = "Üstünde / Üzerinde",
+            transliteration = "Fawqa",
+            category = "Edatlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_fawqa"
+        ),
+        VocabularyEntity(
+            id = 32,
+            arabicText = "بَيْنَ",
+            turkishMeaning = "Arasında",
+            transliteration = "Baina",
+            category = "Edatlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_prep",
+            audioResourceName = "audio_baina"
+        ),
+
+        // 3. Şahıs Zamirleri (Personal Pronouns)
+        VocabularyEntity(
+            id = 33,
+            arabicText = "أَنَا",
+            turkishMeaning = "Ben",
+            transliteration = "Ana",
+            category = "Şahıs Zamirleri",
+            difficultyLevel = 1,
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_ana"
+        ),
+        VocabularyEntity(
+            id = 34,
+            arabicText = "أَنْتَ",
+            turkishMeaning = "Sen",
+            transliteration = "Anta",
+            category = "Şahıs Zamirleri",
+            difficultyLevel = 1,
+            genderNote = "Erkek için",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_anta"
+        ),
+        VocabularyEntity(
+            id = 35,
+            arabicText = "أَنْتِ",
+            turkishMeaning = "Sen",
+            transliteration = "Anti",
+            category = "Şahıs Zamirleri",
+            difficultyLevel = 1,
+            genderNote = "Kadın için",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_anti"
+        ),
+        VocabularyEntity(
+            id = 36,
+            arabicText = "هُوَ",
+            turkishMeaning = "O",
+            transliteration = "Huwa",
+            category = "Şahıs Zamirleri",
+            difficultyLevel = 1,
+            genderNote = "Erkek için",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_huwa"
+        ),
+        VocabularyEntity(
+            id = 37,
+            arabicText = "هِيَ",
+            turkishMeaning = "O",
+            transliteration = "Hiya",
+            category = "Şahıs Zamirleri",
+            difficultyLevel = 1,
+            genderNote = "Kadın için",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_hiya"
+        ),
+        VocabularyEntity(
+            id = 38,
+            arabicText = "نَحْنُ",
+            turkishMeaning = "Biz",
+            transliteration = "Naḥnu",
+            category = "Şahıs Zamirleri",
+            difficultyLevel = 1,
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_nahnu"
+        ),
+        VocabularyEntity(
+            id = 39,
+            arabicText = "أَنْتُمْ",
+            turkishMeaning = "Siz",
+            transliteration = "Antum",
+            category = "Şahıs Zamirleri",
+            difficultyLevel = 1,
+            genderNote = "Erkek çoğul",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_antum"
+        ),
+        VocabularyEntity(
+            id = 40,
+            arabicText = "أَنْتُنَّ",
+            turkishMeaning = "Siz",
+            transliteration = "Antunna",
+            category = "Şahıs Zamirleri",
+            difficultyLevel = 2,
+            genderNote = "Kadın çoğul",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_antunna"
+        ),
+        VocabularyEntity(
+            id = 41,
+            arabicText = "أَنْتُمَا",
+            turkishMeaning = "İkiniz",
+            transliteration = "Antumā",
+            category = "Şahıs Zamirleri",
+            difficultyLevel = 2,
+            genderNote = "İkil (Eril/Dişil)",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_antuma"
+        ),
+        VocabularyEntity(
+            id = 42,
+            arabicText = "هُمْ",
+            turkishMeaning = "Onlar",
+            transliteration = "Hum",
+            category = "Şahıs Zamirleri",
+            difficultyLevel = 1,
+            genderNote = "Erkek çoğul",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_hum"
+        ),
+        VocabularyEntity(
+            id = 43,
+            arabicText = "هُنَّ",
+            turkishMeaning = "Onlar",
+            transliteration = "Hunna",
+            category = "Şahıs Zamirleri",
+            difficultyLevel = 2,
+            genderNote = "Kadın çoğul",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_hunna"
+        ),
+        VocabularyEntity(
+            id = 44,
+            arabicText = "هُمَا",
+            turkishMeaning = "O ikisi",
+            transliteration = "Humā",
+            category = "Şahıs Zamirleri",
+            difficultyLevel = 2,
+            genderNote = "İkil (Eril/Dişil)",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_huma"
+        ),
+
+        // 4. İşaret Zamirleri (Demonstrative Pronouns)
+        VocabularyEntity(
+            id = 45,
+            arabicText = "هَذَا",
+            turkishMeaning = "Bu",
+            transliteration = "Hādhā",
+            category = "İşaret Zamirleri",
+            difficultyLevel = 1,
+            genderNote = "Eril nesneler/kişiler için",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_hadha"
+        ),
+        VocabularyEntity(
+            id = 46,
+            arabicText = "هَذِهِ",
+            turkishMeaning = "Bu",
+            transliteration = "Hādhihi",
+            category = "İşaret Zamirleri",
+            difficultyLevel = 1,
+            genderNote = "Dişil nesneler/kişiler için",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_hadhihi"
+        ),
+        VocabularyEntity(
+            id = 47,
+            arabicText = "ذَلِكَ",
+            turkishMeaning = "Şu / O",
+            transliteration = "Dhālika",
+            category = "İşaret Zamirleri",
+            difficultyLevel = 1,
+            genderNote = "Uzak eril için",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_dhalika"
+        ),
+        VocabularyEntity(
+            id = 48,
+            arabicText = "تِلْكَ",
+            turkishMeaning = "Şu / O",
+            transliteration = "Tilka",
+            category = "İşaret Zamirleri",
+            difficultyLevel = 1,
+            genderNote = "Uzak dişil için",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_tilka"
+        ),
+        VocabularyEntity(
+            id = 49,
+            arabicText = "هَؤُلَاءِ",
+            turkishMeaning = "Bunlar",
+            transliteration = "Hā'ulā'i",
+            category = "İşaret Zamirleri",
+            difficultyLevel = 1,
+            genderNote = "Çoğul kişiler için",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_haulai"
+        ),
+        VocabularyEntity(
+            id = 50,
+            arabicText = "أُولَئِكَ",
+            turkishMeaning = "Şunlar / Onlar",
+            transliteration = "Ulā'ika",
+            category = "İşaret Zamirleri",
+            difficultyLevel = 2,
+            genderNote = "Uzak çoğul kişiler için",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_ulaika"
+        ),
+        VocabularyEntity(
+            id = 51,
+            arabicText = "هَذَانِ",
+            turkishMeaning = "Bu ikisi",
+            transliteration = "Hādhāni",
+            category = "İşaret Zamirleri",
+            difficultyLevel = 2,
+            genderNote = "İkil eril için",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_hadhani"
+        ),
+        VocabularyEntity(
+            id = 52,
+            arabicText = "هَاتَانِ",
+            turkishMeaning = "Bu ikisi",
+            transliteration = "Hātāni",
+            category = "İşaret Zamirleri",
+            difficultyLevel = 2,
+            genderNote = "İkil dişil için",
+            imageResourceName = "ic_pronoun",
+            audioResourceName = "audio_hatani"
+        ),
+
+        // 5. Aile Üyeleri (Family Members)
+        VocabularyEntity(
+            id = 53,
+            arabicText = "أَب",
+            turkishMeaning = "Baba",
+            transliteration = "Ab",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "آبَاء",
+            pluralTurkish = "Babalar",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_ab"
+        ),
+        VocabularyEntity(
+            id = 54,
+            arabicText = "أُمّ",
+            turkishMeaning = "Anne",
+            transliteration = "Umm",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "أُمَّهَات",
+            pluralTurkish = "Anneler",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_umm"
+        ),
+        VocabularyEntity(
+            id = 55,
+            arabicText = "أَخ",
+            turkishMeaning = "Erkek Kardeş",
+            transliteration = "Akh",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "إِخْوَة",
+            pluralTurkish = "Erkek Kardeşler",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_akh"
+        ),
+        VocabularyEntity(
+            id = 56,
+            arabicText = "أُخْت",
+            turkishMeaning = "Kız Kardeş",
+            transliteration = "Ukht",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "أَخَوَات",
+            pluralTurkish = "Kız Kardeşler",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_ukht"
+        ),
+        VocabularyEntity(
+            id = 57,
+            arabicText = "إِبْن",
+            turkishMeaning = "Oğul / Erkek Çocuk",
+            transliteration = "Ibn",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "أَبْنَاء",
+            pluralTurkish = "Oğullar",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_ibn"
+        ),
+        VocabularyEntity(
+            id = 58,
+            arabicText = "بِنْت",
+            turkishMeaning = "Kız / Kız Çocuk",
+            transliteration = "Bint",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "بَنَات",
+            pluralTurkish = "Kızlar",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_bint"
+        ),
+        VocabularyEntity(
+            id = 59,
+            arabicText = "جَدّ",
+            turkishMeaning = "Dede / Büyükbaba",
+            transliteration = "Jadd",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "أَجْدَاد",
+            pluralTurkish = "Dedeler",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_jadd"
+        ),
+        VocabularyEntity(
+            id = 60,
+            arabicText = "جَدَّة",
+            turkishMeaning = "Nene / Babaanne / Anneanne",
+            transliteration = "Jaddah",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "جَدَّات",
+            pluralTurkish = "Neneler",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_jaddah"
+        ),
+        VocabularyEntity(
+            id = 61,
+            arabicText = "عَمّ",
+            turkishMeaning = "Amca",
+            transliteration = "'Amm",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "أَعْمَام",
+            pluralTurkish = "Amcalar",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_amm"
+        ),
+        VocabularyEntity(
+            id = 62,
+            arabicText = "عَمَّة",
+            turkishMeaning = "Hala",
+            transliteration = "'Ammah",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "عَمَّات",
+            pluralTurkish = "Halalar",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_ammah"
+        ),
+        VocabularyEntity(
+            id = 63,
+            arabicText = "خَال",
+            turkishMeaning = "Dayı",
+            transliteration = "Khāl",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "أَخْوَال",
+            pluralTurkish = "Dayılar",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_khal"
+        ),
+        VocabularyEntity(
+            id = 64,
+            arabicText = "خَالَة",
+            turkishMeaning = "Teyze",
+            transliteration = "Khālah",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "خَالَات",
+            pluralTurkish = "Teyzeler",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_khalah"
+        ),
+        VocabularyEntity(
+            id = 65,
+            arabicText = "أُسْرَة",
+            turkishMeaning = "Aile",
+            transliteration = "Usrah",
+            category = "Aile Üyeleri",
+            difficultyLevel = 1,
+            pluralArabic = "أُسَر",
+            pluralTurkish = "Aileler",
+            imageResourceName = "ic_family",
+            audioResourceName = "audio_usrah"
+        ),
+
+        // 6. Ev & Eşyalar (House & Objects)
+        VocabularyEntity(
+            id = 66,
             arabicText = "بَيْت",
             turkishMeaning = "Ev",
             transliteration = "Bait",
-            category = "Everyday Objects",
+            category = "Ev & Eşyalar",
             difficultyLevel = 1,
             pluralArabic = "بُيُوت",
             pluralTurkish = "Evler",
@@ -805,228 +1248,938 @@ object InitialDataSeed {
             audioResourceName = "audio_bait"
         ),
         VocabularyEntity(
-            id = 27,
-            arabicText = "طَاوِلَة",
-            turkishMeaning = "Masa",
-            transliteration = "Ṭāwilah",
-            category = "Everyday Objects",
+            id = 67,
+            arabicText = "بَاب",
+            turkishMeaning = "Kapı",
+            transliteration = "Bāb",
+            category = "Ev & Eşyalar",
             difficultyLevel = 1,
-            imageResourceName = "ic_table",
-            audioResourceName = "audio_tawilah"
+            pluralArabic = "أَبْوَاب",
+            pluralTurkish = "Kapılar",
+            imageResourceName = "ic_door",
+            audioResourceName = "audio_bab"
         ),
         VocabularyEntity(
-            id = 28,
-            arabicText = "كُرْسِيّ",
-            turkishMeaning = "Sandalye",
-            transliteration = "Kursī",
-            category = "Everyday Objects",
-            difficultyLevel = 1,
-            imageResourceName = "ic_chair",
-            audioResourceName = "audio_kursi"
-        ),
-        VocabularyEntity(
-            id = 29,
+            id = 68,
             arabicText = "نَافِذَة",
             turkishMeaning = "Pencere",
             transliteration = "Nāfidhah",
-            category = "Everyday Objects",
-            difficultyLevel = 2,
+            category = "Ev & Eşyalar",
+            difficultyLevel = 1,
+            pluralArabic = "نَوَافِذ",
+            pluralTurkish = "Pencereler",
             imageResourceName = "ic_window",
             audioResourceName = "audio_nafidhah"
         ),
         VocabularyEntity(
-            id = 30,
+            id = 69,
+            arabicText = "سَرِير",
+            turkishMeaning = "Yatak",
+            transliteration = "Sarīr",
+            category = "Ev & Eşyalar",
+            difficultyLevel = 1,
+            pluralArabic = "أَسِرَّة",
+            pluralTurkish = "Yataklar",
+            imageResourceName = "ic_house",
+            audioResourceName = "audio_sarir"
+        ),
+        VocabularyEntity(
+            id = 70,
+            arabicText = "طَاوِلَة",
+            turkishMeaning = "Masa",
+            transliteration = "Ṭāwilah",
+            category = "Ev & Eşyalar",
+            difficultyLevel = 1,
+            pluralArabic = "طَاوِلَات",
+            pluralTurkish = "Masalar",
+            imageResourceName = "ic_table",
+            audioResourceName = "audio_tawilah"
+        ),
+        VocabularyEntity(
+            id = 71,
+            arabicText = "كُرْسِيّ",
+            turkishMeaning = "Sandalye",
+            transliteration = "Kursī",
+            category = "Ev & Eşyalar",
+            difficultyLevel = 1,
+            pluralArabic = "كَارَاسِي",
+            pluralTurkish = "Sandalyeler",
+            imageResourceName = "ic_chair",
+            audioResourceName = "audio_kursi"
+        ),
+        VocabularyEntity(
+            id = 72,
+            arabicText = "ثَلَّاجَة",
+            turkishMeaning = "Buzdolabı",
+            transliteration = "Thallājah",
+            category = "Ev & Eşyalar",
+            difficultyLevel = 2,
+            pluralArabic = "ثَلَّاجَات",
+            pluralTurkish = "Buzdolapları",
+            imageResourceName = "ic_house",
+            audioResourceName = "audio_thallajah"
+        ),
+        VocabularyEntity(
+            id = 73,
             arabicText = "هَاتِف",
             turkishMeaning = "Telefon",
             transliteration = "Hātef",
-            category = "Everyday Objects",
+            category = "Ev & Eşyalar",
             difficultyLevel = 1,
+            pluralArabic = "هَوَاتِف",
+            pluralTurkish = "Telefonlar",
             imageResourceName = "ic_phone",
             audioResourceName = "audio_hatef"
         ),
         VocabularyEntity(
-            id = 31,
-            arabicText = "سَاعَة",
-            turkishMeaning = "Saat",
-            transliteration = "Sā'ah",
-            category = "Everyday Objects",
+            id = 74,
+            arabicText = "مَطْبَخ",
+            turkishMeaning = "Mutfak",
+            transliteration = "Maṭbakh",
+            category = "Ev & Eşyalar",
             difficultyLevel = 1,
-            imageResourceName = "ic_clock",
-            audioResourceName = "audio_saah"
+            pluralArabic = "مَطَابِخ",
+            pluralTurkish = "Mutfaklar",
+            imageResourceName = "ic_house",
+            audioResourceName = "audio_matbakh"
+        ),
+        VocabularyEntity(
+            id = 75,
+            arabicText = "غُرْفَة",
+            turkishMeaning = "Oda",
+            transliteration = "Ghurfah",
+            category = "Ev & Eşyalar",
+            difficultyLevel = 1,
+            pluralArabic = "غُرَف",
+            pluralTurkish = "Odalar",
+            imageResourceName = "ic_house",
+            audioResourceName = "audio_ghurfah"
+        ),
+        VocabularyEntity(
+            id = 76,
+            arabicText = "مِرْآة",
+            turkishMeaning = "Ayna",
+            transliteration = "Mir'āh",
+            category = "Ev & Eşyalar",
+            difficultyLevel = 2,
+            imageResourceName = "ic_house",
+            audioResourceName = "audio_mirah"
+        ),
+        VocabularyEntity(
+            id = 77,
+            arabicText = "تِلْفِزْيُون",
+            turkishMeaning = "Televizyon",
+            transliteration = "Tilfizyūn",
+            category = "Ev & Eşyalar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_house",
+            audioResourceName = "audio_tilfizyun"
         ),
 
-        // Animals
+        // 7. Okul & Eğitim (School & Education)
         VocabularyEntity(
-            id = 32,
-            arabicText = "أَسَد",
-            turkishMeaning = "Aslan",
-            transliteration = "Asad",
-            category = "Animals",
+            id = 78,
+            arabicText = "مَدْرَسَة",
+            turkishMeaning = "Okul",
+            transliteration = "Madrasah",
+            category = "Okul & Eğitim",
             difficultyLevel = 1,
-            imageResourceName = "ic_lion",
-            audioResourceName = "audio_asad"
+            pluralArabic = "مَدَارِس",
+            pluralTurkish = "Okullar",
+            imageResourceName = "ic_school",
+            audioResourceName = "audio_madrasah"
         ),
         VocabularyEntity(
-            id = 33,
-            arabicText = "قِطّ",
-            turkishMeaning = "Kedi",
-            transliteration = "Qiṭṭ",
-            category = "Animals",
+            id = 79,
+            arabicText = "كِتَاب",
+            turkishMeaning = "Kitap",
+            transliteration = "Kitāb",
+            category = "Okul & Eğitim",
             difficultyLevel = 1,
-            imageResourceName = "ic_cat",
-            audioResourceName = "audio_qitt"
+            pluralArabic = "كُتُب",
+            pluralTurkish = "Kitaplar",
+            imageResourceName = "ic_book",
+            audioResourceName = "audio_kitab"
         ),
         VocabularyEntity(
-            id = 34,
-            arabicText = "كَلْب",
-            turkishMeaning = "Köpek",
-            transliteration = "Kalb",
-            category = "Animals",
+            id = 80,
+            arabicText = "قَلَم",
+            turkishMeaning = "Kalem",
+            transliteration = "Qalam",
+            category = "Okul & Eğitim",
             difficultyLevel = 1,
-            imageResourceName = "ic_dog",
-            audioResourceName = "audio_kalb"
+            pluralArabic = "أَقْلَام",
+            pluralTurkish = "Kalemler",
+            imageResourceName = "ic_pen",
+            audioResourceName = "audio_qalam"
         ),
         VocabularyEntity(
-            id = 35,
-            arabicText = "جَمَل",
-            turkishMeaning = "Deve",
-            transliteration = "Jamal",
-            category = "Animals",
+            id = 81,
+            arabicText = "دَفْتَر",
+            turkishMeaning = "Defter",
+            transliteration = "Daftar",
+            category = "Okul & Eğitim",
             difficultyLevel = 1,
-            imageResourceName = "ic_camel",
-            audioResourceName = "audio_jamal"
+            pluralArabic = "دَفَاتِر",
+            pluralTurkish = "Defterler",
+            imageResourceName = "ic_book",
+            audioResourceName = "audio_daftar"
         ),
         VocabularyEntity(
-            id = 36,
-            arabicText = "طَائِر",
-            turkishMeaning = "Kuş",
-            transliteration = "Ṭā'ir",
-            category = "Animals",
+            id = 82,
+            arabicText = "مُعَلِّم",
+            turkishMeaning = "Öğretmen",
+            transliteration = "Mu'allim",
+            category = "Okul & Eğitim",
             difficultyLevel = 1,
-            imageResourceName = "ic_bird",
-            audioResourceName = "audio_tair"
+            genderNote = "Erkek öğretmen",
+            pluralArabic = "مُعَلِّمُونَ",
+            pluralTurkish = "Öğretmenler",
+            imageResourceName = "ic_school",
+            audioResourceName = "audio_muallim"
         ),
         VocabularyEntity(
-            id = 37,
-            arabicText = "سَمَك",
-            turkishMeaning = "Balık",
-            transliteration = "Samak",
-            category = "Animals",
+            id = 83,
+            arabicText = "مُعَلِّمَة",
+            turkishMeaning = "Öğretmen",
+            transliteration = "Mu'allimah",
+            category = "Okul & Eğitim",
             difficultyLevel = 1,
-            imageResourceName = "ic_fish",
-            audioResourceName = "audio_samak"
+            genderNote = "Kadın öğretmen",
+            imageResourceName = "ic_school",
+            audioResourceName = "audio_muallimah"
         ),
         VocabularyEntity(
-            id = 38,
-            arabicText = "فِيل",
-            turkishMeaning = "Fil",
-            transliteration = "Fīl",
-            category = "Animals",
+            id = 84,
+            arabicText = "طَالِب",
+            turkishMeaning = "Öğrenci",
+            transliteration = "Ṭālib",
+            category = "Okul & Eğitim",
             difficultyLevel = 1,
-            imageResourceName = "ic_elephant",
-            audioResourceName = "audio_fil"
+            genderNote = "Erkek öğrenci",
+            pluralArabic = "طُلَّاب",
+            pluralTurkish = "Öğrenciler",
+            imageResourceName = "ic_school",
+            audioResourceName = "audio_talib"
+        ),
+        VocabularyEntity(
+            id = 85,
+            arabicText = "طَالِبَة",
+            turkishMeaning = "Öğrenci",
+            transliteration = "Ṭālibah",
+            category = "Okul & Eğitim",
+            difficultyLevel = 1,
+            genderNote = "Kadın öğrenci",
+            imageResourceName = "ic_school",
+            audioResourceName = "audio_talibah"
+        ),
+        VocabularyEntity(
+            id = 86,
+            arabicText = "حَقِيبَة",
+            turkishMeaning = "Çanta",
+            transliteration = "Ḥaqībah",
+            category = "Okul & Eğitim",
+            difficultyLevel = 1,
+            pluralArabic = "حَقَائِب",
+            pluralTurkish = "Çantalar",
+            imageResourceName = "ic_school",
+            audioResourceName = "audio_haqibah"
+        ),
+        VocabularyEntity(
+            id = 87,
+            arabicText = "فَصْل",
+            turkishMeaning = "Sınıf",
+            transliteration = "Faṣl",
+            category = "Okul & Eğitim",
+            difficultyLevel = 1,
+            pluralArabic = "فُصُول",
+            pluralTurkish = "Sınıflar",
+            imageResourceName = "ic_school",
+            audioResourceName = "audio_fasl"
+        ),
+        VocabularyEntity(
+            id = 88,
+            arabicText = "جَامِعَة",
+            turkishMeaning = "Üniversite",
+            transliteration = "Jāmi'ah",
+            category = "Okul & Eğitim",
+            difficultyLevel = 2,
+            pluralArabic = "جَامِعَات",
+            pluralTurkish = "Üniversiteler",
+            imageResourceName = "ic_school",
+            audioResourceName = "audio_jamiah"
+        ),
+        VocabularyEntity(
+            id = 89,
+            arabicText = "امْتِحَان",
+            turkishMeaning = "Sınav",
+            transliteration = "Imtiḥān",
+            category = "Okul & Eğitim",
+            difficultyLevel = 2,
+            pluralArabic = "امْتِحَانَات",
+            pluralTurkish = "Sınavlar",
+            imageResourceName = "ic_school",
+            audioResourceName = "audio_imtihan"
+        ),
+        VocabularyEntity(
+            id = 90,
+            arabicText = "مَكْتَبَة",
+            turkishMeaning = "Kütüphane / Kitaplık",
+            transliteration = "Maktabah",
+            category = "Okul & Eğitim",
+            difficultyLevel = 1,
+            imageResourceName = "ic_book",
+            audioResourceName = "audio_maktabah"
         ),
 
-        // Numbers
+        // 8. Hava Durumu (Weather)
         VocabularyEntity(
-            id = 39,
+            id = 91,
+            arabicText = "طَقْس",
+            turkishMeaning = "Hava / Hava Durumu",
+            transliteration = "Ṭaqs",
+            category = "Hava Durumu",
+            difficultyLevel = 1,
+            imageResourceName = "ic_weather",
+            audioResourceName = "audio_taqs"
+        ),
+        VocabularyEntity(
+            id = 92,
+            arabicText = "شَمْس",
+            turkishMeaning = "Güneş",
+            transliteration = "Shams",
+            category = "Hava Durumu",
+            difficultyLevel = 1,
+            imageResourceName = "ic_weather",
+            audioResourceName = "audio_shams"
+        ),
+        VocabularyEntity(
+            id = 93,
+            arabicText = "مَطَر",
+            turkishMeaning = "Yağmur",
+            transliteration = "Maṭar",
+            category = "Hava Durumu",
+            difficultyLevel = 1,
+            imageResourceName = "ic_weather",
+            audioResourceName = "audio_matar"
+        ),
+        VocabularyEntity(
+            id = 94,
+            arabicText = "رِيح",
+            turkishMeaning = "Rüzgar",
+            transliteration = "Rīḥ",
+            category = "Hava Durumu",
+            difficultyLevel = 1,
+            imageResourceName = "ic_weather",
+            audioResourceName = "audio_rih"
+        ),
+        VocabularyEntity(
+            id = 95,
+            arabicText = "ثَلْج",
+            turkishMeaning = "Kar",
+            transliteration = "Thalj",
+            category = "Hava Durumu",
+            difficultyLevel = 1,
+            imageResourceName = "ic_weather",
+            audioResourceName = "audio_thalj"
+        ),
+        VocabularyEntity(
+            id = 96,
+            arabicText = "حَرَارَة",
+            turkishMeaning = "Sıcaklık",
+            transliteration = "Ḥarārah",
+            category = "Hava Durumu",
+            difficultyLevel = 2,
+            imageResourceName = "ic_weather",
+            audioResourceName = "audio_hararah"
+        ),
+        VocabularyEntity(
+            id = 97,
+            arabicText = "سَحَاب",
+            turkishMeaning = "Bulut",
+            transliteration = "Saḥāb",
+            category = "Hava Durumu",
+            difficultyLevel = 1,
+            pluralArabic = "سُحُب",
+            pluralTurkish = "Bulutlar",
+            imageResourceName = "ic_weather",
+            audioResourceName = "audio_sahab"
+        ),
+        VocabularyEntity(
+            id = 98,
+            arabicText = "غَائِم",
+            turkishMeaning = "Bulutlu",
+            transliteration = "Ghā'im",
+            category = "Hava Durumu",
+            difficultyLevel = 2,
+            imageResourceName = "ic_weather",
+            audioResourceName = "audio_ghaim"
+        ),
+        VocabularyEntity(
+            id = 99,
+            arabicText = "حَارّ",
+            turkishMeaning = "Sıcak",
+            transliteration = "Ḥārr",
+            category = "Hava Durumu",
+            difficultyLevel = 1,
+            imageResourceName = "ic_weather",
+            audioResourceName = "audio_harr"
+        ),
+        VocabularyEntity(
+            id = 100,
+            arabicText = "بَارِد",
+            turkishMeaning = "Soğuk",
+            transliteration = "Bārid",
+            category = "Hava Durumu",
+            difficultyLevel = 1,
+            imageResourceName = "ic_weather",
+            audioResourceName = "audio_barid"
+        ),
+
+        // 9. Gündelik İhtiyaçlar & Temizlik (Daily Needs & Restroom)
+        VocabularyEntity(
+            id = 101,
+            arabicText = "حَمَّام",
+            turkishMeaning = "Tuvalet / Banyo",
+            transliteration = "Ḥammām",
+            category = "Gündelik İhtiyaçlar & Temizlik",
+            difficultyLevel = 1,
+            pluralArabic = "حَمَّامَات",
+            pluralTurkish = "Banyolar/Tuvaletler",
+            imageResourceName = "ic_restroom",
+            audioResourceName = "audio_hammam"
+        ),
+        VocabularyEntity(
+            id = 102,
+            arabicText = "مَاء",
+            turkishMeaning = "Su",
+            transliteration = "Mā'",
+            category = "Gündelik İhtiyaçlar & Temizlik",
+            difficultyLevel = 1,
+            imageResourceName = "ic_restroom",
+            audioResourceName = "audio_maa"
+        ),
+        VocabularyEntity(
+            id = 103,
+            arabicText = "صَابُون",
+            turkishMeaning = "Sabun",
+            transliteration = "Ṣābūn",
+            category = "Gündelik İhtiyaçlar & Temizlik",
+            difficultyLevel = 1,
+            imageResourceName = "ic_restroom",
+            audioResourceName = "audio_sabun"
+        ),
+        VocabularyEntity(
+            id = 104,
+            arabicText = "مِنْشَفَة",
+            turkishMeaning = "Havlu",
+            transliteration = "Minshafah",
+            category = "Gündelik İhtiyaçlar & Temizlik",
+            difficultyLevel = 1,
+            pluralArabic = "مَنَاشِف",
+            pluralTurkish = "Havlular",
+            imageResourceName = "ic_restroom",
+            audioResourceName = "audio_minshafah"
+        ),
+        VocabularyEntity(
+            id = 105,
+            arabicText = "أَيْنَ الْحَمَّام؟",
+            turkishMeaning = "Tuvalet nerede?",
+            transliteration = "Ayna al-ḥammām?",
+            category = "Gündelik İhtiyaçlar & Temizlik",
+            difficultyLevel = 1,
+            imageResourceName = "ic_restroom",
+            audioResourceName = "audio_ayna_al_hammam"
+        ),
+        VocabularyEntity(
+            id = 106,
+            arabicText = "مَسْجِد",
+            turkishMeaning = "Cami / Mescit",
+            transliteration = "Masjid",
+            category = "Gündelik İhtiyaçlar & Temizlik",
+            difficultyLevel = 1,
+            pluralArabic = "مَسَاجِد",
+            pluralTurkish = "Mescitler",
+            imageResourceName = "ic_prayer",
+            audioResourceName = "audio_masjid"
+        ),
+        VocabularyEntity(
+            id = 107,
+            arabicText = "وُضُوء",
+            turkishMeaning = "Abdest",
+            transliteration = "Wuḍū'",
+            category = "Gündelik İhtiyaçlar & Temizlik",
+            difficultyLevel = 1,
+            imageResourceName = "ic_prayer",
+            audioResourceName = "audio_wudu"
+        ),
+        VocabularyEntity(
+            id = 108,
+            arabicText = "مَعْجُون أَسْنَان",
+            turkishMeaning = "Diş Macunu",
+            transliteration = "Ma'jūn asnān",
+            category = "Gündelik İhtiyaçlar & Temizlik",
+            difficultyLevel = 2,
+            imageResourceName = "ic_restroom",
+            audioResourceName = "audio_majun_asnan"
+        ),
+        VocabularyEntity(
+            id = 109,
+            arabicText = "فُرْشَاة أَسْنَان",
+            turkishMeaning = "Diş Fırçası",
+            transliteration = "Furshāt asnān",
+            category = "Gündelik İhtiyaçlar & Temizlik",
+            difficultyLevel = 2,
+            imageResourceName = "ic_restroom",
+            audioResourceName = "audio_furshat_asnan"
+        ),
+        VocabularyEntity(
+            id = 110,
+            arabicText = "طَعَام",
+            turkishMeaning = "Yemek",
+            transliteration = "Ṭa'ām",
+            category = "Gündelik İhtiyaçlar & Temizlik",
+            difficultyLevel = 1,
+            imageResourceName = "ic_restroom",
+            audioResourceName = "audio_taam"
+        ),
+
+        // 10. Yaşlar & Kişisel Bilgiler (Ages & Personal Details)
+        VocabularyEntity(
+            id = 111,
+            arabicText = "كَمْ عُمْرُكَ؟",
+            turkishMeaning = "Kaç yaşındasın?",
+            transliteration = "Kam 'umruke?",
+            category = "Yaşlar & Kişisel Bilgiler",
+            difficultyLevel = 1,
+            genderNote = "Erkeklere sorarken",
+            imageResourceName = "ic_age",
+            audioResourceName = "audio_kam_umruke"
+        ),
+        VocabularyEntity(
+            id = 112,
+            arabicText = "كَمْ عُمْرُكِ؟",
+            turkishMeaning = "Kaç yaşındasın?",
+            transliteration = "Kam 'umruki?",
+            category = "Yaşlar & Kişisel Bilgiler",
+            difficultyLevel = 1,
+            genderNote = "Kadınlara sorarken",
+            imageResourceName = "ic_age",
+            audioResourceName = "audio_kam_umruki"
+        ),
+        VocabularyEntity(
+            id = 113,
+            arabicText = "عُمْرِي...",
+            turkishMeaning = "Yaşım...",
+            transliteration = "'Umrī...",
+            category = "Yaşlar & Kişisel Bilgiler",
+            difficultyLevel = 1,
+            imageResourceName = "ic_age",
+            audioResourceName = "audio_umri"
+        ),
+        VocabularyEntity(
+            id = 114,
+            arabicText = "اسْم",
+            turkishMeaning = "İsim / Ad",
+            transliteration = "Ism",
+            category = "Yaşlar & Kişisel Bilgiler",
+            difficultyLevel = 1,
+            pluralArabic = "أَسْمَاء",
+            pluralTurkish = "İsimler",
+            imageResourceName = "ic_age",
+            audioResourceName = "audio_ism"
+        ),
+        VocabularyEntity(
+            id = 115,
+            arabicText = "بَلَد",
+            turkishMeaning = "Ülke",
+            transliteration = "Balad",
+            category = "Yaşlar & Kişisel Bilgiler",
+            difficultyLevel = 1,
+            pluralArabic = "بُلْدَان",
+            pluralTurkish = "Ülkeler",
+            imageResourceName = "ic_age",
+            audioResourceName = "audio_balad"
+        ),
+        VocabularyEntity(
+            id = 116,
+            arabicText = "مِهْنَة",
+            turkishMeaning = "Meslek",
+            transliteration = "Mihnah",
+            category = "Yaşlar & Kişisel Bilgiler",
+            difficultyLevel = 2,
+            pluralArabic = "مِهَن",
+            pluralTurkish = "Meslekler",
+            imageResourceName = "ic_age",
+            audioResourceName = "audio_mihnah"
+        ),
+        VocabularyEntity(
+            id = 117,
+            arabicText = "جِنْسِيَّة",
+            turkishMeaning = "Uyruk / Vatandaşlık",
+            transliteration = "Jinsiyyah",
+            category = "Yaşlar & Kişisel Bilgiler",
+            difficultyLevel = 2,
+            imageResourceName = "ic_age",
+            audioResourceName = "audio_jinsiyyah"
+        ),
+        VocabularyEntity(
+            id = 118,
+            arabicText = "عُنْوَان",
+            turkishMeaning = "Adres",
+            transliteration = "'Unwān",
+            category = "Yaşlar & Kişisel Bilgiler",
+            difficultyLevel = 2,
+            imageResourceName = "ic_age",
+            audioResourceName = "audio_unwan"
+        ),
+        VocabularyEntity(
+            id = 119,
+            arabicText = "تَارِيخ الْمِيلَاد",
+            turkishMeaning = "Doğum Tarihi",
+            transliteration = "Tārīkh al-mīlād",
+            category = "Yaşlar & Kişisel Bilgiler",
+            difficultyLevel = 2,
+            imageResourceName = "ic_age",
+            audioResourceName = "audio_tarikh_al_milad"
+        ),
+        VocabularyEntity(
+            id = 120,
+            arabicText = "سَنَة",
+            turkishMeaning = "Yaş / Yıl",
+            transliteration = "Sanah",
+            category = "Yaşlar & Kişisel Bilgiler",
+            difficultyLevel = 1,
+            pluralArabic = "سَنَوَات",
+            pluralTurkish = "Yıllar",
+            imageResourceName = "ic_age",
+            audioResourceName = "audio_sanah"
+        ),
+
+        // 11. Sayılar (Numbers)
+        VocabularyEntity(
+            id = 121,
             arabicText = "وَاحِد",
             turkishMeaning = "Bir (1)",
             transliteration = "Wāḥid",
-            category = "Numbers",
+            category = "Sayılar",
             difficultyLevel = 1,
             imageResourceName = "ic_number",
             audioResourceName = "audio_wahid"
         ),
         VocabularyEntity(
-            id = 40,
+            id = 122,
             arabicText = "اثْنَان",
             turkishMeaning = "İki (2)",
             transliteration = "Ithnān",
-            category = "Numbers",
+            category = "Sayılar",
             difficultyLevel = 1,
             imageResourceName = "ic_number",
             audioResourceName = "audio_ithnan"
         ),
         VocabularyEntity(
-            id = 41,
+            id = 123,
             arabicText = "ثَلَاثَة",
             turkishMeaning = "Üç (3)",
             transliteration = "Thalāthah",
-            category = "Numbers",
+            category = "Sayılar",
             difficultyLevel = 1,
             imageResourceName = "ic_number",
             audioResourceName = "audio_thalathah"
         ),
         VocabularyEntity(
-            id = 42,
+            id = 124,
             arabicText = "أَرْبَعَة",
             turkishMeaning = "Dört (4)",
             transliteration = "Arba'ah",
-            category = "Numbers",
+            category = "Sayılar",
             difficultyLevel = 1,
             imageResourceName = "ic_number",
             audioResourceName = "audio_arbaah"
         ),
         VocabularyEntity(
-            id = 43,
+            id = 125,
             arabicText = "خَمْسَة",
             turkishMeaning = "Beş (5)",
             transliteration = "Khamsah",
-            category = "Numbers",
+            category = "Sayılar",
             difficultyLevel = 1,
             imageResourceName = "ic_number",
             audioResourceName = "audio_khamsah"
         ),
         VocabularyEntity(
-            id = 44,
+            id = 126,
             arabicText = "سِتَّة",
             turkishMeaning = "Altı (6)",
             transliteration = "Sittah",
-            category = "Numbers",
+            category = "Sayılar",
             difficultyLevel = 1,
             imageResourceName = "ic_number",
             audioResourceName = "audio_sittah"
         ),
         VocabularyEntity(
-            id = 45,
+            id = 127,
             arabicText = "سَبْعَة",
             turkishMeaning = "Yedi (7)",
             transliteration = "Sab'ah",
-            category = "Numbers",
+            category = "Sayılar",
             difficultyLevel = 1,
             imageResourceName = "ic_number",
             audioResourceName = "audio_sabah"
         ),
         VocabularyEntity(
-            id = 46,
+            id = 128,
             arabicText = "ثَمَانِيَة",
             turkishMeaning = "Sekiz (8)",
             transliteration = "Thamāniyah",
-            category = "Numbers",
+            category = "Sayılar",
             difficultyLevel = 1,
             imageResourceName = "ic_number",
             audioResourceName = "audio_thamaniyah"
         ),
         VocabularyEntity(
-            id = 47,
+            id = 129,
             arabicText = "تِسْعَة",
             turkishMeaning = "Dokuz (9)",
             transliteration = "Tis'ah",
-            category = "Numbers",
+            category = "Sayılar",
             difficultyLevel = 1,
             imageResourceName = "ic_number",
             audioResourceName = "audio_tisah"
         ),
         VocabularyEntity(
-            id = 48,
+            id = 130,
             arabicText = "عَشَرَة",
             turkishMeaning = "On (10)",
             transliteration = "Asharah",
-            category = "Numbers",
+            category = "Sayılar",
             difficultyLevel = 1,
             imageResourceName = "ic_number",
             audioResourceName = "audio_asharah"
+        ),
+        VocabularyEntity(
+            id = 131,
+            arabicText = "صِفْر",
+            turkishMeaning = "Sıfır (0)",
+            transliteration = "Ṣifr",
+            category = "Sayılar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_number",
+            audioResourceName = "audio_sifr"
+        ),
+        VocabularyEntity(
+            id = 132,
+            arabicText = "عِشْرُون",
+            turkishMeaning = "Yirmi (20)",
+            transliteration = "'Ishrūn",
+            category = "Sayılar",
+            difficultyLevel = 2,
+            imageResourceName = "ic_number",
+            audioResourceName = "audio_ishrun"
+        ),
+        VocabularyEntity(
+            id = 133,
+            arabicText = "مِئَة",
+            turkishMeaning = "Yüz (100)",
+            transliteration = "Mi'ah",
+            category = "Sayılar",
+            difficultyLevel = 2,
+            imageResourceName = "ic_number",
+            audioResourceName = "audio_miah"
+        ),
+        VocabularyEntity(
+            id = 134,
+            arabicText = "أَلْف",
+            turkishMeaning = "Bin (1000)",
+            transliteration = "Alf",
+            category = "Sayılar",
+            difficultyLevel = 2,
+            imageResourceName = "ic_number",
+            audioResourceName = "audio_alf"
+        ),
+
+        // 12. Dini & İbadet Terimleri (Prayer & Worship)
+        VocabularyEntity(
+            id = 135,
+            arabicText = "صَلَاةُ الْفَجْرِ",
+            turkishMeaning = "Sabah Namazı",
+            transliteration = "Salâtü'l-Fajr",
+            category = "Dini & İbadet Terimleri",
+            difficultyLevel = 2,
+            imageResourceName = "ic_prayer",
+            audioResourceName = "audio_salat_al_fajr"
+        ),
+        VocabularyEntity(
+            id = 136,
+            arabicText = "صَلَاةُ الظُّهْرِ",
+            turkishMeaning = "Öğle Namazı",
+            transliteration = "Salâtü'z-Zuhr",
+            category = "Dini & İbadet Terimleri",
+            difficultyLevel = 2,
+            imageResourceName = "ic_prayer",
+            audioResourceName = "audio_salat_az_zuhr"
+        ),
+        VocabularyEntity(
+            id = 137,
+            arabicText = "صَلَاةُ الْعَصْرِ",
+            turkishMeaning = "İkindi Namazı",
+            transliteration = "Salâtü'l-Aṣr",
+            category = "Dini & İbadet Terimleri",
+            difficultyLevel = 2,
+            imageResourceName = "ic_prayer",
+            audioResourceName = "audio_salat_al_asr"
+        ),
+        VocabularyEntity(
+            id = 138,
+            arabicText = "صَلَاةُ الْمَغْرِبِ",
+            turkishMeaning = "Akşam Namazı",
+            transliteration = "Salâtü'l-Maghrib",
+            category = "Dini & İbadet Terimleri",
+            difficultyLevel = 2,
+            imageResourceName = "ic_prayer",
+            audioResourceName = "audio_salat_al_maghrib"
+        ),
+        VocabularyEntity(
+            id = 139,
+            arabicText = "صَلَاةُ الْعِشَاءِ",
+            turkishMeaning = "Yatsı Namazı",
+            transliteration = "Salâtü'l-İşâ",
+            category = "Dini & İbadet Terimleri",
+            difficultyLevel = 2,
+            imageResourceName = "ic_prayer",
+            audioResourceName = "audio_salat_al_isha"
+        ),
+        VocabularyEntity(
+            id = 140,
+            arabicText = "دُعَاء",
+            turkishMeaning = "Dua",
+            transliteration = "Du'ā'",
+            category = "Dini & İbadet Terimleri",
+            difficultyLevel = 1,
+            imageResourceName = "ic_prayer",
+            audioResourceName = "audio_dua"
+        ),
+        VocabularyEntity(
+            id = 141,
+            arabicText = "قُرْآن",
+            turkishMeaning = "Kur'an-ı Kerim",
+            transliteration = "Qur'ān",
+            category = "Dini & İbadet Terimleri",
+            difficultyLevel = 1,
+            imageResourceName = "ic_prayer",
+            audioResourceName = "audio_quran"
+        ),
+        VocabularyEntity(
+            id = 142,
+            arabicText = "كَعْبَة",
+            turkishMeaning = "Kâbe",
+            transliteration = "Ka'bah",
+            category = "Dini & İbadet Terimleri",
+            difficultyLevel = 1,
+            imageResourceName = "ic_prayer",
+            audioResourceName = "audio_kabah"
+        ),
+        VocabularyEntity(
+            id = 143,
+            arabicText = "أَذَان",
+            turkishMeaning = "Ezan",
+            transliteration = "Adhān",
+            category = "Dini & İbadet Terimleri",
+            difficultyLevel = 1,
+            imageResourceName = "ic_prayer",
+            audioResourceName = "audio_adhan"
+        ),
+        VocabularyEntity(
+            id = 144,
+            arabicText = "قِبْلَة",
+            turkishMeaning = "Kıble",
+            transliteration = "Qiblah",
+            category = "Dini & İbadet Terimleri",
+            difficultyLevel = 1,
+            imageResourceName = "ic_prayer",
+            audioResourceName = "audio_qiblah"
+        ),
+
+        // 13. Hayvanlar (Animals)
+        VocabularyEntity(
+            id = 145,
+            arabicText = "أَسَد",
+            turkishMeaning = "Aslan",
+            transliteration = "Asad",
+            category = "Hayvanlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_lion",
+            audioResourceName = "audio_asad"
+        ),
+        VocabularyEntity(
+            id = 146,
+            arabicText = "قِطّ",
+            turkishMeaning = "Kedi",
+            transliteration = "Qiṭṭ",
+            category = "Hayvanlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_cat",
+            audioResourceName = "audio_qitt"
+        ),
+        VocabularyEntity(
+            id = 147,
+            arabicText = "كَلْب",
+            turkishMeaning = "Köpek",
+            transliteration = "Kalb",
+            category = "Hayvanlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_dog",
+            audioResourceName = "audio_kalb"
+        ),
+        VocabularyEntity(
+            id = 148,
+            arabicText = "جَمَل",
+            turkishMeaning = "Deve",
+            transliteration = "Jamal",
+            category = "Hayvanlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_camel",
+            audioResourceName = "audio_jamal"
+        ),
+        VocabularyEntity(
+            id = 149,
+            arabicText = "طَائِر",
+            turkishMeaning = "Kuş",
+            transliteration = "Ṭā'ir",
+            category = "Hayvanlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_bird",
+            audioResourceName = "audio_tair"
+        ),
+        VocabularyEntity(
+            id = 150,
+            arabicText = "سَمَك",
+            turkishMeaning = "Balık",
+            transliteration = "Samak",
+            category = "Hayvanlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_fish",
+            audioResourceName = "audio_samak"
+        ),
+        VocabularyEntity(
+            id = 151,
+            arabicText = "فِيل",
+            turkishMeaning = "Fil",
+            transliteration = "Fīl",
+            category = "Hayvanlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_elephant",
+            audioResourceName = "audio_fil"
+        ),
+        VocabularyEntity(
+            id = 152,
+            arabicText = "حِصَان",
+            turkishMeaning = "At",
+            transliteration = "Ḥiṣān",
+            category = "Hayvanlar",
+            difficultyLevel = 1,
+            imageResourceName = "ic_horse",
+            audioResourceName = "audio_hisan"
         )
     )
 
@@ -1145,8 +2298,7 @@ object InitialDataSeed {
             explanation = "'Asad' Arapça aslan demektir."
         ),
 
-        // Daily Progressive Quizzes (Level 1 - Easy)
-        // Type 1: Arabic to Turkish Translation
+        // Daily Quizzes - Level 1
         QuizQuestionEntity(
             id = 9,
             quizType = "DAILY",
@@ -1166,47 +2318,43 @@ object InitialDataSeed {
             quizType = "DAILY",
             category = "ARABIC_TO_TURKISH",
             difficultyLevel = 1,
-            questionText = "'شُكْرًا' (Shukran) ifadesinin Türkçe karşılığı nedir?",
-            questionArabic = "شُكْرًا",
-            optionA = "Rica ederim",
-            optionB = "Teşekkür ederim",
-            optionC = "Günaydın",
-            optionD = "Hoşça kal",
+            questionText = "'فِي' (Fī) edatının Türkçe anlamı nedir?",
+            questionArabic = "فِي",
+            optionA = "Den / Dan",
+            optionB = "De / Da / İçinde",
+            optionC = "Üzerinde",
+            optionD = "İçin",
             correctOptionIndex = 1,
-            explanation = "'شُكْرًا' (Shukran) Arapçada teşekkür ederim demektir."
+            explanation = "'فِي' (Fī) edatı 'de/da/içinde' anlamına gelir."
         ),
-
-        // Type 2: Turkish to Arabic Translation
         QuizQuestionEntity(
             id = 11,
             quizType = "DAILY",
             category = "TURKISH_TO_ARABIC",
             difficultyLevel = 1,
-            questionText = "Türkçesi 'Kalem' olan kelimenin Arapçası hangisidir?",
+            questionText = "Türkçesi 'Ben' olan şahıs zamirinin Arapçası hangisidir?",
             questionArabic = null,
-            optionA = "قَلَم",
-            optionB = "كِتَاب",
-            optionC = "بَيْت",
-            optionD = "مَسْجِد",
+            optionA = "أَنَا",
+            optionB = "أَنْتَ",
+            optionC = "هُوَ",
+            optionD = "نَحْنُ",
             correctOptionIndex = 0,
-            explanation = "'Kalem' Arapçada 'قَلَم' (Qalam) olarak yazılır."
+            explanation = "'Ben' zamirinin Arapçası 'أَنَا' (Ana) dır."
         ),
         QuizQuestionEntity(
             id = 12,
             quizType = "DAILY",
             category = "TURKISH_TO_ARABIC",
             difficultyLevel = 1,
-            questionText = "Türkçesi 'Kedi' olan hayvan isminin Arapçası hangisidir?",
+            questionText = "Türkçesi 'Anne' olan kelimenin Arapçası hangisidir?",
             questionArabic = null,
-            optionA = "كَلْب",
-            optionB = "قِطّ",
-            optionC = "جَمَل",
-            optionD = "طَائِر",
+            optionA = "أَب",
+            optionB = "أُمّ",
+            optionC = "أُخْت",
+            optionD = "بِنْت",
             correctOptionIndex = 1,
-            explanation = "'Kedi' Arapçada 'قِطّ' (Qiṭṭ) demektir."
+            explanation = "'Anne' kelimesi Arapçada 'أُمّ' (Umm) olarak adlandırılır."
         ),
-
-        // Type 3: Visual Card / Illustration to Arabic Matching
         QuizQuestionEntity(
             id = 13,
             quizType = "DAILY",
@@ -1235,151 +2383,149 @@ object InitialDataSeed {
             correctOptionIndex = 1,
             explanation = "Görseldeki ev 'بَيْت' (Bayt) kelimesidir."
         ),
-
-        // Type 4: Fill in missing diacritic/letter or Transliteration matching
         QuizQuestionEntity(
             id = 15,
             quizType = "DAILY",
             category = "DIACRITIC_TRANSLITERATION",
             difficultyLevel = 1,
-            questionText = "'قَـ_ـم' (Kalem) kelimesinde boş bırakılan yere hangi harf gelmelidir?",
-            questionArabic = "قَـ_ـم",
-            optionA = "ل (Lām)",
+            questionText = "'مَـ_ـر' (Yağmur) kelimesinde boş bırakılan yere hangi harf gelmelidir?",
+            questionArabic = "مَـ_ـر",
+            optionA = "ط (Ṭā')",
             optionB = "م (Mīm)",
             optionC = "ب (Bā')",
             optionD = "ك (Kāf)",
             correctOptionIndex = 0,
-            explanation = "Kalem kelimesi 'قَلَم' şeklinde yazılır, ortadaki harf 'ل' (Lām)'dır."
+            explanation = "Yağmur kelimesi 'مَطَر' (Maṭar) şeklinde yazılır."
         ),
         QuizQuestionEntity(
             id = 16,
             quizType = "DAILY",
             category = "DIACRITIC_TRANSLITERATION",
             difficultyLevel = 1,
-            questionText = "İnce harflerde 'i', kalın harflerde 'ı' sesi veren alt hareke hangisidir?",
-            questionArabic = "ِ",
-            optionA = "Fatha (Üstün)",
-            optionB = "Kasra (Esre)",
-            optionC = "Damma (Ötre)",
-            optionD = "Sukun (Cezm)",
-            correctOptionIndex = 1,
-            explanation = "Kasra (Esre) harfin altına konur ve 'i' / 'ı' sesi verir."
+            questionText = "'أَيْنَ الْحَمَّام؟' cümlesinin okunuşu hangisidir?",
+            questionArabic = "أَيْنَ الْحَمَّام؟",
+            optionA = "Ayna al-ḥammām?",
+            optionB = "Kaifa ḥāluke?",
+            optionC = "Ahlan wa sahlan",
+            optionD = "Mā ismuki?",
+            correctOptionIndex = 0,
+            explanation = "'أَيْنَ الْحَمَّام؟' ifadesinin transliterasyonu 'Ayna al-ḥammām?' (Tuvalet nerede?) şeklindedir."
         ),
 
-        // Level 2 (Medium / Level 2)
+        // Daily Quizzes - Level 2
         QuizQuestionEntity(
             id = 17,
             quizType = "DAILY",
             category = "ARABIC_TO_TURKISH",
             difficultyLevel = 2,
-            questionText = "'مَدْرَسَة' (Madrasah) kelimesinin anlamı nedir?",
-            questionArabic = "مَدْرَسَة",
-            optionA = "Hastane",
-            optionB = "Okul",
-            optionC = "Kütüphane",
-            optionD = "Mutfak",
-            correctOptionIndex = 1,
-            explanation = "'مَدْرَسَة' okul demektir."
+            questionText = "'هَذَا' (Hādhā) işaret zamirinin Türkçe karşılığı nedir?",
+            questionArabic = "هَذَا",
+            optionA = "Bu (Eril)",
+            optionB = "Şu (Dişil)",
+            optionC = "O",
+            optionD = "Bunlar",
+            correctOptionIndex = 0,
+            explanation = "'هَذَا' (Hādhā) eril nesneler ve kişiler için 'Bu' anlamına gelir."
         ),
         QuizQuestionEntity(
             id = 18,
             quizType = "DAILY",
             category = "TURKISH_TO_ARABIC",
             difficultyLevel = 2,
-            questionText = "Türkçe 'Öğretmen' kelimesinin Arapçası hangisidir?",
+            questionText = "Türkçe 'Hava Durumu / Hava' kavramının Arapçası hangisidir?",
             questionArabic = null,
-            optionA = "طَالِب",
-            optionB = "مُعَلِّم",
-            optionC = "طَبِيب",
-            optionD = "مُهَنْدِس",
+            optionA = "مَطَر",
+            optionB = "طَقْس",
+            optionC = "شَمْس",
+            optionD = "سَحَاب",
             correctOptionIndex = 1,
-            explanation = "'Öğretmen' Arapçada 'مُعَلِّم' (Mu'allim) demektir."
+            explanation = "'Hava Durumu' Arapçada 'طَقْس' (Ṭaqs) kelimesidir."
         ),
         QuizQuestionEntity(
             id = 19,
             quizType = "DAILY",
             category = "VISUAL_MATCHING",
             difficultyLevel = 2,
-            questionText = "Görseldeki 'Kitap' simgesinin Arapça karşılığı hangisidir?",
-            questionArabic = "كِتَاب",
-            optionA = "قَلَم",
-            optionB = "كِتَاب",
-            optionC = "دَفْتَر",
-            optionD = "مَكْتَبَة",
+            questionText = "Görseldeki 'Hava / Yağmur' kategorisinde 'شَمْس' kelimesinin anlamı nedir?",
+            questionArabic = "شَمْس",
+            optionA = "Rüzgar",
+            optionB = "Güneş",
+            optionC = "Bulut",
+            optionD = "Kar",
             correctOptionIndex = 1,
-            explanation = "Görseldeki el yazması kitap 'كِتَاب' kelimesidir."
+            explanation = "'شَمْس' (Shams) Güneş demektir."
         ),
         QuizQuestionEntity(
             id = 20,
             quizType = "DAILY",
             category = "DIACRITIC_TRANSLITERATION",
             difficultyLevel = 2,
-            questionText = "'Sabāḥ al-khair' (Günaydın) transliterasyonunun Arapça yazılışı hangisidir?",
-            questionArabic = "صَبَاحُ الْخَيْرِ",
-            optionA = "صَبَاحُ الْخَيْرِ",
-            optionB = "مَسَاءُ الْخَيْرِ",
-            optionC = "مَعَ السَّلَامَةِ",
-            optionD = "كَيْفَ حَالُكَ",
-            correctOptionIndex = 0,
-            explanation = "'Sabāḥ al-khair' okunuşu 'صَبَاحُ الْخَيْرِ' şeklindedir."
+            questionText = "'كَمْ عُمْرُكَ؟' (Kam 'umruke?) sorusunun anlamı nedir?",
+            questionArabic = "كَمْ عُمْرُكَ؟",
+            optionA = "Adın ne?",
+            optionB = "Nerelisin?",
+            optionC = "Kaç yaşındasın?",
+            optionD = "Mesleğin ne?",
+            correctOptionIndex = 2,
+            explanation = "'Kam 'umruke?' bir erkeğe yaşını sorarken kullanılan 'Kaç yaşındasın?' cümlesidir."
         ),
 
-        // Level 3 (Hard / Level 3)
+        // Daily Quizzes - Level 3
         QuizQuestionEntity(
             id = 21,
             quizType = "DAILY",
             category = "ARABIC_TO_TURKISH",
             difficultyLevel = 3,
-            questionText = "'مَسْؤُولِيَّة' kelimesinin Türkçe karşılığı nedir?",
-            questionArabic = "مَسْؤُولِيَّة",
-            optionA = "Özgürlük",
-            optionB = "Sorumluluk",
-            optionC = "Adalet",
-            optionD = "Eşitlik",
+            questionText = "'ثَلَّاجَة' (Thallājah) eşyasının Türkçe karşılığı nedir?",
+            questionArabic = "ثَلَّاجَة",
+            optionA = "Televizyon",
+            optionB = "Buzdolabı",
+            optionC = "Çamaşır Makinesi",
+            optionD = "Fırın",
             correctOptionIndex = 1,
-            explanation = "'مَسْؤُولِيَّة' (Mas'ūliyyah) Arapça sorumluluk anlamına gelir."
+            explanation = "'ثَلَّاجَة' (Thallājah) buzdolabı anlamına gelir."
         ),
         QuizQuestionEntity(
             id = 22,
             quizType = "DAILY",
             category = "TURKISH_TO_ARABIC",
             difficultyLevel = 3,
-            questionText = "Türkçesi 'Yazma Eser / Elyazması' olan kavramın Arapçası hangisidir?",
+            questionText = "Arapça 100 (Yüz) sayısının okunuşu ve yazılışı hangisidir?",
             questionArabic = null,
-            optionA = "كِتَاب",
-            optionB = "مَخْطُوطَة",
-            optionC = "صَحِيفَة",
-            optionD = "قَامُوس",
+            optionA = "عِشْرُون",
+            optionB = "مِئَة",
+            optionC = "أَلْف",
+            optionD = "عَشَرَة",
             correctOptionIndex = 1,
-            explanation = "'Yazma Eser' Arapçada 'مَخْطُوطَة' (Makhtūṭah) kelimesidir."
+            explanation = "100 (Yüz) sayısı Arapçada 'مِئَة' (Mi'ah) olarak yazılır."
         ),
         QuizQuestionEntity(
             id = 23,
             quizType = "DAILY",
             category = "VISUAL_MATCHING",
             difficultyLevel = 3,
-            questionText = "Görseldeki 'Âlim / Bilgin' kavramının Arapça karşılığı hangisidir?",
-            questionArabic = "عَالِم",
-            optionA = "طَالِب",
-            optionB = "عَالِم",
-            optionC = "كَاتِب",
-            optionD = "قَاضِي",
+            questionText = "Görseldeki 'Okul' kategorisinde 'حَقِيبَة' (Ḥaqībah) kelimesi ne anlama gelir?",
+            questionArabic = "حَقِيبَة",
+            optionA = "Sınıf",
+            optionB = "Çanta",
+            optionC = "Cetvel",
+            optionD = "Defter",
             correctOptionIndex = 1,
-            explanation = "Görseldeki bilgin/âlim 'عَالِم' kelimesidir."
+            explanation = "'حَقِيبَة' çanta demektir."
         ),
         QuizQuestionEntity(
             id = 24,
             quizType = "DAILY",
             category = "DIACRITIC_TRANSLITERATION",
             difficultyLevel = 3,
-            questionText = "Harfi çift okutan Şedde (ّ) harekesi aşağıdaki hangi kelimede yer alır?",
-            questionArabic = "مُعَلِّم",
-            optionA = "كِتَاب",
-            optionB = "مُعَلِّم",
-            optionC = "قَلَم",
-            optionD = "مَسْجِد",
+            questionText = "'صَلَاةُ الْفَجْرِ' ifadesinin Türkçe namaz karşılığı nedir?",
+            questionArabic = "صَلَاةُ الْفَجْرِ",
+            optionA = "Öğle Namazı",
+            optionB = "Sabah Namazı",
+            optionC = "İkindi Namazı",
+            optionD = "Akşam Namazı",
             correctOptionIndex = 1,
-            explanation = "'مُعَلِّم' (Mu'allim) kelimesinde Lām harfi şeddelidir."
+            explanation = "'صَلَاةُ الْفَجْرِ' Sabah Namazı demektir."
         )
     )
 }

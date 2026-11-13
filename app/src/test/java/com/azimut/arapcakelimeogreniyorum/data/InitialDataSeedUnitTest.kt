@@ -71,11 +71,19 @@ class InitialDataSeedUnitTest {
 
         // Check categories present
         val categories = vocab.map { it.category }.toSet()
-        assertTrue(categories.contains("Daily Phrases"))
-        assertTrue(categories.contains("Prayer Terms"))
-        assertTrue(categories.contains("Everyday Objects"))
-        assertTrue(categories.contains("Animals"))
-        assertTrue(categories.contains("Numbers"))
+        assertTrue(categories.contains("Günlük Konuşma"))
+        assertTrue(categories.contains("Edatlar"))
+        assertTrue(categories.contains("Şahıs Zamirleri"))
+        assertTrue(categories.contains("İşaret Zamirleri"))
+        assertTrue(categories.contains("Aile Üyeleri"))
+        assertTrue(categories.contains("Ev & Eşyalar"))
+        assertTrue(categories.contains("Okul & Eğitim"))
+        assertTrue(categories.contains("Hava Durumu"))
+        assertTrue(categories.contains("Gündelik İhtiyaçlar & Temizlik"))
+        assertTrue(categories.contains("Yaşlar & Kişisel Bilgiler"))
+        assertTrue(categories.contains("Sayılar"))
+        assertTrue(categories.contains("Dini & İbadet Terimleri"))
+        assertTrue(categories.contains("Hayvanlar"))
     }
 
     @Test
